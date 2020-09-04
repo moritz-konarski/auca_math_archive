@@ -1,2 +1,3 @@
-# auca_math_archive
-Archive repository for auca math classes
+# AUCA Mathematics Archive
+
+Archive repository for AUCA math classes
