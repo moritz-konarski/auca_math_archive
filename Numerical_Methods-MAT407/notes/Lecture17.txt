@@ -1,0 +1,17 @@
+we try to devide the number line into two sections
+
+we assume a > 0
+one where the function is greater 0 and one where it is not.
+We draw this like we draw the slope of a function when investigating it
+
+we suppose that x_k+1 >= one of its roots (sqrt(2)), does it then mean that
+x_k >= as well?
+this is the question we have to answer. I will try to do this for the next class to get some extra points
+
+
+
+we try to find the square root of minus 2 if I got that correctly
+which is pretty much impossible because it is not >= 0
+
+we draw the same kind of graphics that we use to display the slope of a graph
+when investigating functions and 

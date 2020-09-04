@@ -1,0 +1,28 @@
+NEW TOPIC
+
+NUMERICAL INTEGRATION - Numerical Integration.pdf
+  this will include: definite integrals
+
+We will use a sum to estimate definite integrals Sum(c_i * f(x_i), i=1, n)
+This thing is called "quadruce formula?"
+For the error we calculate the difference between the integral and the sum
+its denoted delta[f]
+
+There are rectangular, trapeziodal and sinodal rules of this formula
+
+RECTANGULAR RULE
+  instead of f(x) we consider the constant c for the whole interval
+    we use (b-a)f(x) as the value
+  the sum of the rectangular thing is really variable, as it changes drastically based on
+  your selection of x
+  So there are some ways to choose some good points:
+  x(theta) = theta*b + (1-theta)*a; theta element [0, 1]
+  we use Taylor's Formula, the remainder of it, to make it nice and pretty
+  we then take the integral of both sides of the equation and then we get
+  out integral on one side and get the result for our equation
+  
+  Then we strive to estimate the error of the function
+  we take the family of rectangular rules and then we get slide4 of the presentation in
+  lab2 
+  we get some more complicated error formulas and shit, so it is really good
+  

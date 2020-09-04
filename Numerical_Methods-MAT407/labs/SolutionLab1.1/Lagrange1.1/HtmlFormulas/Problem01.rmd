@@ -1,0 +1,9 @@
+---
+output: 
+    html_document
+documentclass: article
+usepackage: geometry, amsmath
+classoption: 20pt
+---
+
+$$f_1(x)=\frac{1-\exp\left(-\frac{x}{\epsilon}\right)}{1-\exp\left(-\frac{1}{\epsilon}\right)}$$

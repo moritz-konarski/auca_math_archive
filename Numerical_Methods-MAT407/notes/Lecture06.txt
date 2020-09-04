@@ -1,0 +1,11 @@
+LECTURE THURSDAY 14.02.2019
+Some stuff for the cubic splines that I do not have to make, but will try to make any way
+  B_1*M_1 - C_1*M_2 = F_1
+  -A_i*M_i-1 + B_i*M_i - C_i*M_i+1 = F_i; 2 <= n <= n-1
+  -A_n*M_n-1 + B_n*M_n = F_n
+  M_1 = 0; f^(2)(0)
+  M_n = 0; f^(2)(1)
+  M_i-1 + 4*M_i + M_i+1 = 6 / h^2 * (f_i+1 - 2*f_i + f_i-1); 2 <= i <= n-1
+
+
+

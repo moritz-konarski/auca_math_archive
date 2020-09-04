@@ -1,0 +1,7 @@
+just write the function that is given as a test problem as
+f(t, u(t)) and then apply the iterative Euler's method to that 
+specific equation to see if it works as one would expect
+this might shed light on how the method works
+if it were just that simple to do that, I would be happy
+also, write a summary of the topic, or at least begin to
+do that 

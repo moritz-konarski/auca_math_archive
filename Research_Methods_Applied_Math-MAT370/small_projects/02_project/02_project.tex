@@ -1,0 +1,233 @@
+% test to copy pages 545-546 from Kreyzig's text book to practice markdown
+
+% TODO: - align equations correctly
+%       - add pictures
+%       - number pages according to book
+%       - add running head to pages
+%       - fix position of page numbers
+%       - fix equivalence sign at (8)
+%       - add color boxes to appropriate equations
+
+\documentclass[twocolumn, 12pt, leqno, oneside]{amsart}
+
+\usepackage[ansiapaper]{geometry}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{anysize}
+\usepackage{xcolor}
+
+\renewcommand{\baselinestretch}{1.3}
+
+\marginsize{2cm}{2cm}{2cm}{2cm}
+
+\setlength{\columnsep}{1cm}
+
+\begin{document}
+
+\section{Solution by Separating Variables.\\
+Use of Fourier Series}
+
+We continue our work from Sec. 12.2, where we modeled a vibrating string and 
+obtained the one-dimensional wave equation. We now have to complete the model 
+by adding additional conditions and then solving the resulting model.
+
+The model of a vibrating elastic string (a violin string, for instance)
+consists of the \textbf{one-dimensional wave equation}
+\begin{equation}
+    \frac{\partial^2{u}}{\partial{t^2}} = c^2\frac{\partial^2{u} \\
+        }{\partial{x^2}} \qquad \qquad c^2 = \frac{T}{\rho}
+\end{equation}
+for the unknown deflection $u(x,t)$ of the string, a PDE that we have just 
+obtained, and some \textbf{\emph{additional conditions}}, which we shall now 
+derive.
+
+Since the string is fastened at the ends $x=0$ and $x=L$ (see Sec. 12.2), we 
+have the two \textbf{boundary conditions}
+\begin{equation}
+  \begin{split}
+       &\text{(a)} \quad u(0,t) = 0, \\
+       &\text{(b)} \quad u(L,t) = 0, \\
+       &\text{for all } t \geq 0.
+  \end{split}
+\end{equation}
+Furthermore, the form of the motion of the string will depend on its
+\emph{initial deflection} (deflection at time $t=0$), call it $f(x)$ and on 
+its \emph{initial velocity} (velocity at $t=0$), call it $g(x)$.
+We thus have the two \textbf{initial conditions}
+\begin{equation}
+  \begin{split}
+        &\text{(a)} \quad u(x,0) = f(x), \\
+        &\text{(b)} \quad u_t(x,0) = g(x) \\
+        & (0 \leq x \leq L)
+  \end{split}
+\end{equation}
+where $u_t=\partial u/\partial t$. We now have to find a solution of the PDE 
+(1) satisfying the conditions (2) and (3). This will be the solution of our 
+problem. We shall do this in three steps, as follows.
+
+\emph{\textbf{Step 1.}} By the “\textbf{method of separating variables}” or
+\emph{product method}, setting $u(x,t)=F(x)G(t)$, we obtain from (1) two 
+ODEs, one for $F(x)$ and the other one for $G(t)$.
+
+\emph{\textbf{Step 2.}} We determine solutions of these ODEs that satisfy 
+the boundary conditions (2).
+
+\emph{\textbf{Step 3.}} Finally, using \textbf{Fourier series}, we compose 
+the solutions found in Step 2 to obtain a solution of (1) satisfying both 
+(2) and (3), that is, the solution of our model of the vibrating string.
+
+\subsection{Step 1. Two ODEs from the Wave Equation (1)}
+
+In the \textbf{method of separating variables}, or \emph{product method}, we 
+determine solutions of the wave equation (1) of the form
+\begin{equation}
+    u(x, t) = F(x)G(x)
+\end{equation}
+which are a product of two functions, each depending on only one of the 
+variables $x$ and $t$. This is a powerful general method that has various 
+applications in engineering mathematics, as we shall see in this chapter. 
+Differentiating (4), we obtain
+\begin{equation}
+  \nonumber
+    \frac{ \partial^2{u} }{ \partial{t^2} } = F\ddot{G} \qquad \text{and} \\
+        \qquad \frac{ \partial^2{u} }{ \partial{x^2} } = F''G
+\end{equation}
+where dots denote derivatives with respect to $t$ and primes derivatives with
+respect to $x$. By inserting this into the wave equation (1) we have
+\begin{equation}
+  \nonumber
+    F\ddot{G} = c^2F''G.
+\end{equation}
+Dividing by $c^2FG$ and simplifying gives
+\begin{equation}
+  \nonumber
+    \frac{\ddot{G}}{c^2G} = \frac{F''}{F}.
+\end{equation}
+The variables are now separated, the left side depending only on $t$ and the 
+right side only on $x$. Hence both sides must be constant because, if they 
+were variable, then changing $t$ or $x$ would affect only one side, leaving 
+the other unaltered. Thus, say,
+\begin{equation}
+  \nonumber
+    \frac{\ddot{G}}{c^2G} = \frac{F''}{F} = k.
+\end{equation}
+Multiplying by the denominators gives immediately two \emph{\textbf{ordinary}} 
+DEs
+\begin{equation}
+    F'' - kF = 0
+\end{equation}
+and
+\begin{equation}
+    \ddot{G} - c^2kG = 0.
+\end{equation}
+Here, the \textbf{separation constant} \emph{k} is still arbitrary.
+
+\subsection{Step 2. Satisfying the Boundary Conditions (2)}
+
+We now determine solutions $F$ and $G$ of (5) and (6) so that $u=FG$ satisfies 
+the boundary conditions (2), that is,
+\begin{equation}
+  \begin{split}
+      & u(0,t)=F(0)G(t) =0, \\
+      & u(L,r)=F(L)G(t) =0 \\
+      & \text{for all }t.
+  \end{split}
+\end{equation}
+We first solve (5). If $G=0$, then $u=FG\equiv0$, which is of no interest. 
+Hence $G\neq0$ and then by (7),
+\begin{equation}
+    \text{(a)} \quad F(0)=0, \qquad \text{(b)} \quad F(L)=0.
+\end{equation}
+We show that $k$ must be negative. For $k=0$ the general solution of (5) is
+$F=ax+b$, and from (8) we obtain $a=b=0$, so that $F\equiv0$ and 
+$u=FG\equiv0$, which is of no interest. For positive $k=\mu^2$ a general 
+solution of (5) is
+\begin{equation}
+  \nonumber
+    F=Ae^{\mu x} = Be^{-\mu x}
+\end{equation}
+and from (8) we obtain $F\equiv0$ as before (verify!). Hence we are left with 
+the possibility of choosing $k$ negative, say, $k=-p^2$. Then (5) becomes 
+$F''+p^2F=0$ and has as a general solution
+\begin{equation}
+  \nonumber
+    F(x)=A\cos{px} + B\sin{px}.
+\end{equation}
+From this and (8) we have
+\begin{equation}
+  \nonumber
+  \begin{split}
+      & F(0)=A=0 \qquad \text{and then} \\ 
+      & F(L)=B\sin{pL}=0
+  \end{split}
+\end{equation}
+We must take $B\neq0$ since otherwise $F\equiv0$. Hence $\sin{pL}=0$. Thus
+\begin{equation}
+  \begin{split}
+      pL&=n\pi, \qquad \text{so that} \\
+      p&=\frac{n\pi}{L} \qquad \text{(\emph{n} integer)}.
+  \end{split}
+\end{equation}
+Setting $B=1$, we thus obtain infinitely many solutions $F(x)=F_n(x)$, where
+\begin{equation}
+    F_n(x)=\sin{ \frac{n\pi}{L} x} \quad \quad (n=1,2,\dotsb).
+\end{equation}
+These solutions satisfy (8). [For negative integer $n$ we obtain essentially 
+the same solutions, except for a minus sign, because 
+$\sin{(-\alpha)}=-\sin{\alpha}$.]
+
+We now solve (6) with \newline $k=-p^2=-(n\pi/L)^2$ resulting from (9), that is
+\begin{equation}
+  \tag{11*}
+    \ddot{G}+\lambda_n^2G=0 \quad \text{where} \quad \lambda_n=cp= \\
+        \frac{cn\pi}{L}.
+\end{equation}
+A general solution is
+\begin{equation}
+  \nonumber
+    G_n(t)=B_n\cos{\lambda_n t} + B_n^\star\sin{\lambda_n t}.
+\end{equation}
+Hence solutions of (1) satisfying (2) are 
+$u_n(x,t)=F_n(x)G_n(t)=G_n(t)F_n(x)$, written out
+\begin{equation}
+  \begin{split}
+      u_n(x,t)=&(B_n\cos{\lambda_n t} + B_n^\star\sin{\lambda_n t}) \\
+        &\sin{\frac{n\pi}{L} x} \quad \quad (n=1,2,\dotsb).
+  \end{split}
+\end{equation}
+These functions are called the \textbf{eigenfunctions}, or 
+\emph{characteristic functions}, and the values $\lambda_n=cn\pi/L$ are called 
+the \textbf{eigenvalues}, or \emph{characteristic values}, of the vibrating 
+string. The set $\{\lambda_1,\lambda_n,\dotsb\}$ is called the 
+\textbf{spectrum}.
+
+\subsubsection{Discussion of Eigenfunctions}
+
+We see that each $u_n$ represents a harmonic motion having the 
+\textbf{frequency} $\lambda_n/2\pi=cn/2L$ cycles per unit time. This motion is 
+called the $n$th \textbf{normal mode} of the string. The first normal mode is 
+known as the \emph{fundamental mode} $(n=1)$, and the others are known as 
+\emph{overtones}; musically they give the octave, octave plus fifth, etc. 
+Since in (11)
+\begin{equation}
+  \nonumber
+  \begin{split}
+      &\sin{\frac{n\pi x}{L}}=0 \qquad \text{at} \\
+      & x=\frac{L}{n}, \frac{2L}{n},\dotsb,\frac{n-1}{n}L,
+  \end{split}
+\end{equation}
+the $n$th normal mode has $n-1$ \textbf{nodes}, that is, points of the string 
+that do not move (in addition to the fixed endpoints); see Fig. 287.
+
+Figure 288 shows the second normal mode for various values of $t$. At any 
+instant the string has the form of a sine wave. When the left part of the 
+string is moving down, the other half is moving up, and conversely. For the 
+other modes the situation is similar.
+
+\textbf{Tuning} is done by changing the tension $T$. Our formula for the 
+frequency $\lambda_n/2\pi=cn/2L$ of $u_n$  with $c=\sqrt{T/p}$ [see (3), Sec. 
+12.2] confirms that effect because it shows that the frequency is proportional 
+to the tension. $T$ cannot be increased indefinitely, but can you see what to 
+do to get a string with a high fundamental mode? (Think of both $L$ and 
+$\rho$.) Why is a violin smaller than a double-bass?
+\end{document}

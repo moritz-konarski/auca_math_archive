@@ -1,0 +1,145 @@
+'''<span>An Overview of the <math>3x+1</math> Problem</span>''' '''<span>Moritz M. Konarski</span>''' Applied Mathematics Department<br />
+American University of Central Asia<br />
+Kyrgyzstan<br />
+<span>03.03.2020</span>
+
+'''<span>An Overview of the <math>3x+1</math> Problem</span>'''<br />
+'''<span>Moritz M. Konarski</span>'''
+
+Abstract. This paper gives an overview of the Collatz function and the connected <math>3x+1</math> function, both functions that take a positive integer as input and divide it by 2 if is even or multiply it by 3 and add 1 if it is odd. The <math>3x+1</math> function then immediately divides by two again, which is what sets it apart. The Collatz conjecture states that either function, when repeatedly applied to itself, will eventually yield 1. This conjecture has been computationally verified to be correct for numbers up to <math>10^{20}</math>, but its proof is still outstanding. In this paper, the background and reasons to study the conjecture are discussed. Furthermore, trajectories, cycles, stopping time, and stochastic approximations of the <math>3x+1</math> function are considered. To illustrate these features, three examples are given.
+
+= Introduction =
+
+The <math>3x+1</math> Problem is a number theoretical problem that has been studied by mathematicians since the 1950s, but still today it remains unsolved . This problem is defined in terms of the ''Collatz function'', which, for any positive integer <math>x</math>, returns <math>x/2</math> if <math>x</math> is even and <math>3x+1</math> if <math>x</math> is odd. Mathematicians study the behavior of this function when it is iterated, meaning it is repeatedly applied to itself. Following Lagarias , the Collatz function is defined as <math>C(x)= \left\{
+    \begin{array}{ll}
+        3x+1 \quad &\text{if } x \equiv 1 \text{ (mod 2),} \\
+        x/2 \quad &\text{if } x \equiv 0 \text{ (mod 2).}
+    \end{array}
+\right.
+\label{eq:01}</math> When the <math>3x+1</math> Problem is studied, the ''<math>3x+1</math> function'' <math>T(x)= \left\{
+    \begin{array}{ll}
+        (3x+1)/2 \quad &\text{if } x \equiv 1 \text{ (mod 2),} \\
+        x/2 \quad &\text{if } x \equiv 0 \text{ (mod 2)}
+    \end{array}
+\right.
+\label{eq:02}</math> is generally used. The <math>3x+1</math> function <math>T(x)</math> takes integers as input and yields integers as outputs, making it a number theoretic function like <math>C(x)</math>. More specifically, its domain are all positive integers and its range are also the positive integers. As such, <math>T(x)</math> can be seen as the mapping of <math>\mathbb{N} + 1 \rightarrow \mathbb{N} + 1</math>, where <math>\mathbb{N} + 1</math> represents the positive integers . The <math>3x+1</math> function is, like the Collatz function, repeatedly applied to itself and has a '''stopping time''', '''total stopping time''', and a '''trajectory''' for each <math>x \in \mathbb{N} + 1</math>.<br />
+The <math>3x+1</math> function is used instead of the Collatz function because it is more predictable . If <math>x</math> is odd, <math>3x+1</math> yields an even number, that number is then immediately divided by 2. This has the effect that an otherwise following iteration of <math>C(x)</math> is superfluous. Furthermore, the function grows slower because the factor is now <math>3/2</math> instead of 3 . Accordingly, <math>T(x)</math> can also be defined in terms of equation ([eq:01]) as <math>C(x)</math> if <math>x</math> is even and as <math>C(C(x))</math> if <math>x</math> is odd <math>T(x)= \left\{
+\nonumber
+    \begin{array}{ll}
+        C(C(x))\quad &\text{if } x \equiv 1 \text{ (mod 2),} \\
+        C(x) \quad &\text{if } x \equiv 0 \text{ (mod 2).}
+    \end{array}
+\right.
+\label{eq:03}</math>
+
+== The Collatz Conjecture ==
+
+''For all <math>x \in \mathbb{N} + 1</math> there is a <math>k \in \mathbb{N} + 1</math> such that <math>T^{(k)}(x)=1</math>. This means that for any positive integer <math>x</math>, <math>k</math> iterations of the <math>3x+1</math> function will yield the result 1.''<br />
+This conjecture has not yet been proven and remains of interest to mathematicians who continues to study it today . According to Chamberland , because <math>T(x)</math> is a number theoretical function, successive applications of <math>T(x)</math> can have the following results:
+
+# reach 1, which is equivalent to entering the trivial cycle, <math>\{2,1,2,1,\dots\}</math>
+# enter a non-trivial cycle that does not include 1, or
+# diverge to infinity and not enter any type of cycle.
+
+The Collatz conjecture states that point (1) is the only possible result and happens for any positive integer that the iteration starts with. The term trivial cycle here describes a cycle of numbers that infinitely repeats itself. When talking about the Collatz conjecture, the term trivial cycle refers to the cycle <math>\{2,1,2,1,\dots\}</math> where <math>T(x)</math> changes fron 2 to 1 and back to 2 forever.
+
+== Background Information ==
+
+The Collatz conjecture and function are named after the German mathematician Lothar Collatz. Collatz worked on problems similar to the <math>3x+1</math> problem in the early 1930s, according to Lagarias . The problem is also known as Hasse’s Algorithm, Kakutani’s Problem, and Ulam’s Problem after other scientists who studied it or similar problems. During the 1950s the problem was circulated in various mathematical circles and the first publication was written about it in 1971 .<br />
+Today, the conjecture has been verified for over <math>10^{20}</math> numbers using the help of computers to check if iterations of the <math>3x+1</math> function eventually reach 1 . A number that does not iterate to 1 has not yet been found.<br />
+One of the most recent papers on the <math>3x+1</math> problem, “''Almost All Orbits of the Collatz Map Attain Almost Bounded Values''” by Terence Tao , was published in September of 2019. Tao proved that almost all iterations of the Collatz function are bounded, meaning they are finite. This supports the Collatz conjecture. Tao’s paper brought mathematics one step closer to proving the Collatz conjecture and is only one example of the currently ongoing research.
+
+== Reasons the Study the <math>3x+1</math> Problem ==
+
+According to Lagarias , the fact that the problem is easy to state but hard to prove makes it an interesting challenge for mathematicians. As the <math>3x+1</math> problem has remained unsolved after over 50 years of research being done about it clearly is a challenge.<br />
+One of the challenging aspects of this problem is the pseudo-random nature of the <math>T(x)</math> function . The function is difficult to predict when it comes to how iterations of it will behave. Because mathematical proofs tend to rely on patterns, this pseudo-randomness makes a proof of the conjecture very challenging. Another reason for studying the <math>3x+1</math> problem is that it can be studied as an iterative mapping of positive integers to positive integers. These kinds of mappings are currently a popular research topic, according to Lagarias .<br />
+Computer scientists also have an interest in the Collatz conjecture because the computational testing of its correctness is an important part of current research. Since the 1960s computers have been used to verify if positive integers follow the Collatz conjecture. Because these calculations have verified the conjecture for over <math>10^{20}</math> numbers , finding and optimizing computer algorithms for this purpose is important. Furthermore, whether or not a given positive integer will iterate to 1 can be studied as a decision problem in computer science .<br />
+The study of prime numbers is also connected to the <math>3x+1</math> problem and the Collatz conjecture. If it were to be proven to be correct, the proof may further the understanding of the prime factorization of integers. This is because the Collatz function, in a way, factors integers when dividing by 2. When odd numbers are multiplied by 3, another prime factor is introduced to the number. The addition of 1 then can drastically change the way an integer is factored and accordingly this behavior is interesting to study .<br />
+Finally, when talking about this problem, mathematician Paul Erdös said that
+
+<blockquote>Mathematics is not ready for such problems.
+</blockquote>
+If he is right and mathematics is indeed not ready for problems such as the <math>3x+1</math> problem, it could mean that new areas of mathematics are required to prove or disprove it. A proof of the Collatz conjecture may thus involve new areas of mathematics or it may require old areas to be applied in new and different ways. Whatever the case may be, the <math>3x+1</math> problem is an interesting and challenging problem in mathematics and has connections to multiple other areas of mathematics and computer science. If it were to be proven or disproven, the effects could have implications in the above mentioned areas of research .
+
+= The <math>3x+1</math> Problem in Detail =
+
+This section will explain five attributes connected to the <math>3x+1</math> problem and the study of the Collatz conjecture. First, trajectories of <math>T(x)</math> will be considered. Then, cycles, stopping time, and the total stopping time of the <math>3x+1</math> function are considered. Finally, some stochastic approximations for <math>T(x)</math> are covered.
+
+== Trajectories ==
+
+The trajectory of <math>x</math> under <math>T(x)</math> is the set of the successive iterations of <math>T(x)</math> that starts with <math>x</math> and ends with <math>T^{(k)}(x)=1</math>. This means that the trivial cycle <math>\{2,1,2,\dots\}</math> is not included. This makes sense because otherwise all trajectories would be infinite in length. Accordingly, the trajectory of <math>T(x)</math> has the length <math>k+1</math> because the first element of the trajectory <math>x</math> has the iteration number 0 and the last one has <math>k</math>. Trajectories are also called forward orbits of <math>x</math> under <math>T(x)</math>. Following Chamberland , the trajectory of <math>x</math> under <math>T(x)</math> is defined as <math>\nonumber
+    O^+(x):=\{x, T(x), T^{(2)}(x), T^{(3)}(x),\dots\}.</math> Trajectories contain all the numbers part of the iteration of <math>T(x)</math>. They can be graphed to illustrate what <math>T(x)</math> does when repeatedly iterated .
+
+== Cycles ==
+
+A cycle of <math>T(x)</math> is a sequence of iterations of <math>T(x)</math> that periodically repeats. It is known that <math>T(x)</math> has the trivial cycle <math>\{2,1,2,\dots\}</math>, which is equivalent to reaching 1 when iterating <math>T(x)</math> . Because of this equivalence, the trivial cycle is not included in trajectories because it never ends and the resulting values don’t leave the cycle.<br />
+The Collatz conjecture states that any initial positive integer <math>x</math> will, after <math>k</math> iterations of <math>T(x)</math>, enter this trivial cycle . This means that the trivial cycle is the only cycle that can exist if the Collatz conjecture is true. In case non-trivial cycles do exist, which would disprove the Collatz conjecture, it has been proven that those non-trivial cycles must be more than 10.4 billion numbers long .<br />
+Chambeland  applies the <math>3x+1</math> function to all integers. When this is done, it results in three more cycles, which, together with the trivial cycle, are conjectured to be the only ones that exist for <math>x \in \mathbb{Z}</math>. These cycles are <math>\{0\}</math>, <math>\{-5,-7,-10\}</math>, and a longer cycle starting at <math>-17</math> . Because the Collatz function is mostly studied with respect to positive integers these cycles shall only be mentioned briefly.
+
+== Stopping Time ==
+
+The stopping time of <math>T(x)</math> is the number of iterations <math>k</math> of <math>T(x)</math> that it takes for the result of an iteration to be less than <math>x</math>. This is called stopping time because as soon as <math>x > T^{(k)}(x)</math> it is known that the iteration will eventually reach 1 and thus “stop”. Accordingly, reaching this stopping point means that one can stop to check if an iteration reaches 1 .<br />
+To be able to use this stopping time, all numbers up to and including <math>x-1</math> have to be verified to iterate to 1. Then, if <math>T^{(k)}(x) < x</math>, it is obvious that <math>T(x)</math> will also iterate to 1. The trajectory of <math>T(x)</math> is always the same for a specific <math>x</math> and it itself contains trajectories of other numbers. To be precise, every number in a trajectory has itself a trajectory contained in that original trajectory. If one knows that one of the numbers in the trajectory of <math>T(x)</math> iterates to 1, one knows that <math>T(x)</math> does so, too. The stopping time of <math>x</math> is called <math>\sigma(x)</math> and, following Chamberland , is defined as <math>\nonumber
+    \sigma(x)=\inf\{k:T^{(k)}(x) < x\}.</math> This definition makes sense because if one checks integers for compliance with the Collatz conjecture, one would start small and work towards larger integers. Furthermore, because, on average, the value of <math>T(x)</math> decreases , this definition makes a lot of sense. The stopping time makes it simple to check if a particular number iterates to 1 and saves a lot of computations that have already been performed previously when smaller integers were checked. If the Collatz conjecture is true, all <math>x \in \mathbb{N} + 1</math> have a finite stopping time, meaning they iterate to 1 eventually.<br />
+Related to the stopping time <math>\sigma(x)</math> is the total stopping time <math>\sigma_{\infty}(x)</math>. This is the total number of iterations needed for <math>T(x)</math> to iterate to 1. It is defined as <math>\nonumber
+    \sigma_{\infty}(x)=\inf\{k:T^{(k)}(x)=1\}</math> according to Chamberland . The total stopping time of <math>T(x)</math> is conjectured to be finite for all <math>x \in \mathbb{N} + 1</math> as a direct result of the Collatz conjecture.
+
+== Stochastic Approximations ==
+
+When looking at the values that individual iterations of <math>T(x)</math> yield, mathematicians noticed that for the trajectories of large integers, the number of odd and even numbers is approximately the same .<br />
+Furthermore, they observed that <math>T(x)</math> behaves pseudo-randomly, meaning that it is hard to predict which value the function will take on in one or two iterations. This behavior can be seen in Figure [fig:01], where the trajectory of <math>T(27)</math> is shown.<br />
+Mathematicians use this property of <math>T(x)</math> to make probabilistic statements about groups of trajectories and study their behaviors in this way. For example, the upper bound of for the total stopping time has been proven to be <math>41.677647 \log x</math> .
+
+[[File:trajectory_27|frame|none|alt=|caption The trajectory of <math>T^{(k)}(27)</math> by number of iterations <math>k</math><span data-label="fig:01"></span>]]
+
+One useful application of these stochastic approximations is the approximation of the total stopping time of <math>T(x)</math>. This total stopping time is approximated to be <math>6.95212 \log x</math> steps .
+
+= Examples =
+
+This section demonstrates the trajectories, graphs, stopping times, and approximations to stopping times for the <math>3x+1</math> functions of 27, 39, and 489. The computations for these examples were performed using a program written by the author in the C programming language and the graphs were created in Google Sheets using the resulting data.
+
+== <math>T(x)</math> for <math>x=27</math> ==
+
+The function <math>T(27)</math> has a trajectory of length 70, so it is omitted here to save space. The graph of this trajectory is presented in Figure [fig:01]. This graph shows how <math>T(x)</math> changes pseudo-randomly when it is iterated and shows that the function first climbs to a value of 4616 before it iterates to 1.<br />
+The stopping time is <math>\sigma(27)=59</math>, meaning it takes 59 iterations of <math>T(x)</math> before the result is less than 27, in this case it is 23 at that point. The total stopping time is <math>\sigma_{\infty}(27)=70</math>. From this one knows that it takes 70 iterations of <math>T(x)</math> to reach 1. Considering the stochastic approximation for the total stopping time (<math>6.95212 \log x</math>) one estimates that for <math>x=27</math>, <math>6.95212 \log 27 \approx 22.9131</math> is the total stopping time. Considering that the true stopping time is 70, this is not a very good approximation. It has to be considered that the stopping time for 27 is unusually large for a number this small. But this shows that the approximation is, after all, just an approximation that has a certain accuracy.
+
+== <math>T(x)</math> for <math>x=39</math> ==
+
+The trajectory of <math>T(39)</math> is <math>\begin{aligned}
+    \nonumber
+    O^+(39):=\{&39,59,89,134,67,101,152,76,38,19,29,\\
+    \nonumber
+               &44,22,11,17,26,13,20,10,5,8,4,2,1\}.\end{aligned}</math> The graph of this trajectory is presented in Figure [fig:02]. Here, the highest value of the iteration is 152. The stopping time is <math>\sigma(39)=8</math>, meaning it takes 8 iterations of <math>T(x)</math> for the result to be less than 39, in this case it is 38.
+
+[[File:trajectory_39|frame|none|alt=|caption The trajectory of <math>T^{(k)}(39)</math> by number of iterations <math>k</math><span data-label="fig:02"></span>]]
+
+The total stopping time is <math>\sigma_{\infty}(39)=23</math>. Thus, after 23 iterations of <math>T(x)</math> the value of the function is 1. The stochastic approximation for the total stopping time for <math>T(39)</math> is <math>6.95212 \log 39 \approx 25.46952</math> compared to the actual total stopping time 23. This approximation is better than the previous one for 27. This illustrates that these stochastic approximations vary in their accuracy for specific numbers because they are derived for groups of trajectories and large numbers and not single trajectories and small numbers.
+
+== <math>T(x)</math> for <math>x=489</math> ==
+
+For <math>T(489)</math> the trajectory is <math>\begin{aligned}
+    \nonumber
+    O^+(39):=\{&489,734,367,551,827,1241,1862,931,\\ \nonumber
+               &1397,2096,1048,524,262,131,197,296,\\ \nonumber
+               &148,74,37,56,28,14,7,11,17,26,13,20,\\ \nonumber
+               &10, 5, 8, 4, 2, 1\}.\end{aligned}</math>
+
+[[File:trajectory_489|frame|none|alt=|caption The trajectory of <math>T^{(k)}(489)</math> by number of iterations <math>k</math><span data-label="fig:03"></span>]]
+
+Figure [fig:03] shows the graph for this trajectory. The stopping time in this case is <math>\sigma(489)=2</math> because 367, which is smaller than 489, is the second iteration of <math>T(x)</math>. The total stopping time of this iteration is <math>\sigma_{\infty}(489)=33</math>. In this case, estimating the total stopping time as <math>6.95212 \log 489 \approx 43.05</math> compared to the real total stopping time 33 is relatively inaccurate compared to the previous one of <math>T(39)</math>. That is to be expected for an approximation that was, as previously mentioned, derived for large numbers. For example, for <math>x=2,234,567,899</math>, <math>\sigma_{\infty}(x)=147</math> and <math>6.95212 \log (2,234,567,899) \approx 149.66</math>, which is a good estimate that demonstrates that for larger numbers this estimation becomes more accurate.
+
+= Conclusion =
+
+The Collatz conjecture and the <math>3x+1</math> problem are part of the field of number theory that is concerned with integer-valued functions. Research into the <math>3x+1</math> problem is based on the <math>3x+1</math> function <math>T(x)</math> that maps positive integers to positive integers. The Collatz conjecture states that for every <math>x \in \mathbb{N} + 1</math> there is a <math>k \in \mathbb{N} + 1</math> such that <math>T^{(k)}(x)=1</math>. In over 50 years this conjecture has not been proven .<br />
+Using the help of computers, researchers have verified that the conjecture holds for positive integers up to <math>10^{20}</math> . Concerning proofs, Terence Tao proved in  that almost all trajectories almost always go to 1. This represents progress towards proving the Collatz conjecture and shows that this problem is still being actively researched.<br />
+One of the challenging aspects of the <math>3x+1</math> problem is its pseudo-random nature. This arises because <math>T(x)</math> behaves in a hard-to-predict manner when it is iterated. Because mathematical proofs generally rely on patterns and regularity, this randomness makes the proof even more difficult. An unexpected implication of this pseudo-randomness is the fact that is allows mathematicians to describe groups of trajectories using probabilistic functions and to make approximations about its behavior. For example, this allows the number of iterations <math>k</math> of <math>T(x)</math> to be estimated .<br />
+To conclude, the <math>3x+1</math> problem is an interesting problem in number theory that is easy to state and understand but extremely difficult to prove. If it were to get proven the results could have implications for other areas of mathematics and computer science.
+
+<span>4</span>
+
+Marc Chamberland, ''An Update on the <math>3x+1</math> Problem'', <code>http://www.math.grinnell.edu/ ~chamberl/papers/3x_survey_eng.pdf</code>, 2005.
+
+Jeffrey C. Lagarias, ''The <math>3x+1</math> Problem: An Overview'', <code>https://pdfs.semanticscholar. org/100046dd8b4ee901bc71043da7d42f5d87ca0224.pdf</code>, 2010.
+
+Terence Tao, ''Almost All Orbits of the Collatz Map Attain Almost Bounded Values'', arXiv:1909.03562v2 [math.PR], 2019.
+

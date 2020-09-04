@@ -1,0 +1,8 @@
+---
+output: 
+    html_document
+documentclass: article
+usepackage: geometry, amsmath
+---
+
+$$f_6(x)=x\sin{\left(\frac{\pi x}{\epsilon}\right)}$$

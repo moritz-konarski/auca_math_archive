@@ -1,0 +1,557 @@
+\documentclass[a4paper,reqno,11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsrefs}
+\usepackage[allcolors=black,final]{hyperref}
+\usepackage{graphicx}
+\graphicspath{{../graphics/}}
+
+\title{Report No. 2: Predator-Prey Models\\Source Summary}
+\author{Moritz M. Konarski}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Chauvet: A Lotka-Volterra three-species food chain}
+
+\subsection{Introduction}
+
+\begin{itemize}
+    \item Volterra described interactions between two competing species
+    \item useful models to describe population variance over time
+    \item standard equation: $a$ -- growth rate of prey w/o predators, $b$ --
+        effects of predation on prey, $c$ -- death rate of predators w/o prey,
+        $d$ -- increase of predators w/ prey; $a,b,c,d > 0$
+        \begin{equation}\nonumber
+            \left\{
+            \begin{aligned}
+                &\frac{dx}{dt} = ax - bxy \quad \text{(Prey)}\\
+                &\frac{dy}{dt} = -cy +dxy \quad \text{(Predators)}
+            \end{aligned}
+            \right.
+        \end{equation}
+    \item divide the second equation by the first to get a linear ODE
+    \item $C = a \ln y - by + c \ln x - dx$, max value of $C$ happens at
+        $(a/d,a/b)$
+    \item the plot moves counterclockwise because the predators lag behind the
+        prey, which creates this movement -- phase-shifted behavior
+    \item have common period, seen in historical records
+    \item this paper defines a three-species non-logistic system of L-V
+        equations
+    \item normally logistic equations are used because the prey would otherwise
+        grow unboundedly if there are no predators
+    \item direct generalization of the standard equations
+    \item 3 way system is quite complicated, good teaching tool because it has
+        degeneracies -- trapping regions and other complicated shit
+\end{itemize}
+
+\subsection{The model}
+
+\begin{itemize}
+    \item 3 species food chain, $x$ is preyed on by $y$ which is preyed on by
+        $z$ -- mouse, snake, owl; vegetation, hare, lynx; worm, robin, falcon
+    \item model is:
+        \begin{equation}\nonumber
+            \left\{\begin{aligned}
+                \frac{dx}{dt}&= ax - bxy \\
+                \frac{dy}{dt}&= -cy + dxy - eyz \\
+                \frac{dz}{dt}&= -fz + gyz \\
+            \end{aligned}\right.
+        \end{equation}
+    \item $a,b,c,d,e,f,g > 0$, $a,b,c,d$ are like in the Lotka volterra
+        equations and $e$ is predation of $y$ by $z$, $f$ is the death rate of
+        $z$ in absence of prey, $g$ is propagation rate of $z$ if there is prey
+    \item populations are $>0$ so we only look at positive octant
+\end{itemize}
+
+\subsection{Aanlysis of the model}
+
+\subsubsection{The coordinate planes}
+
+\begin{itemize}
+    \item each coordinate plane is invariant with respect to the system
+    \item a surface is invariant to a system S if every solution starts on
+        S and does not escape S -- if species go extinct, they will not
+        reappear
+    \item definition of what is means to have an invariant system
+    \item following, each of the coordinate planes is invariant
+    \item if $z=0$, we have classic L-V equations
+    \item if $y=0$ we get exponential growth for $x$ and exponential decline
+        for $z$ -- makes biological sense (ignoring the unbouded growth of $x$)
+    \item this system has a simply found solution $z = Kx^{-f/a}$
+    \item if $x$ does not exist, all species go extinct eventually
+    \item in certain cases $z$ may grow at first by eating $y$ but after $y=0$
+        they will die out too
+\end{itemize}
+
+\subsubsection{Equilibria and linear analysis}
+
+\begin{itemize}
+    \item it is often useful to investigate solutions that do not change with
+        time, where $x_t = y_t = z_t = 0$ -- called equilibria,
+        steady-state-solutions, fixed points
+    \item two obvious equilibria: $(0,0,0)$ and $(c/d, a/b,0)$ from the L-V
+    \item another special case $a/b=f/g$ yields ray of solutions $(s,
+        a/b,(ds-c)/c)$ where $s \ge c/d$
+    \item asymptotically stable if points close to equilibrium tend to it
+    \item if an equation can be linearized, its stability often depends on the
+        stability in the associated linearized system
+    \item the behavior at that point is determined by the Jacobian of the
+        matrix
+    \item if all real parts of the eigenvalues have negative real parts the
+        system is asymptotically stable, if not it is not stabel
+    \item good tool for the analysis of nonlinear systems near equilibria is
+        the Center Manifold Theorem
+    \item each equilibrium has manifolds, one stable, one unstable, but
+        potentially many center manifolds
+    \item for the analysis of the system using the center manifold theorem is
+        useful -- might be interesting to use for all three cases to take up
+        space and time
+\end{itemize}
+
+\subsubsection{The case $ga = fb$}
+
+\begin{itemize}
+    \item surfaces $z = Kx^{-f/a}$ might be invariant
+    \item on those surfaces are periodic orbits that enclose the fixed points
+        on the ray $(s,a/b,(ds-c)/c)$
+    \item proof that if $ga=fb$  the aforementioned surfaces are invariant to
+        the original system of equations
+    \item now the equation can be implicitely be solved on each surface
+    \item for a fixed K the system becomes:
+        \begin{equation}
+            \left\{\begin{aligned}
+                x_t &= ax - bxy \\
+                y_t &= -cy + dxy - eyKx^{-\frac{f}{a}}
+            \end{aligned}\right.
+        \end{equation}
+    \item from quotients we can find separable equations and solve them
+    \item \textbf{read from section (5) onwards to understand}
+    \item this completely characterizes the case $ga=fb$ 
+    \item all three species have populations that vary over time with common
+        periods
+    \item peak follow: $x$, then $y$, then $z$
+\end{itemize}
+
+\subsubsection{The cases $ga \neq fb$}
+
+First $ga < fb$
+
+\begin{itemize}
+    \item all solutions seem to spiral down to the $xy$-plane
+        towards a periodic solution
+    \item solutions move down across surfaces $z = Kx^{-f/a}$ from higher to
+        lower values of $K$
+    \item next proof shows that solutions travel down a set and bounded path in
+        \textbf{proposition 4}
+    \item thus for $ga < fb$ all solutions tend towards the $xy$-plane or $z=0$
+    \item thus the apex predator always goes extinct in these circumstances and
+        the two lower species exhibit standard L-V behavior
+\end{itemize}
+
+Second $ga > fb$\newline
+
+\begin{itemize}
+    \item analogous in solution, all trajectories in the positive first octant
+        escape to $+\infty$ as $t$ increases -- the trajectories travel up the
+        surfaces
+    \item this means that populations $x,z$ tend to $\infty$ and that $y$
+        experiences larger and larger fluctuations
+    \item all are non-monotonic though
+\end{itemize}
+
+\subsection{Conclusion and comments}
+
+\begin{itemize}
+    \item survival of $z$ only depends on $a,b,f,g$: if $ag<fb$ $z$ dies out,
+        if $ag \ge fb$ z survives and grow without bound if $ag > fb$
+    \item fits our intuition about larger values of $a,g$ and their advantages
+        for $z$
+    \item larger values of $b,f$ are inhibitive for $z$
+    \item $c,d,e$ who are most directly influencing $y$ don't have an effect on
+        whether $z$ goes extinct
+    \item $y$ is basically a conduit from $x$ to $y$
+    \item $y$ cannot go extinct if $x$ remains
+    \item this is an excellent model for learning etc because it features a lot
+        of good things that generally don't come up
+\end{itemize}
+
+
+%==============================================================================
+
+\section{Hoppensteadt: Predator-prey model}
+
+\subsection{Introduction}
+
+\begin{itemize}
+    \item ppm are the building blocks of bio- and ecosystems
+    \item biomasses are grown out of their resource masses
+    \item resource-consumer, plant-herbivore, parasite-host, disease-immune
+        system, susceptible-infectous ...
+    \item general loss-win interactions found outside ecology
+\end{itemize}
+
+\subsection{A General Predator-Prey Model}
+
+\begin{itemize}
+    \item two populations
+    \item size at time $t$ is $x(t), y(t)$, population numbers, concentrations,
+        both are continuous
+    \item changes of population over time are the time derivatives $\dot x,
+        \dot y$, equivalent to $dx/dt, dy/dt$
+    \item general system, $f,g$ are the \textit{per capita growth rates} of the
+        species, $f_y < 0, g_x > 0$, f is prey, g is predator
+        \begin{align}\nonumber
+            &\dot x = x f(x,y) \\ \nonumber
+            &\dot y = y g(x,y)
+        \end{align}
+\end{itemize}
+
+\subsection{Lotka-Volterra Model}
+
+\begin{itemize}
+    \item 1926 Vito Volterra proposed a differential equation to describe
+        increase in predator fish and decrease in prey fish in the Adriatic sea
+        during WWI
+    \item 1925 in the US Alfred Lotka described a hypothetical chemical
+        reaction with oscillating concentrations
+    \item Lotka-Volterra model is the simplest predator-prey model
+    \item based on linear, per-capita growth rates; prey: $f = b - py$,
+        predators: $g = rx - d$; $b$ -- prey ($x$) growth rate with no
+        predators, $p$ -- impact of predation on $\dot x$ of prey, $d$ --
+        decline of predators with no prey, $r$ -- growth of predator population
+        depending on prey numbers
+    \item full predator-prey model
+        \begin{equation}\nonumber
+            \left\{
+            \begin{aligned}
+                &\dot x = (b - py)x \qquad \text{(Prey)}\\
+                &\dot y = (rx - d)y \qquad \text{(Predators)}
+            \end{aligned}
+            \right.
+        \end{equation}
+    \item system can be integrated directly, any solution of the system $(x(t),
+        y(t))$ satisfies $C=b \ln y(t) - p y(t) - r x(t) + d \ln x(t)$ for all
+        $t$
+    \item $C = b \ln y(0) - p y(0) - r x(s) + d \ln x(0)$
+    \item for phase plots with contour plot: $z = b \ln y - py - rx + d \ln x$
+    \item the curves describe solutions of the system -- because the curves are
+        closed we have periodic oscillations
+    \item \textbf{if $b > 0$ -- prey multiplies on its own} you have $(0,0)$
+        and $(d/r,b/p)$ as equilibria, the latter one has single peak in $z$
+\end{itemize}
+
+\subsection{Lotka and Volterra}
+
+\subsubsection{Alfred James Lotka}
+
+\begin{itemize}
+    \item 1880--1949
+    \item chemist, demographer, ecologist, mathematician
+    \item born in Lviv, Ukraine (then Lemberg, Austria)
+    \item to US in 1902, wrote papers about chemical oscillations, theoretical
+        biology
+    \item then worked at insurance company
+    \item eventually became president on Population Association of America
+\end{itemize}
+
+\subsubsection{Vito Volterra}
+
+\begin{itemize}
+    \item 1860--1940
+    \item mathematician, physicist
+    \item born in Italy
+    \item attended university of Pisa, wrote a book on integral and
+        integro-differential equations
+    \item after WWI he returned to applications of maths in biology
+    \item joined opposition to Mussolini in 1922, refused oath in 1931 and left
+        the country to live abroad
+\end{itemize}
+
+\subsection{Kermack-McKendrick Model}
+
+\begin{itemize}
+    \item in epidemiology we can use these equations too
+    \item prey $\rightarrow$ susceptibles; predators $\rightarrow$ infectives
+    \item susceptibles can become infectives and infectives can become
+        ineffective
+    \item critical value / tipping point: $R \equiv rx(0)/d = 1$ is the tipping
+        point
+    \item some suceptibles will always survive -- herd immunity
+\end{itemize}
+
+\subsection{Jacob-Monod Model}
+
+\begin{itemize}
+    \item this model accounts for limited uptake rates (e.g. bacteria)
+    \item $x$ is population of feeders, they feed on chemical species of
+        concentration $y$
+    \item $V$ -- uptake velocity, $K$ -- saturation constant, $Y$ -- yield of
+        $x$ per unit of $y$ taken up
+        \begin{equation}\nonumber
+            \left\{
+            \begin{aligned}
+                &\dot x = \frac{Vy}{K+y}x \ &\text{(Feeders / species $x$)}\\
+                &\dot y = -\frac{1}{Y}\frac{Vy}{K+y}y \ 
+                            &\text{(Food / nutrient)}
+            \end{aligned}
+            \right.
+        \end{equation}
+    \item if $y = K$ uptake velocity is $V/2$; $y=K$ is taken as a tipping
+        point: if $y < K$ the uptake is ignored
+    \item this stuff underlines a lot of biology, microbiology, food
+        engineering
+    \item as $t \rightarrow \infty$ the nutrients are depleted
+    \item some of the terms can be replaced by other ones to account for
+        different environments
+\end{itemize}
+
+\subsection{Logistic Equation}
+
+\begin{itemize}
+    \item $V$ and $YK$ can be very large compared to the other data but the
+        ratio is of moderate size $V/(KY) \approx r$
+        \begin{equation}\nonumber
+            \dot x = \frac{V(C-x)}{YK+(C-x)}x
+        \end{equation}
+    \item if we have $V/(KY) \approx r$ and get $\dot x = r (C-x)x$
+    \item this has kind of the same results as Jacob-Monod
+\end{itemize}
+
+\subsection{Predation with Time Delays: Chaos in Ricker's Reproduction
+Equation}
+
+\begin{itemize}
+    \item accurate time delays and stuff
+    \item \textbf{goes into too much detail, not relevant}
+\end{itemize}
+
+%==============================================================================
+
+\section{Israel: On the contribution of Volterra and Lotka to the development
+of modern biomathematics}
+
+\begin{itemize}
+    \item birth of modern biomathematics took place in 1920s -- maths not as
+        mere aid but as conceptual tool and application of determinist and
+        mechanist conceptions to biology
+    \item now all of mathematical analysis was used in biology
+    \item classical mathematical and physical methods and concepts now used in
+        maths
+    \item 1925 -- Lotka publishes famous treatise, 1926 Volterra publishes
+        first paper on population dynamics:
+        \begin{equation}\nonumber
+            \left\{\begin{aligned}
+                \frac{dx}{dt} &= Ax - Bxy \\
+                \frac{dy}{dt} &= Cxy - Dy
+            \end{aligned}\right.
+        \end{equation}
+    \item which of them takes priority? always and important question when
+        these things are independently and at the same time discovered, seems
+        like is was supposed to happen
+    \item 1926 Volterra got published, Lotka had stuff published before and
+        written about it in 1920 and 1910
+    \item Lotka used an analogy between the chemical system and the biological
+        system to derive his predator prey equations which is interesting
+    \item only reason that Lotka didn't claim priority based on those previous
+        papers is because he did not see the relevant concepts in his paper
+    \item both the biology and chemistry examples can be called isomorphisms of
+        each other -- they are fundamentally equivalent, both are non-linear
+        oscillators
+    \item both of their approaches are rooted in empirical analysis as was
+        normal back then, they didn't use analogy like one might today
+    \item Volterra was in favor the mathematicalization of biology --
+        differential equations are the obvious results of this
+    \item Volterra started because his son-in-law sent him a paper about fish
+        in the Adriatic sea
+    \item he took a very physical approach, using friction between members of
+        species and energy derivations
+\end{itemize}
+
+%==============================================================================
+
+\section{Kingsland: Alfred J. Lotka and the origins of theoretical population
+ecology}
+
+\begin{itemize}
+    \item ecology has borrowed from many disciplines, but phtsical chemistry is
+        one of the more unlikely candidates
+    \item somewhat stimulated the development of population ecology
+    \item Alfred James Lotka is responsible for this
+    \item his real goal was to create \textit{physical biology}, applying
+        physical principles to biological systems
+    \item Lotka started papers by discussing chemical systems and then moving
+        to biological examples
+    \item first systems were undamped and later damped 
+    \item L-V showed that even just 2 populations could regulate each other
+        while ecologists at the time were thinking of 5 species food chains
+\end{itemize}
+
+%==============================================================================
+
+\section{Keyszig: Chapter 4}
+
+\subsection{Chapter 4.5: Qualitative Methods for Nonlinear Systems}
+
+\begin{itemize}
+    \item qualitative methods are methods of finding qualitative information on
+        solutions without actually solving the equations
+    \item assumptions: autonomous system, $t$ does not occur explicitly
+    \item talk about families of solutions
+\end{itemize}
+
+\subsubsection{Lotka-Volterra Population Model -- Example 3}
+
+\begin{itemize}
+    \item prey has unlimited food, exponential growth without foxes
+    \item prey is killed at a rate proportional to both population numbers
+    \item predators die exponentially if there is no prey, if there is prey
+        they grow exponentially to both population numbers
+    \item typical system
+    \item critical points: factor out population numbers and set one of the
+        factors to 0, get the linearization and see that this is a saddle
+        point, which is %TODO: find K's explanation
+    \item second critical point is also linearized, we get a family of ellipses
+        that has the critical point at it's center
+    \item if the non-linear system is analyzed, we see it has the same center
+        but closed trajectories and not ellipses
+\end{itemize}
+
+%==============================================================================
+\section{Terman: State Space}
+
+\begin{itemize}
+    \item state space: set of all possible states of a dynamic system
+    \item each state of the system corresponds to a point in state space
+    \item in pendulum: pairs of "(angle, velocity)" which forms a cylinder
+    \item can be finite -- just some points
+    \item finite-dimensional -- infinite number of points forming a smooth
+        manifold, for ODEs and mapping -- often called \textbf{phase space}
+    \item infinite-dimensional -- for PDEs and delay differential equations
+    \item degrees of freedom is the number of variables needed to completely
+        describe a system
+\end{itemize}
+
+\subsection{Phase portrait}
+
+\begin{itemize}
+    \item dynamical things make curves or points in phase space
+    \item change of a dynamical system corresponds to a trajectory in phase
+        space
+    \item set of all trajectories forms the phase portrait
+    \item because actual solution of nonlinear equations are often not possible
+        phase portraits are often used to study them
+\end{itemize}
+
+\subsection{Phase Line}
+
+\begin{itemize}
+    \item if the system can be described by one variable we have this case
+    \item line is partitioned by equilibria etc.
+    \item one can study the equation simply with this line
+\end{itemize}
+
+\subsection{Phase plane}
+
+\begin{itemize}
+    \item arise in 2D autonomous ODEs, like the L-V equations
+    \item if $(x(t), y(t))$ is a solution to the system, then at $t=p$,
+        $(x(p),y(p))$ is a point in phase plane, point changes over time and
+        traces a trajectory in the phase plane
+    \item solution trajectories have their velocity vector given, vector field
+        assigns stuff, see p. 3 beginnig
+    \item equilibrium points are where both $f$ and $g$ are 0, these points are
+        constant with respect to time
+    \item some elements or solutions are periodic and have periods of time when
+        they repeat -- they are closed curves in the phase plane
+    \item periodic solutions are stable if solutions near it remain near it
+        through time
+\end{itemize}
+
+\subsection{Higher Dimensional and Abstract state spaces}
+
+\begin{itemize}
+    \item n-dimensional explanation
+    \item abstract spaces
+    \item random examples and pendulum example
+\end{itemize}
+
+%==============================================================================
+
+\section{Wangersky: Lotka-Volterra population models}
+
+\subsection {Introduction}
+
+\begin{itemize}
+    \item tension between theorists and experimentalists
+    \item math. modeling in biology is often neglected because both sides don't
+        really know about the other and thus make errors
+    \item modeling is misunderstood, only see as predictors and called useless
+        if they aren't 100\% accurate
+    \item only very special models have any chance of being accurate -- normal
+        models are used to find forms of solutions and not future states of
+        systems
+    \item descriptive model: best-fit curves based on data, simple and good
+        fit
+    \item analytical model: considers mechanisms of the system, mostly logic,
+        little data, very complex, can predict with changing circumstances,
+        theoretical ecology, often based on assumptions
+    \item most models are a mix, problem: fitting constants might be
+        misinterpreted
+    \item assumptions are made, sometimes unaware
+\end{itemize}
+
+\subsection{Growth of a single species population}
+
+\begin{itemize}
+    \item exponential growth of species like $dx/dt=rx$, $x$ population, $r$
+        constant of growth
+    \item not best assumption but ok in labs, if just taken to fit data it's
+        ok, if we take it as birthrate - deathrate and take is as intrinsic
+        rate of natural increase that's not ok
+    \item can add a proportion of the max growth rate that is achieved
+    \item population density tends to be a factor too, it's ignored here
+    \item if it's incorporated, we get $dx/dt-rx[1-(x/K)]$, $K$ is number of
+        supported organisms in an environment
+    \item today logistic equations are generally used for this
+    \item model only works for species of long or short lifetimes where changes
+        in environment are negligible 
+    \item oscillations often occur, even in lab conditions where there is no
+        scarcity -- L-V models have that
+    \item time lag is generally introduced here to fit reality better
+\end{itemize}
+
+\subsection{Prey-Predator Equations}
+
+\begin{itemize}
+    \item typical model, $x$ number of prey, $y$ number of predators, $a$ prey
+        mortality liked to predator and prey numbers, $b$ predator growth
+        linked to predator and prey numbers, $d$ mortality constant of
+        predators
+    \item models and their periodic behavior is well known, but few examples of
+        oscillations are known that conclusively depends on predator prey
+        cycles -- not even snowshoe hare-lynx in (50) and brown lemming-grass
+        (206)
+    \item there are some examples of well-fitting lab populations, mostly
+        bacteria
+    \item first step is to introduce dampening into prey population and then
+        time delay to the predators
+    \item \textbf{mostly irrelevant stuff}
+\end{itemize}
+
+%==============================================================================
+
+
+\nocite{*}
+\bibliographystyle{siam}   %abbrv
+\bibliography{../bibliography}
+
+\end{document}

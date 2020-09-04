@@ -1,0 +1,33 @@
+GAUSSIAN METHOD OF SOLVING SYSTEMS OF LINEAR EQUATIONS
+
+This is a prerequisite to use Thomas' algorithm to then solve the system.
+Gaussian method is traditionally used in computation, not Kramer's Rule
+Reason: the determinant in Cramer's rule is required to find a valid, unique solution
+  the same is also true for Gaussian Elimination. 
+Gaussian Method has n^3 computational complexity
+Cramer's rule has n! computational complexity
+This obviously favors the Gaussian Method -> faster to compute and more accurate
+
+Gaussian Method
+  How this method works algorithmically; just look it up on the internet
+
+Minor of a matrix: all of the minors should not be zero to enable Gaussian approach
+
+Selection of the major element: 
+
+Tridiagonal matrix: See (4) from presentation Systems of linear algebra.pdf
+
+All but the main diagonal two rows are zeros, making it easy to calculate stuff in it
+
+We have now the general approach that we used for the cubic splines, just in a more
+specific version of it
+
+This is for ODE of second order, we can try to use the method of finite differences
+it is done by constructing difference schemes, which has the same form that the 
+tridiagonal system has
+
+figure out how to use thomas algorithm
+
+use this for the excercises that we do not even have to do yet.
+
+

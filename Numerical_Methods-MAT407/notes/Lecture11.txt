@@ -1,0 +1,34 @@
+LECTURE ON PROJECT 3 OF THIS SEMESTER
+
+we will not solve these equations analytically, as it is not the object of this course
+we will apply numerical methods in order to solve these equations
+
+FIRST ORDER
+
+1. Simple Model - Population Model
+  Any kind of growth that can be described using differential equations
+  Radioactive decay, etc.
+  d(P)/d(t) = k * P
+  there is also the logistic model, read the material to remind yourself
+
+2. Simple Model - Temperature Variation
+  d(T)/d(t) = -k(T-A)
+  this is useful for some things, just look at your notes from the diff equ. course
+  this will help tremendously
+  generally used for temperature change in e.g. a building or something like that
+
+3. Simple Model - Tank with hole
+  
+SECOND ORDER
+
+1. Second Newton's Law
+  d^2(x)/d(t^2) = F(t) for the movement of some particle, we can also get a problem with
+  boundary conditions to make them even harder
+
+General Form: d(u)/d(t) = f(t, u(t)), t element (0, T]
+              u(0) = phi
+
+For the first type of solution we take the integral using the method of indeterminate
+coefficients to make stupid fractions easier
+we have to find the solution for P(t) to get the answer, this shit was really hard
+

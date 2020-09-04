@@ -1,0 +1,18 @@
+TODAYS TOPIC: Iteration Methods
+
+we can have equations that would be hard to solve analytically, so we use iterating methods
+
+we have the function f(x) = x^2 - 2 = 0;
+
+we want to prove that lim_k -> inf (x_k) = x_* != 0
+the proof is as follows:
+    we take the limits of both sides of our iteration formula
+        x_k+1 = 0.5(x_k + 2 / x_k); k = 0, 1, 2 ...
+        x_0 is known
+    we can simplify the equation once we take both sides
+    finally we get (x_*)^2 = 2, which we could also have gotten through analysis
+    we can also give a proof of more logical nature, I will try to take a picture of it
+
+otherwise he is doing a whole host of proofs of some limit stuff, mainly in russian
+we shall prove some shit for next class as well as do some work on our program, such that it will 
+draw the graphs of the solutions to the problems

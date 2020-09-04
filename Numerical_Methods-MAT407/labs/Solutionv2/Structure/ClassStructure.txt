@@ -1,0 +1,98 @@
+Plan for the class division of the Program
+
+1. Functions
+  class Function {
+    
+    static const short loopStart = 0;
+    static const short loopEnd = 1;
+    
+    double func1(double x, double epsilon){
+      return ...;
+    }
+    
+    
+    double func1(double x, double epsilon){
+      return ...;
+    }
+
+    double func2(double x, double epsilon){}
+    
+    
+    double func3(double x, double epsilon){}
+    
+    
+    double func4(double x, double epsilon){}
+    
+    
+    double func5(double x, double epsilon){}
+    
+    
+    double func6(double x, double epsilon){}
+    
+    
+    double func7(double x, double epsilon){}
+    
+    
+    double func8(double x, double epsilon){}
+    
+
+    static List<action> functionList = new List<Action>({func1, func2, func3, func4, func5,
+    func6, func6, func7, func8);
+
+    Function(){}
+
+    PointPairList computePoints(int problemIndex, int epsilon, double loopStep){
+    
+      PointPairList funcResult = new PointPairList();
+
+      Action function = functionList[problemIndex];
+    
+      for (int x = loopStart; x <= loopEnd; x += loopStep){
+        
+        funcResult.Add(x, function(x, epsilon);
+    
+      }
+
+      return funcResult;
+    }
+
+    PointPairList computeNodes(int problemIndex, int epsilon, double loopStep, int
+    nNodes, int meshType){
+
+      switch(meshType){
+        case Cherbzshev: compute all the nodes;
+          break;
+        case Normal: compute the nodes;
+          break;
+      }
+    }
+}
+
+class Interpolation{
+
+  PointPairList lagrangeInterpolation(PointPairList nodes){
+    
+    perform lagrangeInterpolation;
+
+  }
+
+  PointPairList cubicSpline(){}
+
+  PointPairList naturalCubicSpline(){}
+
+
+
+}
+
+=========================================================================================
+=========================================================================================
+
+get consistent naming scheme for the variables
+
+==+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+UI modifications
+-make radio buttons for the type of mesh as it only has two options
+-expandable picture box for the piecewise functions
+-make the error easier to see
+-

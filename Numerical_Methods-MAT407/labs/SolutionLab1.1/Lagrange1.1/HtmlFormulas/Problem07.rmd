@@ -1,0 +1,8 @@
+---
+output: 
+    html_document
+documentclass: article
+usepackage: geometry, amsmath
+---
+
+$$f_7(x)=\frac{\epsilon}{\epsilon+(2x-1)^{2}}$$

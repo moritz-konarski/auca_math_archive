@@ -1,0 +1,9 @@
+---
+output: 
+    html_document
+documentclass: article
+usepackage: geometry, amsmath
+classoption: 20pt
+---
+
+$$f_4(x)=\frac{\ln{\left(1+\frac{x}{\epsilon}\right)}}{\ln{\left(1+\frac{1}{\epsilon}\right)}}$$

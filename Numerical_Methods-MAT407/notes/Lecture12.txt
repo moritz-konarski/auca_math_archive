@@ -1,0 +1,14 @@
+FOR THE LAST PROJECT
+  Runge-Kutta Methods: 25.04.19 is deadline
+  Problems
+  M: -> two different methods for runge kutta methods
+  In the docs you can find three descriptions of the runge kutta methods
+  one, two or three steps for the different methods
+  we can start right now and get going, we will talk about the actual workings later
+  We are given the problem and the analytic solution for each of the problem
+  we draw the graph of the calculated and approximated solutions and compare them
+  we also calculate the error between the two versions
+
+WE ARE NOW DOING THE ANALYTIC SOLUTION OF PROBLEM 13 OF THE GIVEN PROBLEMS
+
+

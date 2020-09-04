@@ -1,0 +1,21 @@
+NOTES ON THE FIRST LAB, PROBLEM SET 1.1
+Elements
+  ZedGraph.dll
+  ZedGraph.Web.dll
+    import, reference and set local
+  labels for the input fields
+  combo boxes for the selection of the tasks
+  buttons
+    draw
+    exit
+  start screen
+  Graph area
+  scaling issues
+  design in general
+  display equations using latex? or something else to make is pretty
+    on different screen?
+  add the required equations
+  make it functional, resize the axis etc
+  --make some working prototype for 28.01.19
+  --unify this with the program description, translation and the lecture notes on the
+  problem  

@@ -1,0 +1,23 @@
+Today we will hear presentations on the last lab.
+
+First is Aidai, she has rectangles with theta = 1 and trapezoidal rule
+  she had some minor problems 'with her code' so it did not work like she intended
+  but overall it worked fine to compute the things he wanted to see
+  she concluded that trapezoidal rule is the most accurate out of the ones she has
+  tested
+Second is Ilya, he has rectangles with theta = 0 and simpson's rule
+  his program works, he explained his methods first and then showed his program in action
+  this is pretty good. This worked pretty well.
+
+RUNGE KUTTA METHOD 
+  we shall rewrite some problem in the standard form for these types of equations
+  we must put it into the form found on page 7 of the presentation as f(t, u(t)), t element (0, T]
+  only after we put it into this form we can use the Runge Kutta Method.
+  this will need to be done for each of the test problems
+  we must satisfy the Lipschitz Condition that we have taked about in the ODE course, still got no idea
+  then we will simply cycle through all the values that our equation can take, basically approximating it
+  this thing gives an approximation of course. It is not a direct, fully correct solution
+  we have a recurrence relation that allows us to calculate all the values, starting from the initial value
+  that we are given. This is called the RK one stage/one step method. It may also called the Euler's Method.
+  It is the simplest version of this method, it will be pretty inaccurate of course, as these things go.
+  If it is really simple, it's probably false/has a large error.

@@ -1,0 +1,26 @@
+TODAY WE WILL DO:  RUNGE-KUTTA-METHOD
+Last meeting we discussed Euler's Method, we simply integrate out initial diff equ from t_n to t_n+1
+we used the simplest rectangular formula to compute the function
+
+Now we are doing the same thing with the trapezoidal rule instead of the normal rectangular rule.
+We now have u(t_n+1) that also depends on itself because of the trapezoidal rule.
+This is the implicit Runge-Kutta-Method, not the explicit one.
+We shall only use the explicit method, but we have now seen that there are alternatives.
+
+How can we make this more accurate?
+    we do some things that I missed as I was not paying any attention
+    we use the formulas on p. 3 in the Runge-Kutta presentation
+    this one is in the course folder
+    we use the group of formulas to try and understand where our know state takes us in the next step
+    if we have and asymptotical statement, we have approximation according to some formula
+    the error of the approximation has the order p according to the formula
+    this thing converges with order p if we have the formula
+    the inequality is the main one we need for all kinds of computations
+    theorem nr. 1 can give us not only the convergence, but also the error of this thing.
+    Let us assume that something is going on, just read about it later.
+    We get some supporting results that help us with the approximation of the error
+    we use the tales-formula of tau which will consider the derivative of degree p+1
+    the sum of this is equal to 0 according to our assumption
+    then we can find tau^(p+1) which is useful somehow?
+    -> TODO: CHECK OUT THIS SHIT FOR THE FINAL EXAM. IT WILL BE USED there
+            WRITE A SUMMARY IN .RMD FOR THIS SHIT AS WELL AS ALL OTHER COURSES THAT YOU HAVE TAKEN SO FAR 

@@ -1,0 +1,67 @@
+LECTURE03 24.01.2019 INTERPOLATION 
+
+# VANDERMONDE MATRIX
+For Vandermonde Matrix see Wikipedia
+it shows a geometric progression in each row
+V(i,j) = a^j-1 sub i
+the determinant is the product of the difference of some values alpha
+if all the numbers are distince, it is never zero
+the Vandermonde matrix evaluates a polynomial at a set of points
+its the matrix of the linear map that maps the vector of coefficients of a polynomial 
+in case there are only distinct points in the matrix, it shows that the mapping of 
+coefficients to the values at the points is a one-to-one correspondence, thus the
+interpolation problem can have a unique solution -> unisolvence theorem
+
+# UNISOLVENCE THEOREM
+states that there is a unique polynomial and it can be proven by the vandermonde matrix
+
+# LECTURE
+this is my problem, there is an english version somewhere, do the project and write
+a short report on it.
+only use formulas 2 and three for lab one, there are all the descriptions that you might
+ONLY USE FORMULAS 2 AND 3, NOT THE OTHERS
+need
+At the end threre are formulas for the meshes that we will use
+after that there are the functions that we will have to use in the project
+everyone has number 14, where we have to create our own function that we shall prepare
+
+for the quadratic one's you will find the description of all the formulas in the second
+lab use the epsilon formula with ^-k that is given there. choose points by 1+2^k
+people will compare two graphics and then also estimate the error with a special
+greet/mesh
+greet points will be really cool because we use special points, woohooo-
+fulfill all the requirements and then write a good report about it in rmarkdown
+
+can you implement C# in rmarkdown? -that would be really nice 
+
+there is the definition of the cubic spline here, which we will talk about, but we should
+start on our own
+you will find the formulas there and you ought to use different boundary value problems
+to get some more interesting results
+
+there is an example program in the electronic website textbook to see were there are 
+use a drop down menu to offer 1+2^k to compute them, epsilon is 2^-k
+this ought to make it easy to use. the program will be of great help 
+
+We are supposed to use the form that he offers us in the file because it is easy to get
+started
+it will help us to get somewhere
+it was especially created for lagrange polynomials, change it to make it better
+
+again, drop down menu for the number of greet points, but make it more the
+we should change it to the power of two things and then make the choices larger
+
+make everything a drop down list to make it as simple as possible for the user.
+use latex as a way to draw the formulas? can you do that?
+add some output to display the error of the calculation to complete the program
+
+Visual Studio is pretty simple and we should be able to make it work
+
+to draw the functions, we are supposed to use ZedGraph, a program that is included and we
+should modify it to make it look better
+
+--  In short, use the template and then fit it to the requirements 
+--  The report should be only one to two pages long, so nothing really thorough
+--  additionally, calculate the value of the error, make a special procedure
+
+

@@ -1,0 +1,68 @@
+---
+title: "Numerical Methods: Interpolation"
+author: "Moritz Konarski"
+date: "23.01.2019"
+output: 
+    pdf_document:
+        toc: true
+        number_sections: true
+        toc_depth: 3 
+        highlight: tango
+documentclass: article
+usepackage: geometry, amsmath
+classopion: a4paper, includeheadfoot, margin=2,54cm
+fontsize: 12pt
+
+---
+
+# Basics 
+
+the basics of this shit 
+lets add some shit to see that it works
+and I pray that it does
+
+This formula $f(x) = x^2$ is an example.
+
+## Definition
+
+Interpolation is the act of constructing new data points within a range of already
+known data points. It is used to construct intermediate data points if a set of points is
+already known. Interpolation is closely related to approximation, where a complicated
+function is, through its data points, reproduced using a much simpler function.  
+
+## level two heading
+his is some normal script that hopefully looks somewhat acceptable to the average peson
+this **is some normal script that hopefully looks somewhat acceptable to the average peson
+this is some normal script that hopefully looks somewhat acceptable to the average peson
+this is some normal script that hopefully looks somewhat acceptable to the average peson
+this is some normal script that hopefully looks somewhat acceptable to the average peson
+this i**s some normal script that hopefully looks somewhat acceptable to the average peson
+this is some normal script that hopefully looks somewhat acceptable to the average peson
+this is some normal script that hopefully looks somewhat acceptable to the average peson
+
+
+
+### level three heading
+e normal script that hopefully looks somewhat acceptable to the average peson
+this is some normal script that hopefully looks somewhat acceptable to the average peson
+*this is some normal script that hopefully looks somewhat acceptable to the average peson
+this is some norma*l script that hopefully looks somewhat acceptable to the average peson
+this is some normal script that hopefully looks somewhat acceptable to the average peson
+this is some normal script that hopefully looks somewhat acceptable to the average peson
+this is some normal script that hopefully looks somewhat acceptable to the average peson
+this is som
+
+# Level one heading
+
+## level w alk;sdjfkl 
+
+### lasdflj a
+a;slkdfj ;;la skdjf ;lasjd f;ajsdf jas;dlfj as
+df asjkl;dfj;alsdj f;asj dfjasdf asdklfj asjghdf kuwerajd
+f ja;sdfhlkjashdfkhasdfjopwiqe rkahjsdf
+;asdlk fhj;askhdf;ajdf;l kjsdf;j asdfj
+
+```{r}
+3.1215926535 * 300^2
+sqrt(65536)
+```

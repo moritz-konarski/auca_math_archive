@@ -1,0 +1,7 @@
+LECTURE ON 28.02.2019
+
+PRESENTATIONS OF OUR PROGRAMS FIRST
+Lagrange Interpolation
+Quadratic splines
+Cubic splines
+

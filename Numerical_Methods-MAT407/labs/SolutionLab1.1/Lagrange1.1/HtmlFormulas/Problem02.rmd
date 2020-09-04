@@ -1,0 +1,8 @@
+---
+output: 
+    html_document
+documentclass: article
+usepackage: geometry, amsmath
+---
+
+$$f_2(x)=1-\frac{\exp\left(-\frac{x}{\sqrt{\epsilon}}\right)+\exp\left(\frac{x-1}{\sqrt{\epsilon}}\right)}{1+\exp\left(-\frac{1}{\sqrt{\epsilon}}\right)}$$

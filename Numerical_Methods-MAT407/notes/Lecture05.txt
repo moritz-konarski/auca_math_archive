@@ -1,0 +1,116 @@
+SPLINE INTERPOLATION  07.02.2019
+
+This spline depends on the greet selection and the interval.
+
+Spline is the function of x with the following properties:
+  for each arbitrary interval it is the function of degree n
+  the function is smooth enough
+  the function has at least n-1 continuous derivatives in each interval
+  see slide 14
+  the spline is the solution of the main interpolating problem
+  -> these are the three properties that you should know
+
+Spline of degree 1 (slide 15):
+  n=1
+  it is the polynomial of degree 1 in each interval (it is a straight line) from point to
+    point
+  the function should be continuous
+  there is a formula for the spline on the slide for n=1
+  from this formula we can construct a piecewise interpolation function
+
+  Error: slide 16
+  to estimate the left part, we must first estimate the right part
+  we consider the maximum value of the second derivative on the interval [a, b]
+  we use the absolute value for some reason
+  we calculate the abs(max(f)) for the function
+  we take the point of the max point and put it into the formula
+  then we get some simpler terms
+  h is the maximum value of each interval
+  then we get the error estimation for the right part
+  the right part now does not depend on i, so not on one specific point
+  we estimate the right part and then get the answer
+  we can now consider h to tend towards zero, then both limits go to zero
+  order of convergence of the interpolation (spline of the first order) is 2
+  
+Quadratic spline is skipped because it is in the lab and it is easy?
+
+Cubic Spline, n=3 (slide 18):
+  n=3, on each node interval it is a polynomial of degree three
+  on the interval [a, b], it has at least n-1 (2) derivatives
+  this spline is also a solution of the main interpolation problem
+
+  Algorithm:
+  on each mesh interval the 2nd derivate will be a polynomial is of degree one (first
+    order)
+  if we know this polynomial and have the mesh points, then we can construct the function
+  we don't know them, but they exist because we stated that its derivatives are
+    continuous on the interval [a, b]
+  interval M_i, (i from 1 to n)
+  then we can create the formula for this second derivate using the formula (of straight
+    line) in slide 18
+  x is in the interval [x_i, x_i+1]
+  to get the original function, we take the integral of this function twice, to arrive at
+    f(x)
+  but then we get some unknown values as constants of integration (see equation (8))
+  these constants depend on i, because they are different for each interval
+  if we had all the variables, we could find the values of x in the interval
+  to calculate them we use the properties of the cubic spline
+  S_3 is continuous and that is corresponds to the values of the mesh points on both ends
+    (as it is designed to do)
+  substitute x for x_i and x_i+1, we get the formulas in (9)
+  we consider this a system with respect to c_1 and c_2
+  the determinant of this system is not zero, so there is a unique solution, then we
+    substitute the c's into (8)
+  formula (10) is for the first derivative, (11) for the zeroth
+  taking it a step further and also find the formula for the original function
+  spline parameters:
+  we have not considered the continuity
+  we consider the limit of the function from the right and from the left
+  let's suppose that we have an interior mesh point in the middle of our two points
+  this gives us two sub-intervals, we now take the limit from both sides using two
+    different functions using (12) for the left limit and (13) for the right side
+  because the point must be part of the formulas, we can set both limits equal to each
+    other
+  after some transformation we get formula (15)
+  we now gave a function that gets us the formula
+  we have n-2 interior greet points, we have formula (15) for each of them
+  these formulas can be considered to be systems of linear equations
+  we have n unknown parameters (n points) but only n-2 formulas
+
+  thus we have to add two equations to this system to be able to solve it 
+  so let's suppose we have two functions with two continuous derivatives
+  we also know the values of the functions at a and b (the ends of the interval)
+  on slide 21 we can find the equations
+  now we have as many unknown values as we have equations, we can solve this system
+  we can use the Gauss method to solve this problem
+  we may also use the Thomas algorithm to solve the system
+  
+  if we do not know the second derivatives of the system, we might choose to use the
+    zeros of the functions to add two equations to the system
+  this is called the normal spline, it is the simplest form, but not easy
+
+  the last possibility is that we know the values of the first derivate at the boundary
+    points, so we can do that because we have the points as we know the functions
+
+  ==> YOU HAVE TO USE AT LEAST TWO FORMS OF CLOSURE
+
+  for this we have the first derivates of the splines and then use them on the
+    subinterval where we use (12) and (13)
+  we then get two other equations where i=0 and i=n, both near a or b
+  we arrive at (18) so that we can add the values to the system to make it solvable
+  -this is the most difficult approach, but Thomas algorithm can do it just fine
+
+SOLUTION:
+  how do we now use this to find the spline?
+   for the beginning we solve system (15) with the given parameters using Thomas'
+    algorithm
+  then we need to calculate the sub-interval that x belongs to (it's easier if the mesh
+    is uniform)
+
+Error:
+  the proof is pretty difficult
+  error is on slide 22
+  in the case of a uniform mesh you can use the equation
+  you always get h to the power of n+1
+  this also means that the higher order spline you use, the better the approximation gets
+

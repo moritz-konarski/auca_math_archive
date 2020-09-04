@@ -1,0 +1,79 @@
+\documentclass[a4paper,reqno,12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[allcolors=black,final]{hyperref}
+\usepackage{graphicx}
+\graphicspath{{../graphics/}}
+
+\title{Topic Proposal for Report No. 2:\\Predator-Prey Models}
+\author{Moritz M. Konarski}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Topic}
+
+For my second report of the semester I want to write about predator-prey
+models. In the 1920s Volterra and Lotka independently derived the same system
+of differential equations. Volterra sought to describe populations of two
+interacting species (predator and prey fish), while Lotka tried to describe
+oscillating chemical reactions \cite{chauvet}. In both cases it is simpler to
+describe how populations of fish or concentrations of chemicals change than it
+is to describe then directly and thus differential equations got involved. The 
+Lotka-Volterra model was named in their honor:
+\begin{equation}\nonumber
+    \left\{\begin{aligned}
+        &\frac{dx}{dt} = ax - bxy \\
+        &\frac{dy}{dt} = -cy + dxy.
+    \end{aligned}\right.
+\end{equation}
+Following \cite{chauvet}, $x(t)$ is the prey population and $y(t)$ is the
+predator population. The other variables (all $>0$) are defined as:
+\begin{itemize}
+    \item $a$ -- natural growth rare of prey with no predators,
+    \item $b$ -- effect of predators on prey (prey being eaten),
+    \item $c$ -- natural death rate of predator with no prey,
+    \item $d$ -- effect of prey on predator population (predators multiplying
+        if they have food).
+\end{itemize}
+
+The Lotka-Volterra model will probably be the focus of my report, but other
+predator-prey models like the Kermack-McKendrick model (accounts for herd
+immunity and applies to epidemics) and the Jacob-Monod Model (accounts for
+concentrations of e.g. bacteria and not number of animals) \cite{hoppensteadt} 
+can be covered. A three-species food chain as discussed in \cite{chauvet} is
+also interesting. If the unexpected nature of predator-prey models should be 
+the focus of my report these equations would be a good thing to focus on.
+
+\section{Elements of the Report}
+
+\begin{itemize}
+    \item Introduction: brief overview, introduction to topic, 
+    \item History: how were the equations developed, by whom
+    \item Finding solutions: with examples
+        \begin{itemize}
+            \item Analytic approaches
+            \item Numerical approaches
+        \end{itemize}
+    \item Examples of one or more models computed by me
+    \item Visualizations
+        \begin{itemize}
+            \item Graphs of solutions 
+            \item Phase portraits 
+        \end{itemize}
+    \item Implications and Applications / Conclusion: what is the importance of 
+        these equations, where are they applied (specifically)
+\end{itemize}
+
+\nocite{*}
+\bibliography{../bib_02}
+\bibliographystyle{abbrv}
+
+\end{document}

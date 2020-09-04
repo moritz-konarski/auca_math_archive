@@ -1,0 +1,61 @@
+LECTURE02 22.01.19 INTERPOLATION
+let us suppose that we have points on [a..b] the mesh of the interpolation
+then we have a mesh function called f(x). We ought to find it such that the values of f are equal
+to the points of the functions
+there can be many solutions of this function
+in the space of all problems, we can find a unique solution
+we should restrict it and we will only look at polynomials with degree n-1
+we will start with the space of algebraic functions
+
+special construction, the result is the lagrangian polynomial, it is omega sub n
+it the linear affectence, where x sub i are the meeting points of the interpolation mesh
+then we will construct the basis function, w sub n,k with the property: for arbitrary and fixed number k k=1..n
+it is zero on every greet point except xk
+the basis function is defined by a function with a fraction, we should prove the identity from slide1
+He thinks the factions is too difficult because there is a derivative in the denominator
+then we can use the product function instead because it is easier
+proof: see the handwritten notes page 1
+for j=k w=1; j!=k w=0;
+the first function on slide2 is the lagrangian function
+
+doing the proof we first prove that the polynomials the degree of n-1
+read up on the properties and proofs of the lagrangian polynomial
+let us prove by contradiction by supposing that we have another polynomial that is a solution of 
+our problem. this would mean that our solution is not unique, which is what we want to prove.
+q(x) has the form alpha0 + alpha1x + alpha2x^2 + alphan-1x^n-1
+we will get the system of statements on slide4 
+we get a homogenuous system of linear equations and the determinants are not zero, the system only has the solution 0
+this is Kramer's rule to find the solution
+the determinant of the system is not zero thus we have only a specific solution to the whole thing 
+we get the 0-solution of the polynomial thus we know that it is a unique solution of the problem
+the determinant of the system is the following: a huge matrix that has a determinant of not 0
+it is called the Vandermonde matrix and we ought to prove it for next class
+this matrix is pretty cool looking, in case we can't do it ourselves, there are solutions on the internet
+--> This proves that in the space of n-1 we can find a unique solution for the equations
+
+for simple examples see slide5, there we have different numbers of n and thus different polynomials
+draw the graphs with R or python and add them to the document to make it a good exercise in rmarkdown
+we can easily find the result for these graphs if we use the appropriate functions that are given to us
+We, unsurprisingly, get polynomials of degree n-1, so it seems that our formulas work
+
+Estimating the Error
+if our function is smooth enough, we can estimate the function
+smoothness: all continuous derivatives for all we have, the space of the complex numbers ^0 in [a..b]
+superscript stands for the number of continuous derivatives that the functions have; see slide6
+
+mesh function is the projection of the grid points as a projection onto the grid points, projections can be found on slide6
+we will use this mesh function and construct the lagrangian polynomial to get the function
+then we consider the error of interpolation of function f(x) and the interpolation polynomial
+we would like to estimate the error. at greet points the value of the error is 0, because both functions intersect
+then it is interesting to find the error at arbitrary x that is not a greet point. see diagram on slide6
+
+we consider a special representation of this function, a supporting function gx(y) is equal to the equation on the bottom of slide6
+omegan is the main function
+properties of gx:
+-the function is smooth enough, it has the same number of derivatives as the initial function
+	consider the second (left) term. how many derivatives resp:y does the second term have?
+	it has exactly n+1 derivatives because a polynomial of degree n has n+1 derivatives
+-the initial function only has n derivatives, while our condtructed function has infinitely many derivatives
+-the value of the supporting function at a greet-point is equal to 0, because at those the funtios intersect
+	thus it is 0
+-at point x the function is also 0, if we put it into the equation, it cancels out

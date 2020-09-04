@@ -1,0 +1,8 @@
+---
+output: 
+    html_document
+documentclass: article
+usepackage: geometry, amsmath
+---
+
+$$f_3(x)=\frac{\exp\left(-\frac{1-x}{\epsilon}\right)-\exp\left(-\frac{1}{\epsilon}\right)}{1-\exp\left(-\frac{1}{\epsilon}\right)}$$

@@ -1,0 +1,18 @@
+CONTINUATION OF TOPIC FROM LAST LECTURE: NUMERICAL INTEGRATION
+
+we created a family of the rectangular rules, for some value = 1/2
+  then we get the highest accuracy
+
+Simple Formula
+  instead of f(x) we will consider the lagrangian polynomial with degree one, we take two
+  points as boundary points -> we get the lagrangian polynomial that is a straight line
+  going through a and b
+  We then calculate the area of the resulting trapezoidal area -> this is the definite
+  integral that we want to achieve
+  We can estimate the error using chebyshev's norm for the inequality
+
+Composite Trapezoidal Rule
+  We use the mesh on the interval a, b
+  I think we just sum up a couple of simple trapezoidal areas -> composite trapezoidal
+  rule
+

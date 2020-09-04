@@ -1,0 +1,39 @@
+TODAYS TOPIC IS: FURTHER STUFF ABOUT RUNGE-KUTTA-METHODS
+
+We have tried to solve the problem number one from the lectures by constructing 
+the general Runge-Kutta-Algorithm with formula five and six
+the parameters sigma_i and something else are unknown.
+There is a function of tau (mesh step) where l_m+1 (tau) is the function
+and we get the result at some specific point.
+We also discussed the error function
+if we have the approximation of degree t, we can find the solution
+we can also find the error of this thing
+the formulas for page 12 are found at the beginning of the page.
+y_n is a function of tau. we substitute tau = 0 and calculate n and n+1 at point zero
+we calculate the derivative of some function and get the difference between the two
+we take the derivatives of each of the function of the sum
+we should take the derivative with respect to both of the function parameters (yielding the partial derivatives)
+we will then multiply the them together to get both terms of the thing
+if tau is equal to zero, the second component of the sum will vanish as tau is one of the factors
+now we take the second derivative of the function at point zero, which is not simple
+we will still do it because we need it. We differentiate with respect to tau
+When we substitute 0 for tau and then take the derivative, the term will vanish
+we get a double value for that sum. Now we should take tau = 0, for the beginning we calculate y_j for the first derivative
+we will get the value of f at some point. He did not write the arguments of the function, but it means that we substitute
+some value is some place, such that we get 
+we should further differentiate both sides of our equation, such that we finally get the statement on the bottom of page 13
+this is the error estimation at point 0. Let us suppose that this value should be equal to zero
+We will additionally get two equations. Finally we get three equations with respect to out parameters. These can be found on page 14
+a couple statements. Those can be found in the presentation
+we shall not calculate the third derivative, because while it is possible, it is not needed.
+
+substitute n=1 to get the stage one runge kutta algorithm. We get the simple equations for the simple versions of the method
+with this, we can find the nth-order versions of the runge kutta method
+
+with n=2, we get one supporting value and we should calculate some more values for 
+we need to take two steps to get to a solution. There is lambda_n and lambda_1, we also have three values of sigma
+this means that we have four unknown parameters. These will be calculated from the second and third statements on page 14
+thus we will get the equations found on page 15. We have three equation with respect to four unknown parameters. It allows us to find all of them
+thus we are able to complete this step and to find the values we are looking for. This allows us to actually solve the equations
+and to numerically solve differential equations
+

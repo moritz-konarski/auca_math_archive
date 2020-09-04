@@ -1,0 +1,23 @@
+LECTURE 01	17.01.2019	INTERPOLATION
+
+starting at with simpler funtions and building on top of that
+we have two values for temperature and no function to get it. I exists though. Thus we use linear interpolation of some functions. 
+This leads to a rough approximation of the real function which we may not be able to know or find. This can help us solve some difficult problems.
+	SLIDES INTERPOLATION.PDF
+see the main problem of interpolation from the slide.
+We are looking for a continous function on the interval of a, b such that the mash funtion is is equal on that interval of the function.
+the interval of f(x) may be part of the real numbers
+we have to use the finite number of points xi in the domain of the function
+f is element of the complex interval [a, b], with C to the power of the number of elements of the function, denoted by k 
+	Two kinds of funtions:
+Polynomial Interpolation (degree up to n-1 for n elements) of the class P subscript (n - 1) 
+Spline Interpolation 
+	EXAMPLE
+Here we have a problem of Omega sub n (x) element of the set Pn
+we will solve is as part of class Pn-1
+is looks kind of like a inverted cosine
+xi are the zeroes of the function and it is the main polynomial of our interpolation
+now we construct a lagrangian polynomial
+we start with the main polynomial and construct basic polynomials by using the fucting he is giving us in the slides
+we can then prove that (omega n) / (basic funtions) = Product(basic functions) which is element of Pn-1
+

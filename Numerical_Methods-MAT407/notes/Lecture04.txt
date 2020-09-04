@@ -1,0 +1,7 @@
+LECTURE04 INTERPOLATION 29.01.2019
+its Convert.ToInt32(combobox.text)
+combobox2 is epsylon
+combobox1 is the n of greetpoints
+combobox3 is the problem
+cb4 is the type of mesh
+now implement the algorithm for the function
