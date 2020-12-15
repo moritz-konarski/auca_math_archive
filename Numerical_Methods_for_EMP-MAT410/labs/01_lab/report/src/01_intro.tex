@@ -1,0 +1,109 @@
+\documentclass[../00_main.tex]{subfiles}
+
+\begin{document}
+
+\subsection{Problem Functions}
+
+All problem functions in this report are versions of the following general
+equation
+\begin{equation}\label{eq:base}
+    \begin{cases}
+        \epsilon \cdot u''(x) + a(x) \cdot u'(x) - b(x) \cdot u(x) &= f(x),
+            \quad x \in (0,1) \\
+        \zeta_0 \cdot u(0) - \eta_0\cdot\epsilon\cdot u'(0) &= \phi_0,   \\
+        \zeta_1 \cdot u(1) + \eta_1\cdot\epsilon\cdot u'(1) &= \phi_1.
+    \end{cases}
+\end{equation}
+Here $\epsilon > 0$, $a(x), b(x), f(x)$ are functions on the interval $[0;1]$
+where $b(x) \ge 0$. The following problems are versions of the general problem 
+\eqref{eq:base}. The first equation from my readme file is the following:
+\begin{equation}\label{eq:bvp1}
+    \begin{cases}
+        \epsilon \cdot u''(x) + u'(x) &= x^3,
+            \quad x \in (0,1) \\
+        u(0) &= \phi_0,   \\
+        u(1) &= \phi_1.
+    \end{cases}
+\end{equation}
+Here $\phi_0$ and $\phi_1$ can be freely chosen. I found the analytic 
+solution to this equation for our first homework assignment. 
+\begin{equation}\nonumber
+    \begin{gathered}
+        u = (e^{-1/\epsilon\cdot x} - 1) 
+            \frac{\phi_0 - \phi_1 + 1/4 - \epsilon+3 \epsilon^2
+            - 6 \epsilon^3} {1 - e^{-1/\epsilon}}\\
+         + \frac{1}{4}x^4-\epsilon x^3+3\epsilon^2 x^2-6\epsilon^3 x+\phi_0
+    \end{gathered}
+\end{equation}
+The boundary conditions of this problem make it a Dirichlet problem. I will
+refer to this problem as \textsc{Problem 1} from now on. The second equation 
+from my readme file is:
+\begin{equation}\label{eq:bvp2}
+    \begin{cases}
+        \epsilon \cdot u''(x) + u'(x) &= x^3,
+            \quad x \in (0,1) \\
+        u(0) - u'(0) &= \phi_0,   \\
+        u(1) &= \phi_1.
+    \end{cases}
+\end{equation}
+This equation's analytic solution is:
+\begin{equation}\nonumber
+    \begin{gathered}
+        u = \phi_0  + (e^{-1/\epsilon \cdot x} - 2)
+            \frac{\phi_0-\phi_1+1/4 -\epsilon+3\epsilon^2-6\epsilon^3-
+            6\epsilon^4}{2 - e^{-1/\epsilon}}    \\
+        + \frac{1}{4}x^4 - \epsilon x^3 + 3\epsilon^2 x^2
+            - 6 \epsilon^3 x - 6 \epsilon^4.
+    \end{gathered}
+\end{equation}
+Again $\phi_0$ and $\phi_1$ can be freely chosen. This problem is a Robin 
+problem because it contains a derivative in its boundary condition. This problem 
+will be referred to as \textsc{Problem 2}. The third problem this report covers 
+is number 3 from our PDF. It has the form:
+\begin{equation}\label{eq:bvp3}
+    \begin{cases}
+        \epsilon \cdot u''(x) + \left(3\cdot(1+x)^2-\frac{2\cdot\epsilon}{1+x}
+            \right) \cdot u'(x) &= \frac{3\cdot\epsilon}{2\cdot(1+x)^2} 
+            - \frac{3\dot(1+x)}{2},
+            \quad x \in (0,1) \\
+        u(0) - \frac{1}{3}\cdot\epsilon\cdot u'(0) &= \frac{\epsilon}{6}
+        - \frac{1}{1-e^{-7/\epsilon}},   \\
+        u(1) &= 1 - \frac{\ln(2)}{2},
+    \end{cases}
+\end{equation}
+and it's analytic solution is 
+\begin{equation}\nonumber
+    u(x) = \frac{1 - e^{\frac{1-(1+x)^3}{\epsilon}}}{1-e^{-7/\epsilon}} 
+        - \frac{\ln(1+x)}{2}.
+\end{equation}
+This problem is also a Robin problem and will be referred to as 
+\textsc{Problem 3}.
+
+\subsection{Finite Difference Schemes}
+
+There are two finite difference schemes that my program is capable of and
+this report covers. The first scheme is the Central Difference Scheme (CDS) for 
+which
+\begin{equation}\nonumber
+    \begin{gathered}
+        \gamma_i = 1,  \\
+        \theta_i = 0,  \\
+    \end{gathered}
+\end{equation}
+and the Ilin Scheme (IS) where
+\begin{equation}\nonumber
+    \begin{gathered}
+        \gamma_i = R_i \cdot \text{cotanh}(R_i),        \\
+        \theta_i =\text{cotanh}(R_i) - \frac{1}{R_i}.   \\
+    \end{gathered}
+\end{equation}
+This is the only difference between IS and the CDS. They both use the Thomas 
+Algorithm with the values described in our task PDF to solve the equations 
+\eqref{eq:bvp1}, \eqref{eq:bvp2}, and \eqref{eq:bvp3} numerically. For 
+the Thomas Algorithm the factors $A_i, B_i, C_i$ from our advection-diffusion
+PDF p. 20 are used.
+My boundary conditions are based on the precise boundary conditions that are
+outlined in lab 1 PDF on page 3 (IV.1.3). These precise conditions allow
+precise approximations of the boundaries and by extension the whole function.
+
+\end{document}

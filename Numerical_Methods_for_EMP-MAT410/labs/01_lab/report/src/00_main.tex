@@ -1,0 +1,100 @@
+\documentclass[a4paper, 12pt, reqno]{article}
+
+\newcommand{\titl}{NumMeth MAT-410 Lab 1 Report}
+\newcommand{\auth}{Moritz M. Konarski}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage[english]{babel}
+\usepackage[pdftitle={\titl}, pdfauthor={\auth}, final]{hyperref}
+\usepackage{graphicx}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage{accents}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{pgfplotstable}
+\newcommand{\figref}[1]{Figure~\ref{#1}}
+\newcommand{\tabref}[1]{Table~\ref{#1}}
+\renewcommand{\baselinestretch}{1.3}
+\setcounter{tocdepth}{2}
+\usepackage{accents}
+\usepackage[document]{ragged2e}
+
+\setlength{\RaggedRightParindent}{0.25in}
+
+\usepackage{subfiles}
+
+\title{\titl}
+\author{\auth}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{abstract}\noindent
+    This report deals with numerical solutions to second order differential
+    equations using finite difference methods. The problems were chosen 
+    according to my readme file. The finite difference methods in this report 
+    are the Central Difference Scheme and the Ilin Scheme. With their help the 
+    test problems' analytical and numerical solutions for various parameter 
+    values are considered.
+\end{abstract}
+\tableofcontents
+
+\section{Introduction}
+
+This report deals with three differential equations based on one general system 
+of equations. These equations are solved both analytically and numerically.
+The numerical solutions are found using finite difference methods. The 
+resulting graphs of the solutions for various parameters are shown. Their 
+behavior is investigated according to the requirements in our task PDF.
+
+\subfile{../src/01_intro}
+
+\section{Analysis}
+
+This section will investigate the behavior of the analytical and numerical
+solutions to \eqref{eq:bvp1}, \eqref{eq:bvp2}, and \eqref{eq:bvp3}. The 
+parameters $n$ (number of nodes) and $\epsilon$ will be changed to investigate
+their influence on the problem functions and solutions. Both the Central 
+Difference Scheme and Ilin Scheme will be compared regarding their accuracy.
+
+\subfile{../src/02_eps_to_zero}
+
+\subfile{../src/03_n_acc}
+
+\subfile{../src/04_eps_acc}
+
+\subfile{../src/05_s_acc}
+
+\newpage
+\section{Conclusion}
+
+To conclude, both the Central Difference Scheme and the Ilin Scheme approximate
+problems \eqref{eq:bvp1}, \eqref{eq:bvp2}, and \eqref{eq:bvp3} well. When $n$ 
+is increased, the accuracy of the approximation increases, too. Both CDS and IS
+converge to the analytic function for large--enough $n$. For low $n$ CDS tends
+to oscillate and thus IS is a better approximation for those cases. Even for
+Robin problems which are difficult to approximate at the boundary layer high
+$n$ lead to convergence for both schemes.
+
+The parameter $\epsilon$ has a negative influence on the accuracy of the
+numeric approximation when it becomes smaller. The shape of the function 
+becomes more extreme and the finite difference methods become less accurate. IS 
+can still approximate these cases well given the appropriate number of
+nodes. CDS has more trouble because it oscillates, especially around the
+boundary layer, making the approximation imprecise.
+
+All in all I think that IS is the better method to approximate the solutions
+this report covers. It does not suffer from inaccuracy caused by oscillations
+if $n$ or $\epsilon$ is small. It converges slower than CDS and is
+more computationally expensive because of the involved exponential functions,
+but in my opinion that is worth it. The only drawback that I found in my
+analysis is that for \textsc{Problem 3} with small $\epsilon$ IS is not
+monotonous and did not produce a result. On the other hand, the result obtained
+by CDS was 3.7 times off the mark which indicates that neither method can
+approximate very small $\epsilon$ well.
+
+\end{document}

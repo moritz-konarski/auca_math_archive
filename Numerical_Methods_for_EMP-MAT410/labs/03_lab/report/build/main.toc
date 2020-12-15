@@ -1,0 +1,11 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}The Task}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}The Methods}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Speed of Convergence}{3}{section.2}%
+\contentsline {section}{\numberline {3}Complexity of the Solutions}{4}{section.3}%
+\contentsline {section}{\numberline {4}Effectiveness of the Methods}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Number of Required Iterations}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Errors}{6}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Visual Proximity of the graphs}{7}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Conclusion}{8}{section.5}%

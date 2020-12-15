@@ -1,0 +1,167 @@
+\documentclass[../00_main.tex]{subfiles}
+
+\begin{document} 
+
+\subsection{Accuracy as $n$ Increases}
+
+When the number of nodes $n$ increases, the accuracy of the
+approximation increases, too. In other words, the numerical solution converges
+to the analytic solution as $n$ increases. The error of the approximation is 
+calculated using the formula
+\begin{equation}\nonumber
+    \text{Err} \equiv \frac{\underset{1 \leq i \leq n}{\max}|u(x_i)
+        - u^h_i|}{\underset{1 \leq i \leq n}{\max}|u(x_i)|} \cdot 100\%.
+\end{equation}
+A small error indicates that the numeric approximations are converging to the 
+analytic solutions. In \figref{fig:err_cds} and \figref{fig:err_is} the error 
+of CDS and IS approximations dependent on $n$ is shown. \figref{fig:err_cds} 
+illustrates that CDS is not very accurate for low $n$, with \textsc{Problem 3} 
+even having an error of $402.26\%$ for $n=3$. But as $n$ increases, the error 
+decreases quickly. For the first two problems it is below 10\% at only 17 
+nodes. For \textsc{Problem 3} is takes 64 nodes to reach the same accuracy 
+which suggests that it is harder to approximate this problem than the first two 
+problems.
+\begin{figure}[h]
+\centering\begin{tikzpicture}
+\begin{axis}[
+    title={CDS Error Dependent on $n$},
+    width=15cm, height=10cm,
+    line width=1pt,
+    grid = major,
+    grid style = {dashed, gray!30},
+    xmin = -5,
+    xmax = 520,
+    ymin = -5,
+    ymax = 120,
+    /pgfplots/xtick = {0, 50,...,520},
+    axis background/.style = {fill=white},
+    ylabel = {$Error\text{ }in\text{ }\%$},
+    xlabel = {$n$},
+    legend style={legend pos=north east},
+    tick align = outside,]
+
+    \addplot [red, mark=square] file {"../acc_n/BVP 1 (Dirichlet)_Central
+    Difference_steps_e-0.05_p1-0.25_p2-0.75_errors.dat"};
+    \addplot [blue, mark=square] file {"../acc_n/BVP 2 (Robin)_Central
+    Difference_steps_e-0.05_p1-0.25_p2-0.75_errors.dat"};
+    \addplot [green, mark=square] file {"../acc_n/Problem 3 (R)_Central 
+    Difference_steps_e-0.05_p1-0.25_p2-0.75_errors.dat"};
+
+    \legend{\textsc{Problem 1},\textsc{Problem 2},\textsc{Problem 3}}
+    \end{axis}%
+\end{tikzpicture}
+    \vspace{-20pt}
+    \caption{Accuracy of CDS dependent on $n$. 
+    $\phi_0=0.25$, $\phi_1=0.75$, $\epsilon=0.05$}
+\label{fig:err_cds}
+\end{figure}
+
+\figref{fig:err_is} shows that IS is more accurate for low $n$ than CDS, where
+the largest error is again \textsc{Problem 3} with $n=5$ at $38\%$. As $n$ 
+increases, this error decreases quickly, too. Again the first two problems 
+converge faster than the third problem. 
+
+\figref{fig:err_cds} and \figref{fig:err_is} illustrate that \textsc{Problem 3} 
+is harder to approximate than \textsc{Problem 1} or \textsc{Problem 2}. This is 
+most likely caused by \textsc{Problem 3}'s more pronounced boundary layer which 
+is harder to approximate. Furthermore we see that if $n$ is large enough, the 
+numeric solution converges to the analytic solution. As an example of this see 
+\figref{fig:bvp2_acc_n} which shows that for large $n$, the numeric solution 
+using IS converges to the analytical one, even though the problem's Robin 
+boundary condition is not handled well for low $n$.
+
+\begin{figure}[h]
+\centering\begin{tikzpicture}
+\begin{axis}[
+    title={IS Error Dependent on $n$},
+    width=15cm, height=10cm,
+    line width=1pt,
+    grid = major,
+    grid style = {dashed, gray!30},
+    xmin = -5,
+    xmax = 520,
+    ymin = -5,
+    ymax = 120,
+    /pgfplots/xtick = {0, 50,...,520},
+    axis background/.style = {fill=white},
+    ylabel = {$Error\text{ }in\text{ }\%$},
+    xlabel = {$n$},
+    legend style={legend pos=north east},
+    tick align = outside,]
+
+    \addplot [red, mark=square] file {"../acc_n/BVP 1 (Dirichlet)_Ilin 
+    Scheme_steps_e-0.05_p1-0.25_p2-0.75_errors.dat"};
+    \addplot [blue, mark=square] file {"../acc_n/BVP 2 (Robin)_Ilin 
+    Scheme_steps_e-0.05_p1-0.25_p2-0.75_errors.dat"};
+    \addplot [green, mark=square] file {"../acc_n/Problem 3 (R)_Ilin 
+    Scheme_steps_e-0.05_p1-0.25_p2-0.75_errors.dat"};
+
+    \legend{\textsc{Problem 1},\textsc{Problem 2},\textsc{Problem 3}}
+    \end{axis}%
+\end{tikzpicture}
+    \vspace{-20pt}
+    \caption{Accuracy of IS dependent on $n$. $\phi_0=0.25$, 
+    $\phi_1=0.75$, $\epsilon=0.05$}
+\label{fig:err_is}
+\end{figure}
+
+\begin{figure}[H]
+\centering\begin{tikzpicture}
+\begin{axis}[
+    title={\textsc{Problem 2} for $n=3$},
+    width=7cm, height=7cm,
+    line width=1pt,
+    grid = major,
+    grid style = {dashed, gray!30},
+    xmin = -0.1,
+    xmax = 1.1,
+    ymin = -0.1,
+    ymax = 1.1,
+    /pgfplots/xtick = {-0.2, 0.0,...,1.2},
+    axis background/.style = {fill=white},
+    ylabel = {$u(x)$},
+    xlabel = {$x$},
+    legend style={legend pos=north east},
+    tick align = outside,]
+    \addplot [blue, mark=square] file {"../acc_n/BVP 2 (Robin)_Ilin
+    Scheme_3_e-0.05_p1-0.25_p2-0.75_numerical.dat"};
+    \addplot [red, mark=none] file {"../acc_n/BVP 2 (Robin)_Ilin 
+    Scheme_3_e-0.05_p1-0.25_p2-0.75_analytic.dat"};
+    \legend{\textit{numeric},\textit{analytic}}
+\end{axis}%
+\end{tikzpicture}\qquad
+\begin{tikzpicture}
+\begin{axis}[
+    title={\textsc{Problem 2} for $n=257$},
+    width=7cm, height=7cm,
+    line width=1pt,
+    grid = major,
+    grid style = {dashed, gray!30},
+    xmin = -0.1,
+    xmax = 1.1,
+    ymin = -0.1,
+    ymax = 1.1,
+    /pgfplots/xtick = {-0.2, 0.0,...,1.2},
+    axis background/.style = {fill=white},
+    ylabel = {$u(x)$},
+    xlabel = {$x$},
+    legend style={legend pos=north east},
+    tick align = outside,]
+    \addplot [blue, mark=square] file {"../acc_n/BVP 2 (Robin)_Ilin
+    Scheme_257_e-0.05_p1-0.25_p2-0.75_numerical.dat"};
+    \addplot [red, mark=none] file {"../acc_n/BVP 2 (Robin)_Ilin 
+    Scheme_257_e-0.05_p1-0.25_p2-0.75_analytic.dat"};
+    \legend{\textit{numeric},\textit{analytic}}
+\end{axis}%
+\end{tikzpicture}
+    \vspace{-20pt}
+\caption{Convergence of \eqref{eq:bvp2} with IS for $\phi_0=0.25$,
+   $\phi_1=0.75$, $\epsilon=0.05$}
+\label{fig:bvp2_acc_n}
+\end{figure}
+
+Considering the effect of $n$ on the accuracy of the numerical approximation we 
+can say that an increase in $n$ leads to a decrease in the error and a better 
+convergence of the numerical solution to analytical solution. 
+
+\end{document}

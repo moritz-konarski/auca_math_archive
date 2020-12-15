@@ -1,0 +1,2 @@
+2) is not monotone
+3) is monotone
