@@ -1,0 +1,79 @@
+\documentclass[../00_main.tex]{article}
+
+\begin{document}
+
+\subsection{Accuracy of Difference Schemes}
+
+The two schemes discussed in this report both have advantages and
+disadvantages which will be discussed using \textsc{Problem 3} as the example
+because it was shown to be the most difficult problem to approximate. 
+
+When $\epsilon$ is decreased our previous analysis has shown that it becomes
+harder to approximate the functions because of the shape of the function near
+the boundary layer. \tabref{tab:err_eps} shows the error in \% of the
+numerical solution compared to the analytical solution for \textsc{Problem 3} 
+and both schemes. The last column of the table is the ratio of the error of CDS 
+to the error of IS. This enables us to more easily compare the schemes. 
+\begin{table}[h]
+\centering
+\begin{tabular}{| r | r | r | r |}\hline
+    $\epsilon$  & CDS Error in \%   & IS Error in \% & $\text{Err}_{\text{CDS}}
+    /\text{Err}_{\text{IS}}$   \\\hline\hline
+    1       &   0.07529  &   0.10654  &  0.70668    \\\hline
+    0.5     &   0.20207  &   0.22170  &  0.91145    \\\hline
+    0.25    &   0.61485  &   0.68392  &  0.89900    \\\hline
+    0.1     &   3.48381  &   3.79717  &  0.91747    \\\hline
+    0.05    &  13.43621  &  11.39853  &  1.17876    \\\hline
+    0.01    &  66.91237  &  33.49386  &  1.99775    \\\hline
+    0.005   &  87.29208  &  36.84592  &  2.36911    \\\hline
+    0.001   & 199.07709  &  39.39860  &  5.05289    \\\hline
+    0.0001  & 367.72195  &  \texttt{NaN} &   \texttt{NaN} \\\hline
+\end{tabular}
+    \vspace{15pt}
+    \caption{Errors in \% for \eqref{eq:bvp3} for CDS and IS, various
+    $\epsilon$, $n=33$}
+    \label{tab:err_eps}
+\end{table}
+\tabref{tab:err_eps} shows that for large $\epsilon$ CDS is the better
+approximation but as $\epsilon$ decreases their accuracies come closer. This
+trend continues and IS becomes more accurate than CDS. This is caused by the
+oscillations that CDS experiences for small $\epsilon$ making the
+approximation inaccurate. As IS does not experience oscillations, its error
+increases much slower. For \textsc{Problem 3} we see that IS can
+have limits, as it is neither monotone nor stable for this exercise and these 
+parameters. This
+means that the solution is not stable and thus when $\epsilon$ gets too small
+my program cannot find a solution. 
+
+The other important parameter in this problem is $n$, the number of nodes. In
+\tabref{tab:err_n} we see the error for the CDS and IS approximations of
+\textsc{Problem 3} and again their ratio. 
+\begin{table}[h]
+\centering
+\begin{tabular}{| r | r | r | r |}\hline
+    $n$  & CDS Error in \%   & IS Error in \% & $\text{Err}_{\text{CDS}}
+    /\text{Err}_{\text{IS}}$   \\\hline\hline
+    3      & 402.26497 & 31.32132 & 12.84316    \\\hline
+    5      & 225.19784 & 38.23313 & 5.89012     \\\hline
+    17     &  36.95902 & 24.19590 & 1.52749     \\\hline
+    33     &  13.43621 & 11.39853 & 1.17876     \\\hline
+    65     &   3.24558 &  3.74921 & 0.86567     \\\hline
+    129    &   0.74625 &  1.00782 & 0.74045     \\\hline
+    257    &   0.18301 &  0.26429 & 0.69245     \\\hline
+    513    &   0.04564 &  0.06782 & 0.67295     \\\hline
+    1000   &   0.01198 &  0.01805 & 0.66371     \\\hline
+    10000  &   0.00012 &  0.00018 & 0.66666     \\\hline
+\end{tabular}
+    \vspace{15pt}
+    \caption{Errors in \% for \eqref{eq:bvp3} for CDS and IS, various
+    $n$, $\epsilon=0.05$}
+    \label{tab:err_n}
+\end{table}
+\tabref{tab:err_n} demonstrates that for small $n$ IS is more accurate because
+CDS tends to oscillate more for low $n$. Then, as $n$ increases, CDS becomes 
+more accurate. As $n$ increases further the two methods begin to converge to an 
+error of 0\% and the difference between them continues to increase but the rate
+of change slows down. This means that when $n$ increases, CDS converges a little
+bit faster than IS, but they both converge to the analytical solution. 
+
+\end{document}

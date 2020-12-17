@@ -1,0 +1,125 @@
+\documentclass[../00_main.tex]{subfiles}
+
+\begin{document}
+
+\subsection{Behavior as $\epsilon$ Tends to Zero}
+
+As $\epsilon$ tends to zero the shape of all three functions becomes more
+pronounced. What I mean is that when $\epsilon$ is large ($\epsilon \ge 0.5$),
+the functions have more smoothly changing slopes. When $\epsilon$ approaches 
+zero, the functions have more abrupt changes in their slope. These
+abrupt changes in slope take place at the boundary layers of the functions 
+which are at $x=0$ for all three problems. \figref{fig:bvp1_e} shows this 
+behavior for \eqref{eq:bvp1}. It shall also represent \eqref{eq:bvp2} because  
+even though they are different functions their graphs are similar enough for 
+this illustration. \figref{fig:bvp3_e} shows this behavior for \eqref{eq:bvp3}, 
+showing that this problem also develops a clear boundary layer at 
+$x=0$. For \eqref{eq:bvp1} and \eqref{eq:bvp2} we have $\phi_0=0.25$ and 
+$\phi_1=0.75$ as the boundary values.
+\begin{figure}[H]
+\centering\begin{tikzpicture}
+\begin{axis}[
+    title={\textsc{Problem 1} for $\epsilon=0.5$},
+    width=7cm, height=7cm,
+    line width=1pt,
+    grid = major,
+    grid style = {dashed, gray!30},
+    xmin = -0.1,
+    xmax = 1.1,
+    ymin = -0.1,
+    ymax = 1.1,
+    /pgfplots/xtick = {-0.2, 0.0,...,1.2},
+    axis background/.style = {fill=white},
+    ylabel = {$u(x)$},
+    xlabel = {$x$},
+    legend style={legend pos=north east},
+    tick align = outside,]
+    \addplot [red, mark=none] file {"../beh_e/BVP 1 (Dirichlet)_Central
+    Difference_3_e-0.5_p1-0.25_p2-0.75_analytic.csv"};
+\legend{\textit{analytic}}
+\end{axis}%
+\end{tikzpicture}\qquad
+\begin{tikzpicture}
+\begin{axis}[
+    title={\textsc{Problem 1} for $\epsilon=0.0125$},
+    width=7cm, height=7cm,
+    line width=1pt,
+    grid = major,
+    grid style = {dashed, gray!30},
+    xmin = -0.1,
+    xmax = 1.1,
+    ymin = -0.1,
+    ymax = 1.1,
+    /pgfplots/xtick = {-0.2, 0.0,...,1.2},
+    axis background/.style = {fill=white},
+    ylabel = {$u(x)$},
+    xlabel = {$x$},
+    legend style={legend pos=north east},
+    tick align = outside,]
+    \addplot [red, mark=none] file {"../beh_e/BVP 1 (Dirichlet)_Central
+    Difference_3_e-0.0125_p1-0.25_p2-0.75_analytic.csv"};
+\legend{\textit{analytic}}
+\end{axis}%
+\end{tikzpicture}
+    \vspace{-20pt}
+    \caption{Behavior of \eqref{eq:bvp1} for $\phi_0=0.25$, 
+    $\phi_1=0.75$, different $\epsilon$}
+\label{fig:bvp1_e}
+\end{figure}
+
+\begin{figure}[h]
+\centering\begin{tikzpicture}
+\begin{axis}[
+    title={\textsc{Problem 3} for $\epsilon=0.5$},
+    width=7cm, height=7cm,
+    line width=1pt,
+    grid = major,
+    grid style = {dashed, gray!30},
+    xmin = -0.1,
+    xmax = 1.1,
+    ymin = -0.1,
+    ymax = 1.1,
+    /pgfplots/xtick = {-0.2, 0.0,...,1.2},
+    axis background/.style = {fill=white},
+    ylabel = {$u(x)$},
+    xlabel = {$x$},
+    legend style={legend pos=north east},
+    tick align = outside,]
+    \addplot [red, mark=none] file {"../beh_e/Problem 3 (R)_Central
+    Difference_3_e-0.5_p1-0.25_p2-0.75_analytic.csv"};
+    \legend{\textit{analytic}}
+\end{axis}%
+\end{tikzpicture}\qquad
+\begin{tikzpicture}
+\begin{axis}[
+    title={\textsc{Problem 3} for $\epsilon=0.0125$},
+    width=7cm, height=7cm,
+    line width=1pt,
+    grid = major,
+    grid style = {dashed, gray!30},
+    xmin = -0.1,
+    xmax = 1.1,
+    ymin = -0.1,
+    ymax = 1.1,
+    /pgfplots/xtick = {-0.2, 0.0,...,1.2},
+    axis background/.style = {fill=white},
+    ylabel = {$u(x)$},
+    xlabel = {$x$},
+    legend style={legend pos=north east},
+    tick align = outside,]
+    \addplot [red, mark=none] file {"../beh_e/Problem 3 (R)_Central
+    Difference_3_e-0.0125_p1-0.25_p2-0.75_analytic.csv"};
+    \legend{\textit{analytic}}
+    \end{axis}%
+\end{tikzpicture}
+    \vspace{-20pt}
+    \caption{Behavior of \eqref{eq:bvp3} for different 
+    $\epsilon$}
+\label{fig:bvp3_e}
+\end{figure}
+
+\figref{fig:bvp1_e} and \figref{fig:bvp3_e} allow us to conclude that all three 
+functions have a boundary layer at $x=0$ and that a smaller $\epsilon$ leads to 
+a more pronounced boundary layer with a more drastic change in slope. 
+
+\end{document}

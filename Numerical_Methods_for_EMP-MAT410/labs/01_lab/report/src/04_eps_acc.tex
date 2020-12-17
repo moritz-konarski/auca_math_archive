@@ -1,0 +1,236 @@
+\documentclass[../00_main.tex]{subfiles}
+
+\begin{document}
+
+\subsection{Effect of $\epsilon$ on Accuracy}
+
+Epsilon has a negative effect on the accuracy of approximations when
+it gets smaller. This is caused by the more extreme shape of the functions 
+around the boundary layer that makes is harder to successfully approximate 
+them. Especially the CDS has difficulties here as it starts to oscillate around 
+the drastic change in slope near the boundary layer. These oscillations then 
+continue for the length of the function, making the whole approximation 
+imprecise. IS can successfully avoid these oscillations as the graphs below 
+illustrate. The exponential functions involved in the hyperbolic cotangent in 
+$R_i$ of IS are the reason for this.
+
+\figref{fig:err_cds_eps} shows that when $\epsilon \rightarrow 0$ the error
+of CDS increases dramatically ($n=33$ here). For \textsc{Problem 1} and 
+\textsc{Problem 2} the maximum error for $\epsilon=0.0001$ is 164.2\% and
+41.4\% respectively. For \textsc{Problem 3} the maximum error for this value
+of $\epsilon$ is 367.7\% and even for $\epsilon=0.001$ the error is 199\%.
+Neither of these values fit on the graph.\\
+\begin{figure}[h]
+\centering\begin{tikzpicture}
+\begin{axis}[
+    title={CDS Error Dependent on $\epsilon$},
+    width=15cm, height=10cm,
+    line width=1pt,
+    grid = major,
+    grid style = {dashed, gray!30},
+    xmin = -0.1,
+    xmax = 1.1,
+    ymin = -5,
+    ymax = 170,
+    /pgfplots/xtick = {-0.1, 0,...,1.1},
+    axis background/.style = {fill=white},
+    ylabel = {$Error\text{ }in\text{ }\%$},
+    xlabel = {$\epsilon$},
+    legend style={legend pos=north east},
+    tick align = outside,]
+
+    \addplot [red, mark=square] file {"../acc_e/BVP 1 (Dirichlet)_Central
+    Difference_33_eps_p1-0.25_p2-0.75_errors.dat"};
+    \addplot [blue, mark=square] file {"../acc_e/BVP 2 (Robin)_Central
+    Difference_33_eps_p1-0.25_p2-0.75_errors.dat"};
+    \addplot [green, mark=square] file {"../acc_e/Problem 3 (R)_Central
+    Difference_33_eps_p1-0.25_p2-0.75_errors.dat"};
+
+    \legend{\textsc{Problem 1},\textsc{Problem 2},\textsc{Problem 3}}
+    \end{axis}%
+\end{tikzpicture}
+    \vspace{-20pt}
+    \caption{Accuracy of CDS dependent on $\epsilon$.
+    $\phi_0=0.25$, $\phi_1=0.75$, $n=33$}
+\label{fig:err_cds_eps}
+\end{figure}
+The large error in \textsc{Problem 3} can be explained by the aforementioned
+oscillations that are caused by the pronounced boundary layer in that problem. 
+To illustrate this, \figref{fig:bvp3_acc_e} shows the analytic and numerical 
+solutions for $n=33$ and $\epsilon=0.1$ and $\epsilon=0.001$ respectively. The 
+graph on the right shows the oscillations that explain the high error.
+\begin{figure}[H]
+\centering\begin{tikzpicture}
+\begin{axis}[
+    title={\textsc{Problem 3} for $\epsilon=0.1$},
+    width=7cm, height=7cm,
+    line width=1pt,
+    grid = major,
+    grid style = {dashed, gray!30},
+    xmin = -0.1,
+    xmax = 1.1,
+    ymin = -0.1,
+    ymax = 3.1,
+    /pgfplots/xtick = {-0.2, 0.0,...,1.2},
+    axis background/.style = {fill=white},
+    ylabel = {$u(x)$},
+    xlabel = {$x$},
+    legend style={legend pos=north east},
+    tick align = outside,]
+    \addplot [blue, mark=square] file {"../acc_e/Problem 3 (R)_Central 
+    Difference_33_e-0.1_p1-0.25_p2-0.75_numerical.dat"};
+    \addplot [red, mark=none] file {"../acc_e/Problem 3 (R)_Central 
+    Difference_33_e-0.1_p1-0.25_p2-0.75_analytic.dat"};
+    \legend{\textit{numeric},\textit{analytic}}
+\end{axis}%
+\end{tikzpicture}\qquad
+\begin{tikzpicture}
+\begin{axis}[
+    title={\textsc{Problem 3} for $\epsilon=0.001$},
+    width=7cm, height=7cm,
+    line width=1pt,
+    grid = major,
+    grid style = {dashed, gray!30},
+    xmin = -0.1,
+    xmax = 1.1,
+    ymin = -0.1,
+    ymax = 3.1,
+    /pgfplots/xtick = {-0.2, 0.0,...,1.2},
+    axis background/.style = {fill=white},
+    ylabel = {$u(x)$},
+    xlabel = {$x$},
+    legend style={legend pos=north east},
+    tick align = outside,]
+    \addplot [blue, mark=square] file {"../acc_e/Problem 3 (R)_Central 
+    Difference_33_e-0.001_p1-0.25_p2-0.75_numerical.dat"};
+    \addplot [red, mark=none] file {"../acc_e/Problem 3 (R)_Central 
+    Difference_33_e-0.001_p1-0.25_p2-0.75_analytic.dat"};
+    \legend{\textit{numeric},\textit{analytic}}
+\end{axis}%
+\end{tikzpicture}
+    \vspace{-20pt}
+\caption{Behavior of \eqref{eq:bvp3} with CDS for $n=33$}
+\label{fig:bvp3_acc_e}
+\end{figure}
+
+While CDS is fairly accurate for most values of $\epsilon$, when it becomes too
+small, the numerical solution begins to oscillate and becomes very inaccurate. 
+IS does not face that problem as it's $R_i$ is not prone to oscillations.
+\figref{fig:err_is_eps} shows the errors for $\epsilon \rightarrow 0$ for IS. 
+We see that the error of IS also increases, but much less than for CDS ($n=33$ 
+also here). For \textsc{Problem 1} and \textsc{Problem 2} the maximum error for 
+$\epsilon=0.0001$ is 8.5\% and 3.8\% respectively. For \textsc{Problem 3} 
+the maximum error for this value can't be found with my program. It returns
+\texttt{NaN} (not a number). I think the reason for this is that 
+\textsc{Problem 3} is not monotone for any values of $\epsilon$ that I tested.
+This causes the numeric solution to break down for small $\epsilon$.
+Furthermore, the conditions for stability are also not met. For 
+$\epsilon=0.001$ the error is 39.4\% for this problem.
+
+The explanation for the great increase in accuracy compared to CDS is that IS 
+does not start to oscillate for small values of $\epsilon$ and thus keeps its 
+accuracy. \figref{fig:err_is_eps} shows the much smaller errors for small 
+$\epsilon$ of IS compared to CDS (note that the axes are the same as in 
+\figref{fig:err_cds_eps}). \\\figref{fig:bvp3_acc_e_is} shows the same problem 
+and parameters as \figref{fig:bvp3_acc_e} and demonstrates that IS does not 
+oscillate in a situation where CDS did.
+\begin{figure}[h]
+\centering\begin{tikzpicture}
+\begin{axis}[
+    title={IS Error Dependent on $\epsilon$},
+    width=15cm, height=10cm,
+    line width=1pt,
+    grid = major,
+    grid style = {dashed, gray!30},
+    xmin = -0.1,
+    xmax = 1.1,
+    ymin = -5,
+    ymax = 170,
+    /pgfplots/xtick = {-0.1, 0,...,1.1},
+    axis background/.style = {fill=white},
+    ylabel = {$Error\text{ }in\text{ }\%$},
+    xlabel = {$\epsilon$},
+    legend style={legend pos=north east},
+    tick align = outside,]
+
+    \addplot [red, mark=square] file {"../acc_e/BVP 1 (Dirichlet)_Ilin
+    Scheme_33_eps_p1-0.25_p2-0.75_errors.dat"};
+    \addplot [blue, mark=square] file {"../acc_e/BVP 2 (Robin)_Ilin
+    Scheme_33_eps_p1-0.25_p2-0.75_errors.dat"};
+    \addplot [green, mark=square] file {"../acc_e/Problem 3 (R)_Ilin
+    Scheme_33_eps_p1-0.25_p2-0.75_errors.dat"};
+
+    \legend{\textsc{Problem 1},\textsc{Problem 2},\textsc{Problem 3}}
+    \end{axis}%
+\end{tikzpicture}
+    \vspace{-20pt}
+    \caption{Accuracy of IS dependent on $\epsilon$. $\phi_0=0.25$,
+    $\phi_1=0.75$, $n=33$}
+\label{fig:err_is_eps}
+\end{figure}
+
+\begin{figure}[H]
+\centering\begin{tikzpicture}
+\begin{axis}[
+    title={\textsc{Problem 3} for $\epsilon=0.1$},
+    width=7cm, height=7cm,
+    line width=1pt,
+    grid = major,
+    grid style = {dashed, gray!30},
+    xmin = -0.1,
+    xmax = 1.1,
+    ymin = -0.3,
+    ymax = 1.1,
+    /pgfplots/xtick = {-0.2, 0.0,...,1.2},
+    axis background/.style = {fill=white},
+    ylabel = {$u(x)$},
+    xlabel = {$x$},
+    legend style={legend pos=south east},
+    tick align = outside,]
+    \addplot [blue, mark=square] file {"../acc_e/Problem 3 (R)_Ilin 
+    Scheme_33_e-0.1_p1-0.25_p2-0.75_numerical.dat"};
+    \addplot [red, mark=none] file {"../acc_e/Problem 3 (R)_Ilin 
+    Scheme_33_e-0.1_p1-0.25_p2-0.75_analytic.dat"};
+    \legend{\textit{numeric},\textit{analytic}}
+\end{axis}%
+\end{tikzpicture}\quad
+\begin{tikzpicture}
+\begin{axis}[
+    title={\textsc{Problem 3} for $\epsilon=0.001$},
+    width=7cm, height=7cm,
+    line width=1pt,
+    grid = major,
+    grid style = {dashed, gray!30},
+    xmin = -0.1,
+    xmax = 1.1,
+    ymin = -0.3,
+    ymax = 1.1,
+    /pgfplots/xtick = {-0.2, 0.0,...,1.2},
+    axis background/.style = {fill=white},
+    ylabel = {$u(x)$},
+    xlabel = {$x$},
+    legend style={legend pos=south east},
+    tick align = outside,]
+    \addplot [blue, mark=square] file {"../acc_e/Problem 3 (R)_Ilin 
+    Scheme_33_e-0.001_p1-0.25_p2-0.75_numerical.dat"};
+    \addplot [red, mark=none] file {"../acc_e/Problem 3 (R)_Ilin 
+    Scheme_33_e-0.001_p1-0.25_p2-0.75_analytic.dat"};
+    \legend{\textit{numeric},\textit{analytic}}
+\end{axis}%
+\end{tikzpicture}
+    \vspace{-20pt}
+\caption{Behavior of \eqref{eq:bvp3} with IS for $n=33$}
+\label{fig:bvp3_acc_e_is}
+\end{figure}
+
+We can see that as $\epsilon \rightarrow 0$ approximating the analytical
+functions becomes more and more difficult. The parameter $\epsilon$ has 
+negative influence on the convergence of the numerical solution to the 
+analytical solution when it decreases. CDS begins to strongly oscillate
+around the boundary layer when $\epsilon$ is small and the approximation
+becomes pretty useless. IS does not have oscillations, but for \textsc{Problem
+3} the numerical approximation is neither monotone nor stable which means that 
+a solution might not exist for certain parameters. This is what happened when 
+$\epsilon=0.0001$.
+
+\end{document}
