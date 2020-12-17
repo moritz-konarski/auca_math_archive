@@ -1,0 +1,180 @@
+\documentclass[a4paper, 12pt, reqno]{amsart}
+
+\newcommand{\titl}{Actuarial Mathematics Homework 7}
+
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\numberwithin{equation}{section}
+\usepackage[margin=1in]{geometry}
+\usepackage[english]{babel}
+\usepackage[colorlinks, pdftitle={\titl},
+    pdfauthor={Moritz M. Konarski}]{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{snakes}
+\renewcommand{\baselinestretch}{1.25}
+\usepackage{actuarialsymbol}
+
+\title{\titl}
+\author{Moritz M. Konarski}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Parmenter Exercises 3--47 to 3--55}
+
+\subsection*{3--47}
+
+Loan of 6,000. Pay back 800 a year for as long as necessary, then a payment
+less than 800 at the end. First payment due in 1 year and $i=0.11$ -- find the
+number of payments and the smaller payment.
+\begin{equation}\nonumber
+    \begin{aligned}
+        800 \cdot \ax{\angln} &\le 6,000 < 800 \cdot \ax{\angl{n+1}}    \\
+        \ax{\angln} &\le 7.5 < \ax{\angl{n+1}}                          \\
+        \ax{\angln} &= 7.5                                              \\
+        \frac{1-v^n}{i} &= 7.5       \\
+        n &= \frac{\ln(1-7.5i)}{\ln(v)} \\
+        n &= 16.7015
+    \end{aligned}
+\end{equation}
+We know that it takes 16 payments of 800 plus 1 smaller payment to pay off the
+loan, 17 payments in total. The smaller payment is
+\begin{equation}\nonumber
+    \begin{aligned}
+        800 \cdot \sx{\angl{16}} + X &= 6,000(1+i)^{16}     \\
+        X &= 6,000(1+i)^{16} - 800 \cdot \sx{\angl{16}}         \\
+        X &= 513.40721          \\
+    \end{aligned}
+\end{equation}
+
+\subsection*{3--48}
+
+Loan of 6,000. Pay back 70 a month for as long as necessary, then a payment
+less than 70 at the end. First payment due in 1 month and $i=0.11$ per year -- 
+find the number of payments and the smaller payment.
+\begin{equation}\nonumber
+    \begin{aligned}
+        i &= \sqrt[12]{1.11} - 1
+        70 \cdot \ax{\angln} &\le 6,000 < 70 \cdot \ax{\angl{n+1}}    \\
+        \ax{\angln} &\le \frac{600}{7} < \ax{\angl{n+1}}            \\
+        \ax{\angln} &= \frac{600}{7}                                  \\
+        \frac{1-v^n}{i} &= \frac{600}{7}       \\
+        n &= \frac{\ln(1-\frac{600}{7}i)}{\ln(v)} \\
+        n &= 158.79946
+    \end{aligned}
+\end{equation}
+We know that it takes 158 payments of 70 plus 1 smaller payment to pay off the
+loan, 159 payments in total. The smaller payment is
+\begin{equation}\nonumber
+    \begin{aligned}
+        70 \cdot \sx{\angl{158}} + X &= 6,000(1+i)^{158}         \\
+        X &= 6,000(1+i)^{158} - 70 \cdot \sx{\angl{158}}         \\
+        X &= 55.52574
+    \end{aligned}
+\end{equation}
+
+\subsection*{3--49}
+
+Loan of 6,000. Pay back 800 a year for as long as necessary, then a payment
+less than 800 at the end. First payment due in 1 year and $i=0.11$ -- find the
+number of payments and the smaller payment.
+\begin{equation}\nonumber
+    \begin{aligned}
+        800 \cdot \ax{\angln} \cdot v &\le 6,000 < 800 \cdot
+            \ax{\angl{n+1}}\cdot v \\
+        \ax{\angln} \cdot v &\le 7.5 < \ax{\angl{n+1}} \cdot v         \\
+        \ax{\angln} &= 7.5(1+i)                                        \\
+        \frac{1-v^n}{i} &= 7.5(1+i)       \\
+        n &= \frac{\ln(1-7.5i(1+i))}{\ln(v)} \\
+        n &= 23.70608
+    \end{aligned}
+\end{equation}
+We know that it takes 23 payments of 800 plus 1 smaller payment to pay off the
+loan, 24 payments in total. The smaller payment is
+\begin{equation}\nonumber
+    \begin{aligned}
+        800 \cdot \sx{\angl{23}} + X &= 6,000(1+i)^{24}         \\
+        X &= 6,000(1+i)^{24} - 800 \cdot \sx{\angl{23}}         \\
+        X &= 516.63265
+    \end{aligned}
+\end{equation}
+
+\subsection*{3--50}
+
+Fund of 5,000 is accumulated by $n$ annual payments of 50 by another $n$ 
+payments of 100 plus a final payment of (as small as possible), one year after 
+the final payment. At $i=0.08$ find $n$ and the final payment.
+\begin{equation}\nonumber
+    \begin{aligned}
+        50 \cdot \sx{\angln}(1+i)^n + 100 \cdot \sx{\angln} &= 5,000    \\
+        \sx{\angln}(1+i)^n + 2 \cdot \sx{\angln} &= 100 \\
+        \frac{((1+i)^n)^2- (1+i)^n + 2(1+i)^n - 2}{i} &= 100 \\
+        (1+i)^n &= c    \\
+        c^2- c + 2c - 2 &= 100i \\
+        0 &= c^2 + c - (2 + 100i) \\
+        c_{1,2} &= \frac{-1 \pm \sqrt{41}}{2}   \\
+        c_1 < 0 \quad &\quad c_2 = \frac{-1 + \sqrt{41}}{2} \\
+        (1+i)^n &= \frac{-1 + \sqrt{41}}{2}     \\
+        n &= \ln\left(\frac{-1 + \sqrt{41}}{2}\right) / \ln(1+i)     \\
+        n &= 12.91342
+    \end{aligned}
+\end{equation}
+We know that it takes 12 payments of 50 and 100 plus 1 smaller payment to
+accumulate 5,000. The smaller payment is
+\begin{equation}\nonumber
+    \begin{aligned}
+        50 \cdot \sx{\angl{12}}(1+i)^{121} + 100 \cdot \sx{\angl{12}} + X 
+            &= 5,000       \\
+        \sx{\angl{12}}(1+i)^{12} + 2 \cdot \sx{\angl{12}} + X 
+            &= 100       \\
+        X &= 100 - \sx{\angl{12}}(1+i)^{12} - 2 \cdot \sx{\angl{12}}    \\
+        X &= 14.25811
+    \end{aligned}
+\end{equation}
+
+\subsection*{3--51}
+
+At what effective monthly rate will payments of 200 at the end of every month
+for the next 3 years pay of 6500?
+\begin{equation}\nonumber
+    \begin{aligned}
+        200 \cdot \ax{\angl{36}} &= 6500    \\
+        \ax{\angl{36}} &= \frac{6500}{200}    \\
+        \frac{1-v^{36}}{i} &= \frac{6500}{200}    \\
+        0 &= \frac{6500}{200}i(1+i)^{36} - (1+i)^{36} + 1 \\
+        \text{solving with a calculator}    \\
+        i &= 0.03077
+    \end{aligned}
+\end{equation}
+
+\subsection*{3--54}
+
+A fund of 25,000 is to be accumulated at the end of 20 years by annual payments
+of 500 at the end of each year. Find $i$
+\begin{equation}\nonumber
+    \begin{aligned}
+        500 \cdot \sx{\angl{20}} &= 25,000    \\
+        \sx{\angl{20}} &= \frac{25000}{500}    \\
+        \frac{(1+i)^{20}-1}{i} &= 50    \\
+        \text{solving with a calculator}    \\
+        i &= 0.04878
+    \end{aligned}
+\end{equation}
+
+\subsection*{3--55}
+
+\begin{equation}\nonumber
+    \begin{aligned}
+        100 \cdot \sx{\angl{5}}(1+i)^5 + 200 \sx{\angl{5}} &= 2,200    \\
+        \sx{\angl{5}}(1+i)^5 + 2 \sx{\angl{5}} &= 22    \\
+        (1+i)^{10} + (1+i)^5 &= 22i \\
+        \text{solving with a calculator}    \\
+        i &= 0.66667
+    \end{aligned}
+\end{equation}
+
+\end{document}

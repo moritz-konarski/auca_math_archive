@@ -1,0 +1,153 @@
+\documentclass[a4paper, 12pt, reqno]{amsart}
+
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\numberwithin{equation}{section}
+\usepackage[margin=1in]{geometry}
+\usepackage[english]{babel}
+\usepackage[colorlinks, pdftitle={Actuarial Mathematics Homework 3},
+    pdfauthor={Moritz M. Konarski}]{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+
+\title{Actuarial Mathematics Homework 3}
+\author{Moritz M. Konarski}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\subsection*{1--29}
+
+\begin{enumerate}[label=(\alph*)]
+    \item $i = 0.13 \rightarrow \delta = 0.122218$
+    \item $d = 0.13 \rightarrow \delta = 0.139262$
+    \item $i^{(4)} = 0.13 \rightarrow i = 0.136476 \rightarrow \delta
+        = 0.127932$
+    \item $d^{(5)} = 0.13 \rightarrow d = 0.123799 \rightarrow \delta
+        = 0.132159$
+\end{enumerate}
+
+\subsection*{1--30}
+
+Find derivatives
+\begin{equation}\nonumber
+    \begin{aligned}
+        a(t) &= 1 + it - (1+i)^t \qquad (1+i)^t = e^{t \cdot \ln{(1+i)}}    \\
+        &\qquad \delta = \ln{(1+i)}                                         \\
+        a'(t) &= i - \left[ (1+i)^t \right]'_t                              \\
+        a'(t) &= i - \left[ e^{t \cdot \ln{(1+i)}} \right]'                 \\
+        a'(t) &= i -\ln{(1+i)} e^{t \cdot \ln{(1+i)}}                       \\
+        a'(t) &= i -\delta e^{t \cdot \delta}                       \\
+        a''(t) &=  \left[ -\ln{(1+i)} e^{t \cdot \ln{(1+i)}} \right]'       \\
+        a''(t) &= -\left(\ln{(1+i)}\right)^2 \cdot e^{t \cdot \ln{(1+i)}}   \\
+        a''(t) &= -\delta^2 \cdot e^{t \cdot \delta}
+    \end{aligned}
+\end{equation}
+
+Find $a'(t) = 0$
+\begin{equation}\nonumber
+    \begin{aligned}
+        a'(t_0) &= 0 \\
+        0 &= i -\delta e^{t_0 \cdot \delta}                       \\
+        i &= \delta e^{t_0 \cdot \delta}                          \\
+        \ln{i} &= \ln{\delta} + \ln{e^{t_0 \cdot \delta}}         \\
+        \ln{i} &= \ln{\delta} + t_0 \cdot \delta \cdot \ln{e}     \\
+        t_0 &= \frac{\ln{i} - \ln{\delta}}{\delta} = 
+            \frac{1}{\delta}[ \ln{i} - \ln{\delta}]
+    \end{aligned}
+\end{equation}
+
+We found the same extremum as in the exercise. Now we need to show that it is
+a maximum. For this we need $a''(t_0) < 0$
+\begin{equation}\nonumber
+    \begin{aligned}
+        a''(t_0) &= -\delta^2 \cdot e^{t_0 \cdot \delta}        \\
+        &= -\delta^2 \cdot e^{\frac{1}{\delta}[ \ln{i} - \ln{\delta}] 
+            \cdot \delta}                                       \\
+        &= -\delta^2 \cdot e^{\ln{i} - \ln{\delta}}             \\
+        &= -\delta^2 \cdot (i / \delta)                         \\
+        a''(t_0) &= -\delta \cdot i                  \\
+        &\qquad \delta > 0, \quad i > 0       \\
+        a''(t_0) &< 0    \qed
+    \end{aligned}
+\end{equation}
+
+
+\subsection*{1--31}
+
+\begin{enumerate}[label=(\alph*)]
+    \item \begin{equation}\nonumber
+            \begin{aligned}
+                \delta = \ln{(1+i_0)}, &\qquad e^{\delta} = i_0 + 1      \\
+                \delta_2 &= 2 \cdot \delta                              \\
+                \delta_2 = \ln{(1+i_1)}, &\qquad e^{\delta_2} = i_1 + 1  \\
+                i_1 = e^{\delta_2} - 1, &\qquad i_0 = e^{\delta} - 1    \\
+                i_1 &> 2 \cdot i_0       \\
+                e^{\delta_2} - 1 &> 2 \cdot \left( e^{\delta} - 1 \right)   \\
+                \left(e^{\delta}\right)^2 &> 2 e^{\delta} - 1               \\
+                \left(e^{\delta}\right)^2 -2 e^{\delta} + 1 &> 0        \\
+                \left(e^{\delta} - 1\right)^2 &> 0                      \\
+                e^{\delta} &> 1                       \\
+                \delta &> 0                      \\
+            \end{aligned}
+        \end{equation}
+    \item \begin{equation}\nonumber
+            \begin{aligned}
+                \delta = -\ln{(1-d_0)}, &\qquad e^{-\delta} = 1 - d_0      \\
+                \delta_2 &= 2 \cdot \delta                              \\
+                \delta_2 = -\ln{(1-d_1)}, &\qquad e^{-\delta_2} = 1-d_1  \\
+                d_1 = -e^{-\delta_2} + 1, &\qquad d_0 = -e^{-\delta} + 1    \\
+                d_1 &< 2 \cdot d_0       \\
+                -e^{-\delta_2} + 1 &< 2 \cdot \left( -e^{-\delta} + 1 \right)\\
+                \left(-e^{-\delta}\right)^2 + 1 &< -2e^{-\delta} + 2 \\
+                0 &< \left(e^{-\delta}\right)^2 -2e^{-\delta} + 1 \\
+                0 &< \left(e^{-\delta} - 1\right)^2\\
+                e^{-\delta} &< 1                       \\
+                -\delta &< 0                      \\
+            \end{aligned}
+        \end{equation}
+\end{enumerate}
+
+\subsection*{1--32}
+
+\begin{equation}\nonumber
+    \begin{aligned}
+        \lim_{i \rightarrow 0} \frac{i-\delta}{\delta^2} &= 0.5  \\
+        \lim_{i \rightarrow 0} \frac{i-\ln{(1+i)}}{(\ln{(1+i)})^2}&, \quad
+            \text{we get} \quad \frac{0}{0}             \\
+        \text{applying L'Hopital's Rule we get}& \\
+        \lim_{i \rightarrow 0}
+            \frac{1-\frac{1}{1+i}}{2\ln{(1+i)}\frac{1}{1+i}}&, \quad
+            \text{we still get} \quad \frac{0}{0} \\
+        \text{again applying L'Hopital's Rule we get}& \\
+        \lim_{i \rightarrow 0}
+            \frac{(1+i)^{-2}}{\left(2\ln{(1+i)}(1+i)^{-1}\right)'} &= \\
+        \lim_{i \rightarrow 0}\frac{(1+i)^{-2}}{2((1+i)^{-2} - 
+            \ln{(1+i)}(1+i)^{-2})} &= \\
+        \lim_{i \rightarrow 0}\frac{(1+i)^{-2}}{2(1+i)^{-2}(1 - 
+            \ln{(1+i)})} &= \\
+        \lim_{i \rightarrow 0}\frac{1}{2(1 - \ln{(1+i)})} &= \frac{1}{2-0}
+            = 0.5 
+    \end{aligned}
+\end{equation}
+
+\subsection*{1--33}
+
+\begin{equation}\nonumber
+    \begin{aligned}
+        \delta_t &= 0.04(1+t)^{-1}                  \\
+        \delta_r &= 0.04(1+r)^{-1}                  \\
+        a(t) &= e^{\int_0^t \delta_r dr}            \\
+        \ln{(a(t))} &= \int_0^t{\delta_r}{dr}            \\
+        &= \int_0^t{0.04(1+r)^{-1}}{dr}            \\
+        &= 0.04 \int_0^t{(1+r)^{-1}}{dr}            \\
+        &= 0.04 \left[\ln{(1+r)}\right]^t_0            \\
+        &= 0.04 \left[\ln{(1+t)} - \ln{(1)}\right]            \\
+        \ln{(a(t))} &= 0.04 \ln{(1+t)}                  \\
+        a(t) &= (1+t)^{0.04}
+    \end{aligned}
+\end{equation}
+
+\end{document}

@@ -1,0 +1,303 @@
+\documentclass[a4paper, 12pt, reqno]{amsart}
+
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\numberwithin{equation}{section}
+\usepackage[margin=1in]{geometry}
+\usepackage[english]{babel}
+\usepackage[colorlinks, pdftitle={Actuarial Mathematics Homework 6},
+    pdfauthor={Moritz M. Konarski}]{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{snakes}
+\renewcommand{\baselinestretch}{1.25}
+\usepackage{actuarialsymbol}
+
+\title{Actuarial Mathematics Homework 6}
+\author{Moritz M. Konarski}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Parmenter Exercises 3}
+
+\subsection*{3--3}
+
+\begin{equation}\nonumber
+    \begin{aligned}
+        i &= 0.13 \\
+        X \cdot \ax{\angl{12}} &= 6,500 \\
+        X &= \frac{6,500}{\ax{\angl{12}}}  \\
+          &= \frac{6,500}{\frac{1 - (1/1.13)^{12}}{0.13}}  \\
+        X &= 1,098.40955 
+    \end{aligned}
+\end{equation}
+
+\subsection*{3--4}
+
+\begin{equation}\nonumber
+    \begin{aligned}
+        i &= 0.13 \\
+        i^{(12)} &= 0.12284 \\
+        X \cdot \ax{\angl{144}} &= 6,500 \\
+        X &= \frac{6,500}{\ax{\angl{144}}}  \\
+          &= \frac{6,500}{\frac{1 - (1/1.12284)^{144}}{0.12284}}  \\
+        X &= 798.46005
+    \end{aligned}
+\end{equation}
+
+\subsection*{3--5}
+
+450 at the beginning of each year from 1977 to 1997, what is the value at the
+end of 1996?
+
+\begin{equation}\nonumber
+    \begin{aligned}
+        i &= 0.08 \\
+        d &= \frac{0.08}{1.08}  \\
+        X &= \sx**{\angl{19}} \cdot 450  \\
+          &= \frac{((1.08^{19} - 1))(1.08)}{d} \cdot 450 \\
+        X &= 20,142.88393
+    \end{aligned}
+\end{equation}
+
+\subsection*{3--6}
+
+1,000 p.a. for 8 years, $i=0.08$
+
+\begin{enumerate}[label=(\alph*)]
+    \item value one year before first payment
+        \begin{equation}\nonumber
+            \begin{aligned}
+                X &= \ax{\angl{8}} \cdot 1,000      \\
+                X &= 5,746.63894
+            \end{aligned}
+        \end{equation}
+    \item value one year after last payment
+        \begin{equation}\nonumber
+            \begin{aligned}
+                X &= \sx**{\angl{8}} \cdot 1,000      \\
+                X &= 11,487.55784
+            \end{aligned}
+        \end{equation}
+    \item value at the time of the fifth payment
+        \begin{equation}\nonumber
+            \begin{aligned}
+                X &= \sx{\angl{5}} \cdot 1,000      \\
+                X &= 5,866.60096
+            \end{aligned}
+        \end{equation}
+    \item number of years until present value is double its value
+        \begin{equation}\nonumber
+            \begin{aligned}
+                2 \cdot \ax{\angl{8}} &= \ax{\angln}            \\
+                2 \cdot \frac{1 - v^8}{i} &= \frac{1-v^n}{i}    \\
+                2 - 2v^8 &= 1 - v^n                             \\
+                v^n &= 2v^8 - 1                                 \\
+                n &= \frac{\ln(2v^8 - 1)}{\ln(v)}               \\
+                n &= 32.73122
+            \end{aligned}
+        \end{equation}
+    \item number of years until present value is triple its value
+        \begin{equation}\nonumber
+            \begin{aligned}
+                3 \cdot \ax{\angl{8}} &= \ax{\angln}            \\
+                3 \cdot \frac{1 - v^8}{i} &= \frac{1-v^n}{i}    \\
+                3 - 3v^8 &= 1 - v^n                             \\
+                v^n &= 3v^8 - 2                                 \\
+                3v^8 - 2 &= -0.37919
+            \end{aligned}
+        \end{equation}
+        This problem cannot be solved because you cannot take a logarithm of
+        a negative number. The largest possible increase for these parameters
+        is 2.17518. This is because for an increase of factor $k$ we find
+        \begin{equation}\nonumber
+            \begin{aligned}
+                k - kv^8 &= 1 - v^n     \\
+                v^n &= k(1-v^8) - 1     \\
+                k(1-v^8) - 1 &> 0       \\
+                k &< \frac{1}{1-v^8}    \\
+                k &< 2.17518
+            \end{aligned}
+        \end{equation}
+\end{enumerate}
+
+\subsection*{3--7}
+
+Prove the identities
+
+\begin{enumerate}[label=(\alph*)]
+    \item 
+        \begin{equation}\nonumber
+            \begin{aligned}
+                \ax{\angl{m+n}} &= \ax{\angl{m}} + v^m \cdot \ax{\angln}  \\
+                \frac{1-v^{m+n}}{i} &= \frac{1-v^m}{i} + \frac{v^m(1-v^n)}{i}\\
+                1 - v^{m+n} &= 1 - v^m + v^m - v^{m+n}  \\
+                1 &= 1      \qed
+            \end{aligned}
+        \end{equation}
+    \item 
+        \begin{equation}\nonumber
+            \begin{aligned}
+                \ax{\angl{m-n}} &= \ax{\angl{m}} - v^m \cdot \sx{\angln}    \\
+                \frac{1-v^{m-n}}{i} &= \frac{1-v^m}{i} - v^m\ax{\angln}(1+i)^n\\
+                \frac{1-v^{m-n}}{i} &= \frac{1-v^m}{i} 
+                    - v^m\frac{1-v^n}{i}(1+i)^n\\
+                1-v^{m-n} &= 1-v^m - v^m(1-v^n)(1+i)^n  \\
+                1-v^{m-n} &= 1 - v^m - v^{m-n} + v^m    \\
+                1 - v^{m-n} &= 1 - v^{m-n}  \\
+                1 &= 1      \qed
+            \end{aligned}
+        \end{equation}
+    \item 
+        \begin{equation}\nonumber
+            \begin{aligned}
+                \sx{\angl{m+n}} &= \sx{\angl{m}} + (1+i)^m\sx{\angln}   \\
+                \ax{\angl{m+n}}(1+i)^{m+n} &= \ax{\angl{m}}(1+i)^m
+                    + \ax{\angln}(1+i)^{m+n}                            \\
+                (\ax{\angl{m}} + v^m \cdot \ax{\angl{m}})(1+i)^{m+n} &= \\
+                \ax{\angl{m}}(1+i)^{m+n} + (1+i)^{-m} \cdot \ax{\angl{m}} 
+                    (1+i)^{m+n} &=                                      \\
+                \ax{\angl{m}}(1+i)^{m+n} + \ax{\angln}(1+i)^n &= 
+                    \ax{\angl{m}}(1+i)^m + \ax{\angln}(1+i)^{m+n}       \\
+                (1 - v^m) \cdot v^{-m-n} + (1-v^n) \cdot v^{-n} &= 
+                    (1-v^m) \cdot v^{-m} + (1-v^n) \cdot v^{-m-n}       \\
+                v^{-m-n}-v^{-m}+v^{-n}-1 &= v^{-m} - 1 + v^{-m-n}-v^{-m}\\
+                -1 &= -1    \qed
+            \end{aligned}
+        \end{equation}
+    \item 
+        \begin{equation}\nonumber
+            \begin{aligned}
+                \sx{\angl{m-n}} &= \sx{\angl{m}} - (1+i)^m\ax{\angln}   \\
+                \ax{\angl{m-n}}v^{-m+n} &= \ax{\angl{m}}v^{-m}
+                    - \ax{\angln}v^{-m}                                 \\
+                (1-v^{m-n})v^{-m+n} &= (1-v^m)v^-m - v^m (1-v^n)        \\
+                v^{-m+n} - 1 &= v^{-m} - 1 - v^{-m} + v^{-m+n}          \\
+                -1 &= -1 \qed
+            \end{aligned}
+        \end{equation}
+\end{enumerate}
+
+\subsection*{3--13}
+
+Account at 25 years is 85,000. For the first 10 years, $1,000$ are deposited. 
+For the next 15 years $1,000 + X$ is deposited yearly. Find $X$ if $i=0.07$
+
+\begin{equation}\nonumber
+    \begin{aligned}
+        85,000 &= 1,000 \cdot \sx{\angl{10}} \cdot (1+0.07)^{15} + 
+            \sx{\angl{15}} \cdot (1,000 + X)                            \\
+        X &= \frac{85,000 - 1,000\cdot\sx{\angl{10}}\cdot(1.07)^{15} 
+            - 1,000 \cdot \sx{\angl{15}}}{\sx{\angl{15}}}               \\
+        X &= 865.57138
+    \end{aligned}
+\end{equation}
+
+\subsection*{3--18}
+
+At the beginning of the first 10 years 500 are deposited. At the end of the
+next 15 years 300 are deposited. If $i=0.08$, find the value of the annuity
+3 years before the first payment.
+
+\begin{equation}\nonumber
+    \begin{aligned}
+        X &= v^3 \cdot \ax{\angl{10}} \cdot 500 + v^{13} \cdot \ax{\angl{15}}
+            \cdot 300               \\
+        X &= 3,607.53024
+    \end{aligned}
+\end{equation}
+
+\subsection*{3--19}
+
+Mortgage of 60,000 paid monthly. Interest convertible semiannually is $i^{(2)}
+= 0.12$
+
+\begin{equation}\nonumber
+    i^{(12)} = 6(\sqrt[6]{1 + i^{(2)}} - 1)
+\end{equation}
+
+\begin{enumerate}[label=(\alph*)]
+    \item payments if it's paid for 25 years
+        \begin{equation}\nonumber
+            \begin{aligned}
+                X &= \frac{60,000}{\ax{\angl{25\cdot12}}}   \\
+                X &= 6,831.93091
+            \end{aligned}
+        \end{equation}
+    \item payments if it's paid for 20 years
+        \begin{equation}\nonumber
+            \begin{aligned}
+                X &= \frac{60,000}{\ax{\angl{20\cdot12}}}   \\
+                X &= 6,831.93091
+            \end{aligned}
+        \end{equation}
+    \item payments if it's paid for 10 years
+        \begin{equation}\nonumber
+            \begin{aligned}
+                X &= \frac{60,000}{\ax{\angl{10\cdot12}}}   \\
+                X &= 6,831.94730
+            \end{aligned}
+        \end{equation}
+\end{enumerate}
+
+\subsection*{3--20}
+
+Mortgage of 60,000 paid monthly. Interest convertible semiannually is $i^{(2)}
+= 0.16$
+
+\begin{equation}\nonumber
+    i^{(12)} = 6(\sqrt[6]{1 + i^{(2)}} - 1)
+\end{equation}
+
+\begin{enumerate}[label=(\alph*)]
+    \item payments if it's paid for 25 years
+        \begin{equation}\nonumber
+            \begin{aligned}
+                X &= \frac{60,000}{\ax{\angl{25\cdot12}}}   \\
+                X &= 8,960.49930
+            \end{aligned}
+        \end{equation}
+    \item payments if it's paid for 20 years
+        \begin{equation}\nonumber
+            \begin{aligned}
+                X &= \frac{60,000}{\ax{\angl{20\cdot12}}}   \\
+                X &= 8,960.49930
+            \end{aligned}
+        \end{equation}
+    \item payments if it's paid for 10 years
+        \begin{equation}\nonumber
+            \begin{aligned}
+                X &= \frac{60,000}{\ax{\angl{10\cdot12}}}   \\
+                X &= 8,960.49980
+            \end{aligned}
+        \end{equation}
+\end{enumerate}
+
+\subsection*{3--21}
+
+A man deposits 2,500 for 25 years at the beginning of each year, $i=0.07$. Then
+he with draws the money in 20 annual withdrawals at $i=0.11$. What is the size
+of the withdrawals?
+
+\begin{equation}\nonumber
+    \begin{aligned}
+        2,500 \cdot \ax**{\angl{25}} &= X \cdot \ax{\angl{20}}      \\
+        X &= \frac{2,500 \cdot \ax**{\angl{25}}}{\ax{\angl{20}}}    \\
+        X &= 3,914.61140
+    \end{aligned}
+\end{equation}
+
+\subsection*{3--22}
+
+I couldn't solve this problem.
+
+\subsection*{3--24}
+
+I couldn't solve this problem.
+
+
+\end{document}

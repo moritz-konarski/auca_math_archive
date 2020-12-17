@@ -1,0 +1,298 @@
+\documentclass[../00_main.tex]{subfiles}
+
+\begin{document}
+
+\section{Notes 16.12.2020 -- Bonds}
+
+\subsection{Introduction}
+
+\begin{itemize}
+    \item bonds are low-risk growth opportunities
+    \item bonds promise payments at certain dates (coupon payments)
+    \item at the redemption date the last of the coupon payments occurs
+    \item issue date is the date the bond is bought
+    \item the term is the time from the issue date until the maturity date
+    \item a bond is noncallable if the maturity date is fixed
+    \item if a bond only has a payment at the maturity date it is simply a loan
+        (called zero-coupon bonds or pure discount bonds)
+    \item coupon bonds have payments prior to the redemption date
+    \item coupon payments tend to be level and evenly spaced, the redemption
+        payment tends to be larger
+\end{itemize}
+
+\subsection{Alphabet soup and basic price formula}
+
+\begin{itemize}
+    \item $F$ --- face/par value of the bond only used for coupon payments (is
+        often equal to the redemption value)
+    \item $Fr=\frac{F\alpha}{m}$ --- coupon rate, paid $m$ times per year based
+        on convertible rate $\alpha$, $r$ is the effective rate
+    \item $n$ --- number of coupon periods in the bond term, $N$ is the number
+        of years, so $n = Nm$
+    \item $C$ --- redemption amount paid at the end of $n$ periods
+    \item if $F=C$, the bond is redeemable-at-par or a par-value bond; if $C$
+        is not given, $F=C$ should be assumed
+    \item $g = \frac{Fr}{C}$ --- modified coupon rate, expresses the coupon
+        rate in terms of $C$, $Fr = Cg$
+    \item $i$ --- annual effective yield rate, $j$ --- investors effective
+        yield rate per period
+        \begin{equation}\nonumber
+            i = (1 + j)^m - 1
+        \end{equation}
+    \item $I$ --- nominal yield rate convertible $m$ times per year
+        \begin{equation}\nonumber
+            j = \frac{I}{m} \qquad i = \left(1 + \frac{I}{m}\right)^m - 1
+        \end{equation}
+    \item $G = \frac{Fr}{j}$ --- base amount, expresses the coupon amount in 
+        terms of yield rate $j$, then $Fr = Cg = Gj$
+    \item $P$ --- price the investor paid to get yield rate $j$
+    \item $v_j = (1 + j)^{-1}$ --- find previous value 
+    \item $K = Cv_j^n$ --- value of the redemption at issue date assuming
+        compound interest
+    \item the basic price formula is 
+        \begin{equation}\nonumber
+            P = (Fr) \ax{\angln j} + Cv_j^n = (Fr) \ax{\angln j} + K
+        \end{equation}
+    \item 
+\end{itemize}
+
+\subsection{The premium-discount formula}
+
+\begin{itemize}
+    \item because we have 
+        \begin{equation}\nonumber
+            \ax{\angln j} = \frac{1 - v_j^n}{j}
+        \end{equation}
+        and
+        \begin{equation}\nonumber
+            v_j^n = 1 - j \ax{\angln j}
+        \end{equation}
+        we can write the price formula as 
+        \begin{equation}\nonumber
+            P = (Fr) \ax{\angln j} + Cv_j^n = (Cg) \ax{\angln j} 
+                + C (1 - j \ax{\angln j})
+        \end{equation}
+        and finally 
+        \begin{equation}\nonumber
+            P = C(g - j) \ax{\angln j} + C
+        \end{equation}
+    \item this is called the premium-discount formula for a bond
+    \item bonds sell at a premium if their price is higher than their
+        redemption amount, and the premium is 
+        \begin{equation}\nonumber
+            P = C(g - j) \ax{\angln j}
+        \end{equation}
+    \item if the price is lower than the redemption amount, the discount is
+        \begin{equation}\nonumber
+            P = C(j - g) \ax{\angln j}
+        \end{equation}
+\end{itemize}
+
+\subsection{Other pricing formulas}
+
+\begin{itemize}
+    \item the base amount formula is 
+        \begin{equation}\nonumber
+            P = (C - G) v_j^n + G 
+        \end{equation}
+    \item Makeham's formula is useful when K is known but the number of
+        periods $n$ is not
+        \begin{equation}\nonumber
+            P = \frac{g}{j} (C - K) + K
+        \end{equation}
+    \item 
+\end{itemize}
+
+\subsection{Bond amortization}
+
+\begin{itemize}
+    \item because bond payments consist of interest and principal, we can make
+        an amortization schedule
+    \item we introduce $B_t$ as the balance of the debt at time $t$, depending
+        on the yield rate $j$
+    \item $B_0 = P$ and $B_n = C$, $B_t$ is called the book value at time $t$
+    \item the interest due is $I_t = jB_{t-1}$
+    \item the amount of principal adjustment is $P_t = B_{t-1} - B_t$
+    \item to find $B_t$ the basic price formula or the premium-discount formula
+        may be used
+        \begin{equation}\nonumber
+            B_t = (Fr) \ax{\angl{n-t} j} + Cv_j^{n-t}
+        \end{equation}
+        or for the premium-discount formula
+        \begin{equation}\nonumber
+            B_t = C(g-j) \ax{\angl{n-t} j} + C
+        \end{equation}
+    \item using the premium-discount formula we can find
+        \begin{equation}\nonumber
+            I_t = Cg - C(g - j)v_j^{n-t+1}
+        \end{equation}
+        and
+        \begin{equation}\nonumber
+            P_t = C(g - j)v_j^{n-t+1}
+        \end{equation}
+        and we see that
+        \begin{equation}\nonumber
+            P_t + I_t = Cg
+        \end{equation}
+    \item we also get a nice recursion formula
+        \begin{equation}\nonumber
+            B_t = (1 + j) B_{t-1} - Cg
+        \end{equation}
+\end{itemize}
+
+\subsection{Valuing a bond after its date of issue}
+
+\begin{itemize}
+    \item the dirty value of a bond $D_T$ (called dirty because it is
+        discontinuous at each coupon date)
+        \begin{equation}\nonumber
+            D_T = (1 + j)^f B_{\floor*{T}}, \quad f = T - \floor*{T}
+        \end{equation}
+    \item practical dirty values are more useful because they are continuous
+        \begin{equation}\nonumber
+            D_T^\text{prac} = (1 + fj) B_{\floor*{T}}, \quad f = T - \floor*{T}
+        \end{equation}
+    \item we also have practical clean values that are the best
+        \begin{equation}\nonumber
+            C_T^\text{prac} = B_{\floor*{T}} + f(B_{\floor*{T}+1}
+            - B_{\floor*{T}}), \quad f = T - \floor*{T}
+        \end{equation}
+    \item see page 287 (PDF) of the maths for actuaries book
+\end{itemize}
+
+\subsection{Callable bonds}
+
+\begin{itemize}
+    \item callable bonds are issued with call provision (agreement) that allow
+        the issuer to repay it earlier
+    \item the bond can be repaid at any one of the designated call dates
+    \item the period before the first call date is called the lockout period
+    \item for the investor callable bonds are worse because they are more
+        difficult to judge and less safe
+    \item to make up for this disadvantage, callable bonds generally have
+        higher yield rates, and the redemption prices before maturity are often
+        higher 
+    \item when considering such a bond, it is wise to look at all the possible
+        redemption values to figure out which is the possible worst and focus
+        on that
+    \item if a bond is bought at a discount, the worst yield rate will be
+        attained at the redemption date
+    \item if a bond is bought at a premium, the worst yield rate is attained
+        when the bond is called at the earliest possible time
+\end{itemize}
+
+\section{Interest Rate Sensitivity}
+
+\subsection{Overview}
+
+\begin{itemize}
+    \item interest rates are volatile and you can never be sure what you'll get
+    \item thus you need to take care -- immunizing your position means making
+        sure that your position is good regardless of whether interest goes up
+        or down
+    \item for example, investing half in bonds that are good if interest is low
+        and the other half in bonds that are good if interest is high can
+        immunize one somewhat from changing rates
+    \item duration of a cashflow is a measure of how sensitive the price is to
+        changes in the interest rate
+    \item Macaulay duration is a weighted average of the times of the cashflows
+\end{itemize}
+
+\subsection{Overview}
+
+\begin{itemize}
+    \item assuming a number of cash flows, the price of all of then to get
+        a yield rare $i$ is
+        \begin{equation}\nonumber
+            P(i) = \sum_{t \ge 0} C_t(1+i)^{-t}
+        \end{equation}
+    \item $i_0$ is the initial interest rate
+    \item the Taylor polynomial for this sum is
+        \begin{equation}\nonumber
+            \sum_{n=0}^\infty \frac{P^{(n)}(i_0)}{n!}(i - i_0)^n = 
+                P(i_0) + P'(i_0)(i - i_0) + \frac{P''}{2}(i_0)(i - i_0)^2 
+                + \ldots
+        \end{equation}
+    \item the first two terms give the tangent line approximation to $P(i)$ at
+        rate $i_0$
+        \begin{equation}\nonumber
+            P(i) \approx P(i_0) + P'(i_0)(i - i_0)
+        \end{equation}
+    \item the second-Taylor-polynomial approximation is
+        \begin{equation}\nonumber
+            P(i) \approx P(i_0) + P'(i_0)(i - i_0) + 
+            \frac{P''}{2}(i_0)(i - i_0)^2 
+        \end{equation}
+    \item for all these equations the derivates can be found with
+        \begin{equation}\nonumber
+            P'(i) = - \sum_{t \ge 0} C_t (1 + i)^{-t -1}
+        \end{equation}
+        and
+        \begin{equation}\nonumber
+            P''(i) = - \sum_{t \ge 0} C_t t (t + 1) (1 + i)^{-t -2}
+        \end{equation}
+    \item we have another approximation
+        \begin{equation}\nonumber
+            \frac{P(i) - P(i_0)}{P(i_0)} \approx \frac{P'(i_0)}{P(i_0)}(i
+                - i_0)
+        \end{equation}
+    \item this allows us to estimate the fractional price increase
+    \item thus we can talk about basis points, 100 of which correspond to 
+        $0.01 = 1\%$ in increased value ($i = q\% = 0.01q \rightarrow i = 
+        (q+i)\% = 0.01(q+1)$)
+    \item If the yield is initially equal to $i_0$ and then it increases by one
+        hundred basis points, the approximate relative price change is
+        $\frac{P'(i_0)}{P(i_0)}$ percent.
+    \item we can now define the modified duration
+        \begin{equation}\nonumber
+            D(i, 1) = - \frac{P'(i)}{P(i)} = 
+            \frac{\sum_{t \ge 0} C_t t (1+i)^{-t-1}}
+                {\sum_{t \ge 0} C_t (1+i)^{-t}}
+        \end{equation}
+    \item general modified duration for $i$ convertible $m$ times is
+        \begin{equation}\nonumber
+            D(i, m) = \left( \frac{1 + i}{1 + \frac{i^{(m)}}{m}}\right) D(i, 1)
+        \end{equation}
+    \item the Macaulay duration is
+        \begin{equation}\nonumber
+            D(i, \infty) = D(i,m) \left( 1 + \frac{i^{(m)}}{m}\right)
+        \end{equation}
+        or alternatively
+        \begin{equation}\nonumber
+            D(i, \infty) = \sum_{t \ge 0} 
+                \left( \frac{C_t (1+i)^{-t}}{P(i)}\right) t
+        \end{equation}
+    \item for a zero-coupon bond, $D(i, \infty) = N$ and $D(i, 1)
+        = \frac{N}{1+i}$
+\end{itemize}
+
+\subsection{Convexity}
+
+\begin{itemize}
+    \item while tangent approximation works well for small interest changes,
+        larger changes can be modeled by the quadratic approximation
+    \item thus we have the modified convexity as
+        \begin{equation}\nonumber
+            C(i, 1) = \frac{P''(i)}{P(i)}
+        \end{equation}
+    \item this allows us to rewrite our estimation as
+        \begin{equation}\nonumber
+            \frac{P(i) - P(i_0)}{P(i_0)} \approx -D(i_0,1)(i - i_0) + C(i_0,
+            1)\frac{(i-i_0)^2}{2}
+        \end{equation}
+    \item this indicates that if two investments have the same modified
+        duration, the one with the larger absolute convexity is more
+        susceptible to interest rate changes
+    \item the Macaulay convexity is given by
+        \begin{equation}\nonumber
+            C(i, \infty) = \sum_{t \ge 0} \left( \frac{C_t (1+i)^{-t}}
+                {P(i)}\right)t^2
+        \end{equation}
+    \item from the Macaulay formulas we know that
+        \begin{equation}\nonumber
+            C(i, m) = \frac{C(i, \infty) + \frac{1}{m}D(i, \infty)}{\left(
+            1 + \frac{i^{(m)}}{m}\right)^2}
+        \end{equation}
+\end{itemize}
+
+\end{document}

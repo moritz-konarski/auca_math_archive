@@ -1,0 +1,51 @@
+\documentclass[../00_main.tex]{subfiles}
+
+\begin{document}
+
+\section{Class 06.10.2020}
+
+\subsection{Annuities}
+
+\begin{itemize}
+    \item annuities can be viewed from many different angles with the same
+        result
+    \item \textit{annuity-immediate} are payments at the end of periods
+    \item \textit{annuity-due} are payments made at the beginning of periods
+\end{itemize}
+
+\subsection{Perpetuities}
+
+\begin{itemize}
+    \item annuity whose payments continue forever
+        \begin{equation}\nonumber
+            \begin{aligned}
+                \ax{\angl{\infty}} &= \lim_{n\rightarrow\infty} \ax{\angln}  \\
+                &= \frac{1}{i}
+            \end{aligned}
+        \end{equation}
+    \item we also have the perpetuity at the time of the first payment
+        \begin{equation}\nonumber
+            \begin{aligned}
+                \ax**{\angl{\infty}} &= \ax{\angl{\infty}}(1+i) \\
+                &= \frac{1}{d}
+            \end{aligned}
+        \end{equation}
+\end{itemize}
+
+\subsection{Unknown time and unknown rate of interest}
+
+\begin{itemize}
+    \item a fund of 5,000 will be used to award scholarships of 500 for as long
+        as possible. If $i=0.09$, how many scholarships can be awarded?
+        \begin{equation}\nonumber
+            \begin{aligned}
+                500 \cdot \ax{\angln} &\le 5,000 < 500 \cdot \ax{\angl{n+1}} \\
+                \ax{\angln} &\le 10 < \ax{\angl{n+1}}   \\
+                \ax{\angln} &= 10                       \\
+                \frac{1-v^n}{i} &= 10                   \\
+                n &= \frac{\ln(1-10i)}{\ln(v)}
+            \end{aligned}
+        \end{equation}
+\end{itemize}
+
+\end{document}

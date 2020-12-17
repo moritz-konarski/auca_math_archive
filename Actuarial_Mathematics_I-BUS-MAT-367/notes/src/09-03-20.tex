@@ -1,0 +1,48 @@
+\documentclass[../00_main.tex]{subfiles}
+
+\begin{document}
+
+\section{Class 03.09.2020}
+
+\subsection{Compound Interest}
+
+\begin{itemize}
+    \item most important special case
+    \item effective interest rate is fixed
+    \item interest earns interest itself
+    \item because the interest affects itself, the function is exponential
+        \begin{equation}\nonumber
+            a(t) = (1+i)^t, \quad t \ge 0
+        \end{equation}
+    \item amount function for compound interest is
+        \begin{equation}\nonumber
+            A(t) = k(1+i)^t
+        \end{equation}
+    \item the effective interest rate for compound interest is constant
+    \item what values to choose for $t$ is done like with simple interest,
+        either \textit{exact} or \textit{ordinary}
+    \item if we want to find some value between integers, we linearly
+        interpolate it 
+        \begin{equation}\nonumber
+            A(t) = A(\floor*{t}) + (t - \floor*{t}) \cdot 
+                (A(\ceil*{t})-A(\floor*{t}))
+        \end{equation}
+    \item to find the time it takes a principal to accumulate to a certain
+        value, use logs
+        \begin{equation}\nonumber
+            t = \frac{\log{(\frac{\text{future value}}{\text{principal}})}}
+                {\log{(1+i)}}
+        \end{equation}
+    \item compound and simple interest graphs only intersect at $(0,1)$ and at
+        $(1, 1+i)$, this furthermore gives two cases
+        \begin{equation}\nonumber
+            \begin{cases}
+                &\text{simple i.} > \text{compound i.} \quad \text{for} \quad
+                    0 < t < 1 \\
+                &\text{compound i.} > \text{simple i.} \quad \text{for} \quad
+                    t > 1 \\
+            \end{cases}
+        \end{equation}
+\end{itemize}
+
+\end{document}

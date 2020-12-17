@@ -1,0 +1,139 @@
+\documentclass[../00_main.tex]{subfiles}
+
+\begin{document}
+
+\section{Class 11.19.2020}
+
+\subsection{Price of a bond}
+
+A bond is a certificate in which, in return for receiving an initial sum of 
+money from the investor, the borrower agrees to pay interest at a specified 
+rate (the coupon rate) until a specified date (the maturity date), and, at that 
+time, to pay a fixed sum (the redemption value). The coupon rate is customarily 
+quoted as a nominal rate convertible semiannually, and is applied to the face 
+(or par) value, which is stated on the front of the bond. Usually the face and
+redemption values are equal, but this is not always the case.
+\begin{itemize}
+    \item basically a different way to handle loans
+    \item e.g. face amount of 500, redeemable at par in 10 years, coupon rate 
+        11\% convertible semiannually $\rightarrow$ investor gets 20 payments
+        of $(0.055)(500)$ and a lump sum payment of 500 at the end
+    \item if one can buy the bond above for less than 500, their yield rate 
+        will be higher, if they pay more, their yield rate will be lower
+    \item $F$ -- face value or par of the bond
+    \item $r$ -- coupon rate per interest period, the quoted rate is generally
+        $2r$; each interest payment is $Fr$
+    \item $C$ -- redemption value of the bond, often $D=F$
+    \item $i$ -- yield rate per interest period
+    \item $n$ -- number of interest periods until redemption date
+    \item $P$ -- purchase price of the bond to get yield rate $i$
+    \item a timeline of a standard bond
+    \begin{center}
+        \begin{tikzpicture}
+            \def\f{1.5}
+            \draw (0,0) -- (\f*6,0);
+            \foreach \x in {\f*1,\f*2,\f*3,\f*5}
+              \draw (\x cm,3pt) -- (\x cm,-3pt);
+            \draw (\f*1,0) node[below=3pt, align=center] {$0$}
+                node[above=3pt] {$P$};
+            \draw (\f*2,0) node[below=3pt, align=center] {$1$}
+                node[above=3pt] {$Fr$};
+            \draw (\f*3,0) node[below=3pt, align=center] {$2$}
+                node[above=3pt] {$Fr$};
+            \draw (\f*4,0) node[below=3pt, align=center] {$\dots\dots$}
+                node[above=3pt] {$ $};
+            \draw (\f*5,0) node[below=3pt, align=center] {$n$}
+                node[above=3pt, align=center] {$C$\\$Fr$};
+        \end{tikzpicture}
+    \end{center}
+    \item formula for $P$
+        \begin{equation}\nonumber
+            P = (Fr)\ax{\angln i} + C(1+i)^{-n}
+        \end{equation}
+    \item formula for $i$ as an iterative method
+        \begin{equation}\nonumber
+            i = \frac{Fr(1-v^n)}{P - Cv^n}
+        \end{equation}
+    \item formula for $n$
+        \begin{equation}\nonumber
+            n = \frac{\ln \left( \frac{P - \frac{Fr}{i}}{C
+                - \frac{Fr}{i}}\right)}{\ln v}
+        \end{equation}
+    \item if an investor buys a bond for less than the redemption value, he
+        buys it at a discount -- the other way around he buys it at a premium
+        ($P-C$)
+\end{itemize}
+
+\subsection{Book value}
+
+\begin{itemize}
+    \item the outstanding value of the bond at time $t$
+    \item it is the present value of all future payments
+    \item book value at time $t$ as the $t$th coupon has been paid
+        \begin{equation}\nonumber
+            B_t = (Fr) \ax{\angl{n-t}} + Cv^{n-t}
+        \end{equation}
+    \item the book value generally changes from $P$ at $t=0$ to $C$ at $t=n$
+    \item also, for successive book values
+        \begin{equation}\nonumber
+            B_{t+1} = B_t(1+i) - Fr
+        \end{equation}
+    \item between book values we assume simple interest at rate $i$
+    \item flat price of the bond is what we generally calculate -- the one that
+        goes up and down
+    \item market price (amortized value) is the interpolation between 
+        successive book values -- we don't have the payment spikes in there
+\end{itemize}
+
+\subsection{Bond amortization schedules}
+
+\begin{itemize}
+    \item basically the same idea as with loan amortization schedules
+    \item book value is in the last column of the table
+    \item this will show how book value changes from $P$ to $C$
+    \item book value at $t$ is $B_t$
+    \item amount of coupon at $t+1$ is $Fr$
+    \item amount of interest is $B_t i$
+    \item change in book value is $Fr - B_t i$
+    \item \textit{Example 1}: amount of interest and change in book value for
+        the 15th coupon:
+        \begin{itemize}
+            \item interest: $B_t i = 950.83 \cdot 0.06 = 57.05$
+            \item it's greater than the coupon value
+            \item we modify the book value by the difference of new $-$ old, so
+                we actually increase it
+        \end{itemize}
+    \item for a complete schedule, we start with finding the price using the
+        main formula for it
+    \item then we need to do the normal stuff
+\end{itemize}
+
+\subsection{Other topics}
+
+\begin{itemize}
+    \item \textit{Different interest periods}: we must convert one to the other
+        in a sensible way -- i.e. coupons are the defining part
+    \item \textit{Changing coupons}: apply the changing annuities stuff to the
+        price formula to find the price at a certain yield rate
+    \item \textit{Changing interest rates}: calculate the price using
+        a piecewise function to find the present value of all the coupon
+        payments at different rates and also the present value of the
+        redemption value for the different rates
+    \item \textit{Callable bonds}: borrower can redeem the bond anytime
+        between the call date and the usual maturity date, no coupons are paid
+        once the bond is redeemed. Sometimes different redemption values are
+        paid for different redemption dates
+    \item \textbf{important}: generally it is best to take the earliest value
+        if $i < r$, else use the last value. If there is doubt, find all 
+        possible values and compare
+    \item \textit{Duration of a Bond}: $R_n$ are payments made at times $t_n$
+        \begin{equation}\nonumber
+            \bar d = \frac{\sum_{j=1}^n t_j v^{t_j} R_j}{\sum_{j=1}^n v^{t_j} R_j}
+        \end{equation}
+    \item the modified duration or volatility is 
+        \begin{equation}\nonumber
+            \bar v = \frac{\bar d}{1 + i}
+        \end{equation}
+\end{itemize}
+
+\end{document}

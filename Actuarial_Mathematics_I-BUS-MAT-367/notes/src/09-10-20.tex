@@ -1,0 +1,84 @@
+\documentclass[../00_main.tex]{subfiles}
+
+\begin{document}
+
+\section{Class 10.09.2020}
+
+\subsection{Nominal Rate of Interest}
+
+\begin{itemize}
+    \item $a(t) = (1+i)^t$ will be assumed in this section
+    \item effective rates of interest can be given for any length of time
+    \item to apply our previous formulae, we need to make sure that $t$ is the
+        number of \textit{effective interest periods}
+    \item generally, these periods are not years, but shorter periods
+    \item a yearly rate or 12\% "convertible semiannually" actually means that
+        you pay 6\% twice a year -- in this case it would actually be 12.36\%
+    \item the effective interest rate increases the shorter the intervals
+        between payments are
+    \item the 12\% is a \textbf{nominal rate of interest}, meaning it is
+        convertible over a period other than 1 year
+    \item $i^{(m)}$ denotes the nominal rate of interest convertible $m$ times
+        a year
+        \begin{equation}\nonumber
+            1+i = \left[ 1 + \frac{i^{(m)}}{m} \right]^m
+        \end{equation}
+    \item we can also define a nominal rate of discount $d^{(m)}$
+        \begin{equation}\nonumber
+            1-d = \left[ 1 - \frac{d^{(m)}}{m} \right]^m
+        \end{equation}
+    \item we also see that
+        \begin{equation}\nonumber
+            \left[ 1 + \frac{i^{(m)}}{m} \right]^m = 
+                \left[ 1 - \frac{d^{(n)}}{n} \right]^{-n}
+        \end{equation}
+\end{itemize}
+
+\subsection{Force of Interest}
+
+\begin{itemize}
+    \item our goal is to find nominal rates of interest that are equivalent to
+        a certain effective annual rate of interest
+    \item for example $i=0.12$ with the functions above gives the values
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|c|c|}\hline
+                $m$     & 1     & 2     & 5     & 10    & 50    \\\hline     
+                $i^{(m)}$ & 0.12& 0.1166&0.1146 & 0.1140& 0.1135\\\hline
+            \end{tabular}
+        \end{center}
+    \item we see that $i^{(m)}$ decreases as $m$ increases
+    \item $m$ is approaching a limit, using L'Hopital's rule we can find it
+        \begin{equation}\nonumber
+            \begin{aligned}
+                \delta &= \ln{(1+i)}        \\
+                e^{\delta} &= 1 + i
+            \end{aligned}
+        \end{equation}
+    \item $\delta$ is called the \textbf{force of interest}
+    \item it represents the nominal rate of interest that is convertible
+        \textit{continuously} -- serving as a good approximation of $i^{(m)}$
+        for large $m$, like dayly conversions
+    \item the second form of $\delta$ is useful because it makes conversions
+        easier
+    \item the derivative of $(1+i)^t$ by $t$ ($D$) can be rewritten to be
+        \begin{equation}\nonumber
+            \delta = \ln{(1+i)} = \frac{D[(1+i)^t]}{(1+i)^t} = 
+                \frac{D[a(t)]}{a(t)}
+        \end{equation}
+    \item for compound interest $\delta = \ln{(1+i)}$, but for arbitrary
+        accumulation functions it is
+        \begin{equation}\nonumber
+            \begin{aligned}
+                \delta_t &= \frac{D[a(t)]}{a(t)}     \\
+                \delta_t &= D[\ln{(a(t))}]
+            \end{aligned}
+        \end{equation}
+    \item if $\delta_r$ is given and we want to find $a(t)$ we use
+        \begin{equation}\nonumber
+            a(t) = e^{\int_0^t{\delta_r}{dr}}
+        \end{equation}
+    \item we note that $i > \delta$
+    \item the force of discount is the same as the force of interest
+\end{itemize}
+
+\end{document}

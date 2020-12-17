@@ -1,0 +1,110 @@
+\documentclass[../00_main.tex]{subfiles}
+
+\begin{document}
+
+\section{Class 01.09.2020}
+
+\subsection{General Introduction}
+
+\begin{itemize}
+    \item introduction of professor
+    \item this is course 1 of 2
+    \item quite popular elective course -- he is not sure why
+    \item we'll dig deep inside the workings of insurance and the like
+    \item it's a very well paid profession
+    \item who is an actuary:
+        \begin{itemize}
+            \item completely independent professional
+            \item actuarial association assigns audits to actuaries
+            \item basically a type of auditor
+            \item actuarial expertise is needed to make investments
+        \end{itemize}
+    \item this course will teach us the basics
+    \item to become an actuary, you will have to pass 6 exams, we'll learn
+        stuff for the first 2
+    \item re-insurance: some of the richest companies in the world
+    \item Parmenter is the main text book
+    \item \textbf{course content}: chapters 1, 2, 3, and 4
+\end{itemize}
+
+\subsection{Accumulation Function}
+
+\begin{itemize}
+    \item the simplest financial transaction is an investment
+    \item \textbf{principal}: initial investment
+    \item \textbf{accumulated value}: total amount the money grows to
+    \item \textbf{Amount Function}: amount of money at time $t$ from investment
+        of the principal -- $A(t)$, $t$ is measured in years, $A(0)$ is the
+        principal
+    \item \textbf{Accumulation Function}: how much money increases as a percent
+        value, where $a(0)=1$ (as there has been no change)
+        \begin{equation}\nonumber
+            a(t) = \frac{A(t)}{A(0)}
+        \end{equation}
+    \item accumulation functions can be any function where $a(0)=1$,
+        additionally one would hope that it is increasing
+    \item continuity is not required, depends on how interest is paid -- if
+        fractional values of $t$ make sense it may be continuous, but if
+        interest is paid discretely, it may be stepwise
+    \item three types of accumulation functions
+        \begin{enumerate}
+            \item amount of interest earned each year is constant --
+                linear graph, simple interest 
+            \item the amount of interest increases over the years --
+                exponential graph, compound interest
+            \item if interest is paid out at fixed periods of time a piecewise
+                function is used -- the amount of interest might be constant or
+                increasing
+        \end{enumerate}
+    \item \textbf{Interest = Accumulated Value - Principal}
+    \item to make this more practical, the \textit{effective rate of interest
+        $i$} is used
+    \item $i$ is the interest earned on a principal of 1 over the period of
+        1 year -- amount of interest earned over 1 year divided by the value at
+        the beginning of the year
+        \begin{equation}\nonumber
+            i = a(1) - 1
+        \end{equation}
+    \item $i$ can also be calculated with the amount function
+        \begin{equation}\nonumber
+            i = \frac{a(1)-a(0)}{a(0)} = \frac{A(1)-A(0)}{A(0)}
+        \end{equation}
+    \item $i$ can be calculated for the $n$th year by
+        \begin{equation}\nonumber
+            i = \frac{a(n)-a(n-1)}{a(n-1)} = \frac{A(n)-A(n-1)}{A(n-1)}
+        \end{equation}
+\end{itemize}
+
+\subsection{Simple Interest}
+
+\begin{itemize}
+    \item primarily used between integer periods of time
+    \item $a(t)$ is a straight line here -- the increase is linear
+    \item general form of the equation is 
+        \begin{equation}\nonumber
+            a(t) = 1 + it
+        \end{equation}
+    \item interest earned each year is constant -- interest does not earn
+        interest
+    \item if the principal is $k$ at $t=0$
+        \begin{equation}\nonumber
+            A(t) = k(1+it)
+        \end{equation}
+    \item the effective rate of interest is not constant, it decreases over
+        time
+        \begin{equation}\nonumber
+            i_n = \frac{i}{1 + i(n-1)}
+        \end{equation}
+    \item \textbf{exact simple interest}: count the last day, not the first
+        \begin{equation}\nonumber
+            t = \frac{\text{number of days}}{365}
+        \end{equation}
+    \item \textbf{ordinary simple interest (Banker's Rule)}: count the last 
+        day, not the first
+        \begin{equation}\nonumber
+            t = \frac{\text{number of days}}{360}
+        \end{equation}
+    \item international markets use ordinary simple interest
+\end{itemize}
+
+\end{document}

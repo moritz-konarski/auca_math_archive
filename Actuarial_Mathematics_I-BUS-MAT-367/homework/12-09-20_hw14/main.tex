@@ -1,0 +1,124 @@
+\documentclass[a4paper, 12pt, reqno]{amsart}
+
+\newcommand{\titl}{Actuarial Mathematics Homework 14}
+
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[margin=1in]{geometry}
+\usepackage[english]{babel}
+\usepackage[colorlinks, pdftitle={\titl},
+    pdfauthor={Moritz M. Konarski}]{hyperref}
+\usepackage{enumitem}
+\setlist[enumerate]{label = (\arabic*)}
+\usepackage{graphicx}
+\usepackage{float}
+\renewcommand{\baselinestretch}{1.25}
+\usepackage{actuarialsymbol}
+
+\title{\titl}
+\author{Moritz M. Konarski}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Mathematics for Actuaries Textbook}
+
+\subsection*{(6.2)} 
+
+\begin{enumerate}
+    \item We find $Fr = 1000 * 0.05 = 50$ and $i$ through iteration as
+        $i=0.061092$
+    \item The redemption amount can be found as
+        \begin{equation}\nonumber
+            \begin{gathered}
+                P = (Fr) \ax{\angl{8}} + Cv^n   \\
+                C = \frac{P - (Fr)\ax{\angl{8}}}{v^8}   \\
+                C = \frac{2590 - (2500 \cdot 0.065)\ax{\angl{8}}}{v^8}   \\
+                C = 2370.69067
+            \end{gathered}
+        \end{equation}
+    \item we find the duration using 
+        \begin{equation}\nonumber
+            \begin{gathered}
+                n = \frac{\ln \left( \frac{P - Fr/i}{C - Fr/i}\right)}{\ln v}\\
+                n = 42.83510
+            \end{gathered}
+        \end{equation}
+    \item to find the yield rate and the duration we do the following
+        \begin{equation}\nonumber
+            \begin{gathered}
+                \begin{cases}
+                    2318.63 &= 200\ax{\angln} + 2000 v^n    \\
+                    2531.05 &= 220\ax{\angln} + 2000 v^n    \\
+                \end{cases}\\
+                2318.63 = 200\ax{\angln} + 2000 v^n    \\
+                -(2531.05 = 220\ax{\angln} + 2000 v^n)    \\
+                20\ax{\angln} = 212.42  \\
+                \ax{\angln} =     \\
+                2318.63 = 200\ax{\angln} + 2000 v^n    \\
+                2318.63 = 200\cdot \ax{\angln} + 2000 v^n    \\
+                v^n = 0.097215      \\
+                i = \frac{1-v^n}{10.621}    \\
+                i^{(2)} = (1+i)^2 - 1   \\
+                \mathbf{i^{(2)} = 0.177225}   \\
+                v^n = 0.097215      \\
+                \mathbf{n = 28.5711/2 = 14.28555}
+            \end{gathered}
+        \end{equation}
+    \item if the 12\% bond is sold at book value we can do the following
+        \begin{equation}\nonumber
+            \begin{gathered}
+                B_{20} = 3631.7723 = P  \\
+                F = \frac{P}{r \cdot \ax{\angl{20}} + v^{20}} \\
+                F = \frac{3631.7723}{0.04 \cdot \ax{\angl{20}} + v^{20}} \\
+                F = 3161.43117
+            \end{gathered}
+        \end{equation}
+    \item Find $q$
+        \begin{equation}\nonumber
+            \begin{gathered}
+                P = (Fr)\ax{\angl{10}} + (Fq/2)\ax{\angl{10}} v^{10} + Cv^{20} \\
+                q = 2\frac{P - (Fr)\ax{\angl{10}} - Cv^{20}}
+                    {F\ax{\angl{10}} v^{10}}            \\
+                q = 2 \cdot 0.026080 = 0.05216
+            \end{gathered}
+        \end{equation}
+    \item I did not know how to solve this task
+\end{enumerate}
+
+\subsection*{(6.3)}
+
+\begin{enumerate}
+    \item Find the price
+        \begin{equation}\nonumber
+            \begin{gathered}
+                P + 57 = C  \\
+                P = (Fr)\ax{\angl{12} 0.091} + (P + 57) v^{12}  \\
+                P = \frac{(Fr)\ax{\angl{12} 0.091} + 57 v^{12}}{1 - v^{12}}\\
+                P = 2997.94761
+            \end{gathered}
+        \end{equation}
+    \item find the redemption amount
+        \begin{equation}\nonumber
+            \begin{gathered}
+                P = C - 83.28   \\
+                P = (Fr)\ax{\angl{20}} + C v^{20}  \\
+                C - 83.28 = (Fr)\ax{\angl{20}} + C v^{20}  \\
+                C = \frac{(Fr)\ax{\angl{20}} + 83.28}{1 - v^{20}}  \\
+                C = 4438.18330
+            \end{gathered}
+        \end{equation}
+    \item find the monthly deposit
+        \begin{equation}\nonumber
+            \begin{gathered}
+                Pr = P - C = 1400 - 1100 = 300      \\
+                Pr = \sx**{\angl{10} 0.08} \cdot D  \\
+                D = \frac{300}{\sx**{\angl{10} 0.08}}       \\
+                D = 19.17486
+            \end{gathered}
+        \end{equation}
+\end{enumerate}
+
+\end{document}

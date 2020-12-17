@@ -1,0 +1,90 @@
+\documentclass[a4paper, 12pt, reqno]{amsart}
+
+\newcommand{\titl}{Actuarial Mathematics Homework 8}
+
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\numberwithin{equation}{section}
+\usepackage[margin=1in]{geometry}
+\usepackage[english]{babel}
+\usepackage[colorlinks, pdftitle={\titl},
+    pdfauthor={Moritz M. Konarski}]{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{snakes}
+\renewcommand{\baselinestretch}{1.25}
+\usepackage{actuarialsymbol}
+
+\title{\titl}
+\author{Moritz M. Konarski}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Parmenter Exercises 3--60 to 3--66}
+
+\subsection*{3--60}
+
+Money is borrowed, extracted in 5 annual payments $X$. Repayment starts 1 year
+after the last extraction. It is repaid in 20 annual payments, first 100, then 
+200, etc. If $i=0.132$, find $X$.
+\begin{equation}\nonumber
+    \begin{gathered}
+        X\sx{\angl{5}} = 100\ax{\angl{20}} + 100\left[\frac{\ax{\angl{20}
+            - 20 v^{20}}}{i}\right] \\
+        X = \frac{100\ax{\angl{20}} + 100\left[ \frac{\ax{\angl{20}
+            - 20 v^{20}}}{i}\right]}{\sx{\angl{5}}}\\
+        X = 719.85057
+    \end{gathered}
+\end{equation}
+
+\subsection*{3--61}
+
+I could not solve this one.
+
+\subsection*{3--63}
+
+Present value of a perpetuity. After 1 year 100 is paid, then 200, etc. When
+1500 is paid, the amount remains constant forever. 
+\begin{equation}\nonumber
+    \begin{gathered}
+        A = P\ax{\angl{15}} + Q \left[ \frac{\ax{\angl{15}} - 15 v^{15}}{i} 
+            \right] + (\ax{\angl{\infty}} - \ax{\angl{15}}) \cdot 1,500//
+        A = 100\ax{\angl{15}} + 100 \left[ \frac{\ax{\angl{15}} - 15 v^{15}}{i} 
+            \right] + (\ax{\angl{\infty}} - \ax{\angl{15}}) \cdot 1,500 \\
+        A = 12,652.20497
+    \end{gathered}
+\end{equation}
+
+\subsection*{3--64}
+
+Annuity for 20 years, first payment immediately, $i=0.11$, payments increase by
+10\% each year, starting with 1,000. We can find the geometric sum.
+\begin{equation}\nonumber
+    \begin{gathered}
+        \ax**{\angl{20}} = \frac{S_{20}}{(1+i)^{19}} \\
+        \ax**{\angl{20}} = \frac{1,000(1.1)^{20} \left( \frac{1-r^20}{1-r} 
+            \right)}{(1+i)^{19}} \\
+        \ax**{\angl{20}} = \frac{1,000(1.1)^{20} \left( \frac{1-\frac{1.1}
+            {1.11}^20}{1-\frac{1.1}{1.11}} 
+            \right)}{(1+i)^{19}} \\
+        \ax**{\angl{20}} = 20,215.10754
+    \end{gathered}
+\end{equation}
+
+\subsection*{3--66}
+
+Annuity for 20 years, first payment immediately, $i=0.09$, payments are 1, 4,
+9, 16, ..., starting immediately.
+\begin{equation}\nonumber
+    \begin{gathered}
+        \ax**{\angl{20}} = \frac{\sum_{j=1}^{20} j^2 (1
+            + i)^{20-j}}{(1+i)^{19}}\\
+        \ax**{\angl{20}} = 887.15787
+    \end{gathered}
+\end{equation}
+
+\end{document}

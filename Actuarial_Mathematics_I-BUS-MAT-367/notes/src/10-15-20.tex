@@ -1,0 +1,61 @@
+\documentclass[../00_main.tex]{subfiles}
+
+\begin{document}
+
+\section{Class 15.10.2020}
+
+\subsection{Amortization}
+
+\begin{itemize}
+    \item repay a loan by the \textit{amortization method} -- installment
+        payments at periodic intervals
+    \item knowing the outstanding principal is important because you need to
+        know how much you owe
+    \item \textit{prospective method}: outstanding principal is the present
+        value of the outstanding payments at that time
+    \item \textit{retrospective method}: original principal accumulated until
+        then minus the accumulated value of all the payments made until then
+    \item this means that we either need to find $\ax{\angln}$ or
+        "$\text{original principal }\sx{\angln} -
+        \text{payments }\sx{\angln}$"
+\end{itemize}
+
+\subsection{Amortization Schedules}
+
+\begin{itemize}
+    \item a payment $X$ can be divided into its principal and interest parts
+        like so:
+        \begin{enumerate}
+            \item know or find the outstanding principal 1 time interval before
+                $X$, let's call it $P$
+            \item the interest portion of $X$ is $iP$
+            \item the principal portion of $X$ is $X - iP$
+        \end{enumerate}
+    \item if a loan in paid back in equal payments of $X$ for $n$ years, the
+        interest part of the $k$th payment is
+        \begin{equation}\nonumber
+            X(1-v^{n-k+1})
+        \end{equation}
+    \item the principal part of the $k$th payment is
+        \begin{equation}\nonumber
+            Xv^{n-k+1}
+        \end{equation}
+    \item an amortization schedule is simply a table showing the payments and
+        how they are made up
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{|r|r|r|r|r|}\hline
+    Duration & Payment & Interest & Principal & Outstanding 
+    \\ &&& Repaid & Principal \\\hline\hline
+    0  &     &        &        & 1,000.00 \\
+    1  & 150 & 110.00 &  40.00 &  960.00  \\
+    2  & 150 & 105.60 &  44.40 &  915.60  \\
+    3  & 150 & 100.72 &  49.28 &  866.32  \\
+    $\vdots$  & 150    & $\vdots$ & $\vdots$ & $\vdots$ \\
+    12 & 150 & 23.93  &  126.07 &  91.51  \\
+    13 & 101.58 & 10.07 &  91.51 &  0.00  \\\hline
+\end{tabular}
+\end{center}
+
+\end{document}

@@ -1,0 +1,103 @@
+\documentclass[../00_main.tex]{subfiles}
+
+\begin{document}
+
+\section{Class 24.09.2020}
+
+\subsection{Arithmetic and geometric sequences}
+
+\subsubsection{Arithmetic sequences}
+
+\begin{itemize}
+    \item $a, a+d, a+2d, a+3d$
+    \item $n$th term: $a_n = a + (n-1)d$
+    \item sum of first $n$ terms: $S_n = \frac{n}{2}\left[ 2a + (n-1)d\right]$
+\end{itemize}
+
+\subsubsection{Geometric sequences}
+
+\begin{itemize}
+    \item $a, ar, ar^2, ar^3$
+    \item $n$th term: $a_n = ar^{n-1}$
+    \item sum of first $n$ terms: $S_n = \frac{a(1-r^n)}{a-r}$
+\end{itemize}
+
+\subsection{Basic Results}
+
+\begin{itemize}
+    \item \textit{annuity} -- payments made of regular intervals
+    \item generally, all the payments are of the same magnitude
+    \item annuity is generally a payment of 1 over $n$ periods
+    \item we do have to find the equivalent rate of interest for the payment
+        periods
+    \item a payment plan for a general annuity
+        \begin{center}
+        \begin{tikzpicture}
+            \def\f{1.5}
+            \draw (0,0) -- (\f*7,0);
+            \foreach \x in {\f*1,\f*2,\f*3,\f*4,\f*6}
+              \draw (\x cm,3pt) -- (\x cm,-3pt);
+            \draw (\f*1,0) node[below=3pt, align=center] {$0$}
+                node[above=3pt] {$\ax{\angln}$};
+            \draw (\f*2,0) node[below=3pt, align=center] {$1$}
+                node[above=3pt] {$1$};
+            \draw (\f*3,0) node[below=3pt, align=center] {$2$}
+                node[above=3pt] {$1$};
+            \draw (\f*4,0) node[below=3pt, align=center] {$3$}
+                node[above=3pt] {$1$};
+            \draw (\f*5,0) node[below=3pt, align=center] {$\dots$}
+                node[above=3pt] {$ $};
+            \draw (\f*6,0) node[below=3pt, align=center] {$n$}
+                node[above=3pt] {$\sx{\angln}$};
+        \end{tikzpicture}
+        \end{center}
+    \item present value of the annuity is $\ax{\angln}$
+        \begin{equation}\nonumber
+            \ax{\angln} = \frac{v(1-v^n)}{1-v} = \frac{1-v^n}{i}
+        \end{equation}
+    \item accumulated value of the annuity is $\sx{\angln}$
+        \begin{equation}\nonumber
+            \sx{\angln} = \ax{\angln}(1+i)^n = \frac{(1+i)^n-1}{i}
+        \end{equation}
+    \item to find actual value, we can multiply the present value with the
+        actual value
+    \item other symbols and values for annuities
+        \begin{center}
+        \begin{tikzpicture}
+            \def\f{1.5}
+            \draw (0,0) -- (\f*7,0);
+            \foreach \x in {\f*1,\f*2,\f*3,\f*4,\f*6}
+              \draw (\x cm,3pt) -- (\x cm,-3pt);
+            \draw (\f*1,0) node[below=3pt, align=center] {$0$}
+                node[above=3pt] {$\ax{\angln}$};
+            \draw (\f*2,0) node[below=3pt, align=center] {$1$}
+                node[above=3pt] {$\ax**{\angln}$};
+            \draw (\f*3,0) node[below=3pt, align=center] {$2$}
+                node[above=3pt] {$ $};
+            \draw (\f*4,0) node[below=3pt, align=center] {$\dots$}
+                node[above=3pt] {$ $};
+            \draw (\f*5,0) node[below=3pt, align=center] {$n$}
+                node[above=3pt] {$\sx{\angln}$};
+            \draw (\f*6,0) node[below=3pt, align=center] {$n+1$}
+                node[above=3pt] {$\sx**{\angln}$};
+        \end{tikzpicture}
+        \end{center}
+    \item present value of the annuity described on the first payment
+        $\ax**{\angln}$
+        \begin{equation}\nonumber
+            \ax**{\angln} = \frac{1-v^n}{d}
+        \end{equation}
+    \item accumulated value one period after the last payment $\sx**{\angln}$
+        \begin{equation}\nonumber
+            \sx**{\angln} = \frac{(1+i)^n-1}{d}
+        \end{equation}
+    \item we note two more identities
+        \begin{equation}\nonumber
+            \begin{aligned}
+                \sx**{\angln} &= \ax**{\angln}(1+i)^n        \\
+                1 &= d \cdot \ax**{\angln} + v^n
+            \end{aligned}
+        \end{equation}
+\end{itemize}
+
+\end{document}

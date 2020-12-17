@@ -1,0 +1,146 @@
+\documentclass[a4paper, 12pt, reqno]{amsart}
+
+\newcommand{\titl}{Actuarial Mathematics Homework 10}
+
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\numberwithin{equation}{section}
+\usepackage[margin=1in]{geometry}
+\usepackage[english]{babel}
+\usepackage[colorlinks, pdftitle={\titl},
+    pdfauthor={Moritz M. Konarski}]{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{snakes}
+\renewcommand{\baselinestretch}{1.25}
+\usepackage{actuarialsymbol}
+
+\title{\titl}
+\author{Moritz M. Konarski}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Parmenter Exercises 4--26 to 4--37}
+
+\subsection*{4--26}
+
+Loan of 10,000 taken out on March 1, 1995 at 8\% p.a. Interest is paid
+annually. To repay on March 1, 2002 a sinking fund is established on March 1,
+1996; annual payments; $i=0.09$.
+\begin{enumerate}[label=(alph*)]
+    \item amount of each sinking fund payment
+        \begin{equation}\nonumber
+            \begin{gathered}
+                10,000(1+0.08) = X \ax{\angl{6}0.09}     \\
+                10,000(1.08) = X \ax{\angl{6}0.09}     \\
+                X = \frac{10,800}{\ax{\angl{6}0.09}}         \\
+                X = 2,407.53366
+            \end{gathered}
+        \end{equation}
+    \item total amount the borrower must pay p.a.
+        \begin{equation}\nonumber
+            \begin{gathered}
+                X = 10,000 \cdot 0.08 + 2,407.53366  \\
+                X = 3207.53366
+            \end{gathered}
+        \end{equation}
+    \item total amount the borrower must pay p.a.
+        \begin{equation}\nonumber
+            \begin{gathered}
+                10,000 \cdot i = 3207.53366     \\
+                i = 0.32075
+            \end{gathered}
+        \end{equation}
+\end{enumerate}
+
+\subsection*{4--27}
+
+50,000 at 11\% p.a. Repayment through amortization, 20 equal payments at the
+end of each year. After the 10th payment we do a sinking fund for the now 12\%
+loan, fund earns 14\%, we continue with 10 annual payments. Find (a) the
+sinking fund deposit and (b) compare the new total payment to the old one.
+\begin{enumerate}[label=(alph*)]
+    \item sinking fund deposit
+        \begin{equation}\nonumber
+            \begin{gathered}
+                OP_{10} = 50,000(1+i)^{10} - X \cdot \sx{\angl{10}} \\
+                X = \frac{50,000}{\ax{\angl{20}}}        \\
+                OP_{10} = 50,000(1+0.11)^{10} - \frac{50,000}{\ax{\angl{20}0.11}}
+                    \cdot \sx{\angl{10}0.11}            \\
+                OP_{10} = 36977.20303                   \\
+                D = \frac{OP_{10}}{\sx{angl{10}0.14}}    \\
+                D = 1912.2221
+            \end{gathered}
+        \end{equation}
+    \item compare old and new total payments
+        \begin{equation}\nonumber
+            \begin{gathered}
+                OTP = 20 \cdot X = 125,575.63688     \\
+                NTP = 10 \cdot X + 10 \cdot 0.12 \cdot OP_{10} + 10 \cdot D 
+                    = 126,282.68306
+            \end{gathered}
+        \end{equation}
+    The new total payment is slightly larger.
+\end{enumerate}
+
+\subsection*{4--28}
+
+Repay a loan of 1,000 with a sinking fund over 10 years. Interest on the loan
+is $i$, on the sinking fund $i'$. The total payment each year is 125.
+\begin{enumerate}[label=(alph*)]
+    \item if the interest rates are equal, find $i$
+        \begin{equation}\nonumber
+            \begin{gathered}
+                1,000 = FP \cdot \sx{\angl{10}i'} \\
+                FP = \frac{1,000}{\sx{\angl{10}i'}}
+                IP = 1,000 \cdot i              \\
+                125 = IP + FP                   \\
+                125 = 1,000i + \frac{1,000}{\sx{\angl{10}i'}}       \\
+                125 = 1,000i + \frac{1,000}{\sx{\angl{10}i}}        \\
+                0.125 = i + \frac{i}{(1+i)^{10}-1}                  \\
+            \end{gathered}
+        \end{equation}
+        I couldn't solve this any further.
+    \item Because the borrower still needs to deposit something into the
+        sinking fund each month, the maximum payment towards interest can be
+        124.99 at most. This represents an interest rate of 12.499\%.
+\end{enumerate}
+
+\subsection*{4--29}
+
+\begin{enumerate}[label=(alph*)]
+    \item the payment on interest is 115
+    \item $149.06 - 115 = 34.06$
+    \item $34.06 \cdot \sx{\angl{8}} = 375.62982$
+\end{enumerate}
+
+\subsection*{4--30}
+
+\begin{enumerate}[label=(alph*)]
+    \item $5000*(1.09)^{10} \cdot (1.11)^{10} - 5,000 \cdot 0.09
+        \cdot \sx{\angl{10}0.09} \cdot (1.11)^10 - 5,000 \cdot 0.11
+        \cdot \sx{\angl{10}0.11}$ \\ $4999.9999999999945$
+    \item $i=0.09$
+    \item $565.12427$
+    \item payment is first 537.29812 and then 637.29812
+\end{enumerate}
+
+\subsection*{4--31}
+
+\begin{enumerate}[label=(alph*)]
+    \item $556.50394$
+    \item $i = 18.55\%$
+\end{enumerate}
+
+\subsection*{4--32}
+
+\begin{enumerate}[label=(alph*)]
+    \item 
+    \item 
+\end{enumerate}
+
+\end{document}
