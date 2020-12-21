@@ -1,0 +1,77 @@
+\begin{thebibliography}{10}
+
+\bibitem{a}
+{Dr. Rahul Kher} and {Shivang Gohel}, ``Abnormality classification of {ECG}
+  signal using {DSP} processor,'' 2016.
+\newblock Retrieved from
+  \url{https://www.researchgate.net/publication/299441676_Abnormality_classification_of_ECG_signal_using_DSP_processor}.
+
+\bibitem{b}
+S.~Goto, M.~Kimura, Y.~Katsumata, S.~Goto, T.~Kamatani, G.~Ichihara, S.~Ko,
+  J.~Sasaki, K.~Fukuda, and M.~Sano, ``Artificial intelligence to predict needs
+  for urgent revascularization from 12-leads electrocardiography in emergency
+  patients,'' {\em PLoS ONE}, vol.~1, no.~14, 2019.
+\newblock \url{https://doi.org/10.1371/journal.pone.0210103}.
+
+\bibitem{c}
+J.~Parak and J.~Havlik, ``{ECG} signal processing and heart rate frequency
+  detection methods,'' 2011.
+\newblock Retrieved from
+  \url{https://www.researchgate.net/publication/266281892_ECG_Signal_Processing_and_Heart_Rate_Frequency_Detection_Methods}.
+
+\bibitem{d}
+{A. K. M Fazlul Haque}, {Md. Hanif Ali}, {M Adnan Kiber}, and {Md. Tanvir
+  Hasan}, ``Automatic feature extraction of {ECG} signal using fast fourier
+  transform,'' 2009.
+\newblock Retrieved from
+  \url{https://www.researchgate.net/publication/295813369_Automatic_Feature_Extraction_of_ECG_Signal_Using_Fast_Fourier_Transform}.
+
+\bibitem{e}
+{B. V. P Prasad} and V.~Parthasarathy, ``Detection and classification of
+  cardiovascular abnormalities using {FFT} based multi-objective genetic
+  algorithm,'' {\em Biotechnology \& Biotechnological Equipment}, vol.~32,
+  no.~1, pp.~183--193, 2018.
+\newblock Retrieved from
+  \url{https://www.tandfonline.com/doi/full/10.1080/13102818.2017.1389303#}.
+
+\bibitem{f}
+S.~Bera, B.~Chakraborty, and J.~Ray, ``A mathematical model for analysis of
+  {ECG} waves in a normal subject,'' {\em Measurement}, vol.~38, pp.~53--60,
+  2005.
+\newblock Retrieved from
+  \url{https://www.researchgate.net/publication/223280187_A_mathematical_model_for_analysis_of_ECG_waves_in_a_normal_subject}.
+
+\bibitem{g}
+P.~D. Myers, B.~M. Scirica, and C.~M. Stultz, ``Machine learning improves risk
+  stratifcation after acute coronary syndrome,'' 2017.
+\newblock Retrieved from
+  \url{https://www.nature.com/articles/s41598-017-12951-x}.
+
+\bibitem{h}
+{Yun Liu, BS}, {Zeeshan Syed, PhD}, {Benjamin M. Scirica, MD, MPH}, {David A.
+  Morrow, MD, MPH}, {John V. Guttag, PhD}, and {Collin M. Stultz, MD, PhD},
+  ``{ECG} morphological variability in beat space for risk stratification after
+  acute coronary syndrome,'' {\em J Am Heart Assoc.}, 2014.
+\newblock Retrieved from
+  \url{https://www.ahajournals.org/doi/10.1161/JAHA.114.000981}.
+
+\bibitem{i}
+F.~Ieva, A.~M. Paganoni, D.~Pigoli, and V.~Vitelli, ``Multivariate functional
+  clustering for the morphological analysis of electrocardiograph curves,''
+  {\em Journal of the Royal Statistical Society. Series C (Applied
+  Statistics)}, vol.~62, no.~3, pp.~401--418, 2013.
+\newblock \url{https://www.jstor.org/stable/24771812}.
+
+\bibitem{j}
+P.~W. Armstrong, D.~G. Watts, D.~C. Hamilton, M.~A. Chiong, and J.~O. Parker,
+  ``Quantification of myocardial infarction: Template model for serial creatine
+  kinase analysis,'' {\em Circulation}, vol.~60, no.~4, pp.~856--865, 1979.
+\newblock Retrieved from
+  \url{https://www.ahajournals.org/doi/10.1161/01.CIR.60.4.856}.
+
+\bibitem{k}
+G.~D. Clifford, ``Signal processing methods for heart rate variability,'' 2002.
+\newblock Retrieved from
+  \url{http://www.ibme.ox.ac.uk/research/biomedical-signal-processing-instrumentation/prof-l-tarassenko/publications/pdf/gdcliffordthesis.pdf}.
+
+\end{thebibliography}
